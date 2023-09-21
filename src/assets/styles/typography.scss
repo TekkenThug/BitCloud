@@ -75,3 +75,19 @@
 	line-height: 12px;
 	text-transform: uppercase;
 }
+
+@mixin button-1 {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 16px;
+}
+
+@mixin button-2 {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 16px;
+}
