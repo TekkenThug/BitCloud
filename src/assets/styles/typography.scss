@@ -1,4 +1,4 @@
-@mixin heading-1 {
+@mixin headline-1 {
 	font-family: 'DM Sans', sans-serif;
 	font-size: 64px;
 	font-style: normal;
@@ -7,7 +7,7 @@
 	letter-spacing: -1.28px;
 }
 
-@mixin heading-2 {
+@mixin headline-2 {
 	font-family: 'DM Sans', sans-serif;
 	font-size: 48px;
 	font-style: normal;
@@ -16,7 +16,7 @@
 	letter-spacing: -0.96px;
 }
 
-@mixin heading-3 {
+@mixin headline-3 {
 	font-family: 'DM Sans', sans-serif;
 	font-size: 40px;
 	font-style: normal;
@@ -25,7 +25,7 @@
 	letter-spacing: -0.4px;
 }
 
-@mixin heading-4 {
+@mixin headline-4 {
 	font-family: 'DM Sans', sans-serif;
 	font-size: 32px;
 	font-style: normal;
