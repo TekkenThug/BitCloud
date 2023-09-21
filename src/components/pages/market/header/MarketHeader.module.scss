@@ -1,0 +1,36 @@
+@import "assets/styles/typography";
+@import "assets/styles/colors";
+
+.MarketHeader {
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.title {
+	@include headline-1;
+}
+
+.caption {
+	@include body-1;
+
+	color: $neutral-5;
+
+	b {
+		font-weight: 600;
+	}
+}
+
+.content {
+	max-width: 545px;
+}
+
+.imagePlaceholder {
+	max-width: 736px;
+
+	& > img {
+		display: block;
+		width: 100%;
+		object-fit: contain;
+	}
+}
