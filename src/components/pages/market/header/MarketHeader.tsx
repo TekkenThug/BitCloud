@@ -8,18 +8,22 @@ const MarketHeader = () => {
 
 	return (
 		<div className={styles.MarketHeader}>
-			<div className={styles.content}>
-				<h1 className={styles.title}>
-					{ text }
-				</h1>
+			<div className="container">
+				<div className={styles.wrapper}>
+					<div className={styles.content}>
+						<h1 className={styles.title}>
+							{ text }
+						</h1>
 
-				<p className={styles.caption}>
-					{ caption } <b>{ cryptoMarketCup }</b>
-				</p>
-			</div>
+						<p className={styles.caption}>
+							{ caption } <b>{ cryptoMarketCup }</b>
+						</p>
+					</div>
 
-			<div className={styles.imagePlaceholder}>
-				<img src={image} alt="Market Placeholder" />
+					<div className={styles.imagePlaceholder}>
+						<img src={image} alt="Market Placeholder" />
+					</div>
+				</div>
 			</div>
 		</div>
 	);
