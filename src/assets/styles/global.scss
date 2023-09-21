@@ -1,0 +1,38 @@
+@import-normalize;
+
+@import "./classes";
+@import './colors';
+@import './typography';
+
+* {
+    box-sizing: border-box;
+
+    &::after,
+    &::before {
+        box-sizing: inherit;
+    }
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @include body-2;
+
+    min-height: 100vh;
+    color: $neutral-8;
+    background-color: $neutral-1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
