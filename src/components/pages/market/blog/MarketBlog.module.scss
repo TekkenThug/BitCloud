@@ -1,0 +1,36 @@
+@import "assets/styles/typography";
+@import "assets/styles/colors";
+
+.MarketBlog {
+	padding: 136px 0;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.title {
+	@include headline-2;
+}
+
+.subtitle {
+	color: $neutral-5;
+	margin-top: 20px;
+	max-width: 400px;
+}
+
+.blogList {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -48px;
+}
+
+.blogItem {
+	width: calc(100% / 3 - 24px);
+	margin-right: 24px;
+	margin-bottom: 48px;
+}
