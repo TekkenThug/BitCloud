@@ -1,6 +1,11 @@
 @import "assets/styles/typography";
 @import "assets/styles/colors";
 
+.MarketHeader {
+	position: relative;
+	background-color: #18191D;
+}
+
 .wrapper {
 	display: flex;
 	align-items: center;
@@ -34,4 +39,12 @@
 		width: 100%;
 		object-fit: contain;
 	}
+}
+
+.widget {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%, 85px);
+	width: 100%;
 }
