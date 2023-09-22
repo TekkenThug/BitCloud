@@ -1,0 +1,25 @@
+@import "assets/styles/colors";
+@import "assets/styles/variables";
+@import "assets/styles/typography";
+@import "assets/styles/mixins";
+
+.MarketWidgetNavButton {
+	@include button-2;
+
+	padding: 6px 12px;
+	border-radius: 100px;
+	color: $neutral-6;
+	transition: all $transition;
+	cursor: pointer;
+
+	&:not(&_active) {
+		@include hover {
+			color: $neutral-8;
+		}
+	}
+
+	&_active {
+		background-color: $neutral-6;
+		color: $neutral-2;
+	}
+}

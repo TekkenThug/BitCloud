@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+TODO: 
+Go to Vite
+Change Scrollbar
+Read DOC with import order
+
 ## Available Scripts
 
 In the project directory, you can run:
