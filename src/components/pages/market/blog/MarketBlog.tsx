@@ -60,8 +60,9 @@ const MarketBlog = () => {
 
 				<ul className={styles.blogList}>
 					{
-						blogList && blogList.map(item => (
+						blogList && blogList.map((item, index) => (
 							<MarketBlogItem
+								key={index}
 								className={styles.blogItem}
 								title={item.title}
 								author={item.author}
