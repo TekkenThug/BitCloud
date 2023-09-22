@@ -1,3 +1,5 @@
+import MarketWidget from "components/pages/market/widget/MarketWidget";
+
 import styles from "./MarketHeader.module.scss";
 import image from "assets/images/market/header.png";
 
@@ -24,6 +26,9 @@ const MarketHeader = () => {
 						<img src={image} alt="Market Placeholder" />
 					</div>
 				</div>
+			</div>
+			<div className={`${styles.widget} container`}>
+				<MarketWidget />
 			</div>
 		</div>
 	);
