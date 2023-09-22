@@ -75,7 +75,6 @@ const MarketBlog = () => {
 				<UiButton
 					className={styles.loadingButton}
 					color="dark"
-					text="Loading"
 					clickHandler={handle}
 				>
 					<Loading className={styles.loadingButtonIcon} /> Load more

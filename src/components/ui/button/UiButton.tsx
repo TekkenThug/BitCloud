@@ -3,7 +3,6 @@ import React from "react";
 import "./UiButton.scss";
 
 interface UiButtonProps {
-	text: string;
 	color: "dark";
 	size?: "medium" | "large";
 	className?: string;
