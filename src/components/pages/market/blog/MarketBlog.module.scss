@@ -1,5 +1,7 @@
 @import "assets/styles/typography";
 @import "assets/styles/colors";
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
 
 .MarketBlog {
 	padding: 136px 0;
@@ -33,4 +35,14 @@
 	width: calc(100% / 3 - 24px);
 	margin-right: 24px;
 	margin-bottom: 48px;
+}
+
+.loadingButton {
+	margin: 80px auto 0;
+}
+
+.loadingButtonIcon {
+	width: 16px;
+	height: 16px;
+	margin-right: 12px;
 }

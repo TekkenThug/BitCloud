@@ -1,6 +1,8 @@
 import MarketBlogItem, { BlogItem } from "./item/MarketBlogItem";
+import UiButton from "components/ui/button/UiButton";
 
 import styles from "./MarketBlog.module.scss";
+import { ReactComponent as Loading } from "assets/icons/controls/loading.svg";
 
 const MarketBlog = () => {
 	const title = "Learn and earn";
@@ -41,6 +43,8 @@ const MarketBlog = () => {
 		},
 	];
 
+	const handle = () => alert("hello");
+
 	return (
 		<div className={styles.MarketBlog}>
 			<div className="container">
@@ -67,6 +71,15 @@ const MarketBlog = () => {
 						))
 					}
 				</ul>
+
+				<UiButton
+					className={styles.loadingButton}
+					color="dark"
+					text="Loading"
+					clickHandler={handle}
+				>
+					<Loading className={styles.loadingButtonIcon} /> Load more
+				</UiButton>
 			</div>
 		</div>
 	);
