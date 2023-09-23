@@ -14,20 +14,18 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    "rules": {
-      "semi": "error",
-      "indent": [
-        "error",
-        "tab"
-      ],
-      "quotes": [
-        "error",
-        "double"
-      ],
-      "object-curly-spacing": [
-        "error",
-        "always"
-      ]
-    }
+    "semi": "error",
+    "indent": [
+      "error",
+      "tab"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ]
   },
 }
