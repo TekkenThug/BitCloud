@@ -9,7 +9,7 @@ const MarketHeader = () => {
 	const cryptoMarketCup = "$1.86T";
 
 	return (
-		<div className={styles.MarketHeader}>
+		<section className={styles.MarketHeader}>
 			<div className="container">
 				<div className={styles.wrapper}>
 					<div className={styles.content}>
@@ -30,7 +30,7 @@ const MarketHeader = () => {
 			<div className={`${styles.widget} container`}>
 				<MarketWidget />
 			</div>
-		</div>
+		</section>
 	);
 };
 
