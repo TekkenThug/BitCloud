@@ -1,9 +1,14 @@
 import React from "react";
+import { v4 as uuid4 } from "uuid";
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
 
-const ChartSmall: React.FC<{ color: string }> = (
+interface ChartSmallProps {
+	color: string;
+}
+
+const ChartSmall: React.FC<ChartSmallProps> = (
 	{
-		color
+		color,
 	}
 ) => {
 	const mockData = [
@@ -50,6 +55,7 @@ const ChartSmall: React.FC<{ color: string }> = (
 			amt: 2100,
 		},
 	];
+	const uniqueId = uuid4();
 	
 	return (
 		<ResponsiveContainer
@@ -61,13 +67,13 @@ const ChartSmall: React.FC<{ color: string }> = (
 				margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
 			>
 				<defs>
-					<linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+					<linearGradient id={uniqueId} x1="0" y1="0" x2="0" y2="1">
 						<stop offset="5%" stopColor={color} stopOpacity={0.5} />
 						<stop offset="90%" stopColor={color} stopOpacity={0} />
 					</linearGradient>
 				</defs>
 
-				<Area type="monotone" dataKey="pv" stroke={color} fillOpacity={1} fill="url(#colorPv)" />
+				<Area type="monotone" dataKey="pv" stroke={color} fillOpacity={1} fill={`url(#${uniqueId})`} />
 			</AreaChart>
 		</ResponsiveContainer>
 	);
