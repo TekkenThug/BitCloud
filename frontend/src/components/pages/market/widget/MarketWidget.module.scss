@@ -1,0 +1,33 @@
+@import "assets/styles/colors";
+@import "assets/styles/typography";
+
+.MarketWidget {
+	background-color: #18191D;
+	border: 1px solid $neutral-2;
+	border-radius: 24px;
+}
+
+.top {
+	display: flex;
+	border-bottom: 1px solid $neutral-2;
+
+	& > * {
+		flex-shrink: 0;
+	}
+}
+
+.cryptoCard {
+	&:not(:last-child) {
+		margin-right: 28px;
+	}
+}
+
+.bottom {
+	padding: 28px 46px;
+}
+
+.navItem {
+	&:not(:last-child) {
+		margin-right: 12px;
+	}
+}

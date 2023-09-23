@@ -1,0 +1,59 @@
+@import "assets/styles/typography";
+@import "assets/styles/colors";
+
+.MarketWidgetCard {
+	display: flex;
+	align-items: flex-start;
+	padding: 24px;
+	user-select: none;
+}
+
+.currency {
+	width: 40px;
+	height: 40px;
+	margin-right: 16px;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+}
+
+.name {
+	@include caption-2;
+
+	margin-right: 12px;
+	color: $neutral-4;
+	font-weight: 600;
+}
+
+.percentage {
+	@include caption-2;
+
+	flex-shrink: 0;
+	font-weight: 600;
+	padding: 2px 8px;
+	border-radius: 24px;
+	background-color: $primary-4;
+
+	&_negative {
+		background-color: $primary-3;
+	}
+}
+
+.value {
+	@include body-1;
+
+	margin: 4px 0;
+	font-weight: 600;
+}
+
+.secondValue {
+	@include caption;
+}
+
+.chart {
+	width: 100px;
+	height: 32px;
+	margin-left: 16px;
+}

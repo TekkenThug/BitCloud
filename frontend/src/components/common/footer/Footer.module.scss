@@ -1,0 +1,95 @@
+@import "assets/styles/typography";
+@import "assets/styles/colors";
+@import "assets/styles/mixins";
+@import "assets/styles/variables";
+
+.Footer {
+	border-top: 1px solid $neutral-2;
+}
+
+.top {
+	display: flex;
+}
+
+.col {
+	padding: 80px 0 40px;
+
+	&:first-child {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	&:not(:first-child) {
+		padding-left: 86px;
+	}
+
+	&:not(:last-child) {
+		padding-right: 86px;
+		border-right: 1px solid $neutral-2;
+	}
+}
+
+.colHeading {
+	@include hairline-2;
+
+	color: $neutral-6;
+	font-weight: 700;
+	margin-bottom: 40px;
+}
+
+.logo {
+	width: 32px;
+	height: 32px;
+}
+
+.navList {
+	@include button-2;
+
+	width: 160px;
+	margin-left: 160px;
+	color: $neutral-4;
+	font-weight: 700;
+}
+
+.navItem {
+	transition: all $transition;
+
+	&:not(:last-child) {
+		margin-bottom: 24px;
+	}
+
+	@include hover {
+		color: $neutral-5;
+	}
+}
+
+.contactList {
+	@include caption;
+
+	display: flex;
+	flex-direction: column;
+	color: $neutral-4;
+
+	& > *:not(:last-child) {
+		margin-bottom: 8px;
+	}
+}
+
+.subscribeText {
+	@include caption;
+
+	color: $neutral-6;
+	max-width: 255px;
+	margin-bottom: 20px;
+}
+
+.bottom {
+	border-top: 1px solid $neutral-2;
+	padding: 25px 0 20px;
+}
+
+.copyright {
+	@include caption-2;
+
+	color: $neutral-4;
+}
