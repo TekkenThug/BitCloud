@@ -46,7 +46,7 @@ const MarketBlog = () => {
 	const handle = () => alert("hello");
 
 	return (
-		<div className={styles.MarketBlog}>
+		<section className={styles.MarketBlog}>
 			<div className="container">
 				<div className={styles.content}>
 					<h2 className={styles.title}>
@@ -81,7 +81,7 @@ const MarketBlog = () => {
 					<Loading className={styles.loadingButtonIcon} /> Load more
 				</UiButton>
 			</div>
-		</div>
+		</section>
 	);
 };
 
