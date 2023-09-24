@@ -1,15 +1,15 @@
-import UiButton from "components/ui/button/UiButton";
+import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./Header.module.scss";
-import { ReactComponent as Logo } from "assets/icons/common/logo.svg";
-import { ReactComponent as ArrowDown } from "assets/icons/ui/arrow-down-simple.svg";
-import { ReactComponent as Bell } from "assets/icons/ui/bell.svg";
-import { ReactComponent as Lightning } from "assets/icons/ce/lightning.svg";
+import Logo from "@/assets/icons/common/logo.svg?react";
+import ArrowDown from "@/assets/icons/ui/arrow-down-simple.svg?react";
+import Bell from "@/assets/icons/ui/bell.svg?react";
+import Lightning from "@/assets/icons/ce/lightning.svg?react";
 
 const Header = () => {
 	const goToWallet = () => {};
 	const userAvatar = "";
-	let hasNotifications = true;
+	const hasNotifications = true;
 
 	return (
 		<header className={styles.Header}>

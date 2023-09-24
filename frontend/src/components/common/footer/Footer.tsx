@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import UiInput from "components/ui/input/UiInput";
+import UiInput from "@/components/ui/input/UiInput";
 
 import styles from "./Footer.module.scss";
-import { ReactComponent as Logo } from "assets/icons/common/logo.svg";
+import Logo from "@/assets/icons/common/logo.svg?react";
 
 const Footer = () => {
 	const [loading, setLoading] = useState(false);
