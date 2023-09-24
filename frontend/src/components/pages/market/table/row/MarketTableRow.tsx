@@ -1,14 +1,14 @@
 import React from "react";
 
-import { CurrencyRow } from "types/currency";
+import { CurrencyRow } from "@/types/currency";
 
-import ChartSmall from "components/common/charts/ChartSmall";
+import ChartSmall from "@/components/common/charts/ChartSmall";
 
 import styles from "./MarketTableRow.module.scss";
-import { ReactComponent as Star } from "assets/icons/ui/star.svg";
-import { ReactComponent as Bitcoin } from "assets/icons/currency/bitcoin.svg";
-import { ReactComponent as Eth } from "assets/icons/currency/eth.svg";
-import { ReactComponent as USDT } from "assets/icons/currency/usdt.svg";
+import Star from "@/assets/icons/ui/star.svg?react";
+import Bitcoin from "@/assets/icons/currency/bitcoin.svg?react";
+import Eth from "@/assets/icons/currency/eth.svg?react";
+import USDT from "@/assets/icons/currency/usdt.svg?react";
 
 const MarketTableRow: React.FC<CurrencyRow> = (
 	{

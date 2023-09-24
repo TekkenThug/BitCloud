@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { ReactComponent as ArrowRight } from "assets/icons/ui/arrow-right.svg";
-import { ReactComponent as Loading } from "assets/icons/controls/loading.svg";
-import { ReactComponent as Check } from "assets/icons/ui/check.svg";
+import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
+import Loading from "@/assets/icons/controls/loading.svg?react";
+import Check from "@/assets/icons/ui/check.svg?react";
 
 import "./UiInput.scss";
 

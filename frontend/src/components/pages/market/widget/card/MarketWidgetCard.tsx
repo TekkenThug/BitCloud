@@ -1,8 +1,8 @@
 import React from "react";
 
-import ChartSmall from "components/common/charts/ChartSmall";
+import ChartSmall from "@/components/common/charts/ChartSmall";
 
-import { ReactComponent as Logo } from "assets/icons/currency/bitcoin.svg";
+import Logo from "@/assets/icons/currency/bitcoin.svg?react";
 import styles from "./MarketWidgetCard.module.scss";
 
 interface MarketWidgetCardProps {

@@ -1,8 +1,8 @@
 import React from "react";
 
-import UiLabel, { UiLabelProps } from "components/ui/label/UiLabel";
+import UiLabel, { UiLabelProps } from "@/components/ui/label/UiLabel";
 
-import defaultCover from "assets/images/common/video-cover.png";
+import defaultCover from "@/assets/images/common/video-cover.png";
 import styles from "./MarketBlogItem.module.scss";
 
 export interface BlogItem {

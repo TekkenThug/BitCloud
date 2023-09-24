@@ -1,8 +1,5 @@
-@import-normalize;
-
-@import "./classes";
-@import './colors';
-@import './typography';
+@import "normalize.css";
+@import "./_classes";
 
 * {
     box-sizing: border-box;

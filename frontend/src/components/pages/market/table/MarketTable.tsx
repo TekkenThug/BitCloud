@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { CurrencyRow } from "types/currency";
+import { CurrencyRow } from "@/types/currency";
 
 import MarketTableRow from "./row/MarketTableRow";
 
 import styles from "./MarketTable.module.scss";
-import { ReactComponent as Arrows } from "assets/icons/ui/arrow-two.svg";
-import { ReactComponent as Coin } from "assets/icons/finance/coin.svg";
-import { ReactComponent as ChartBar } from "assets/icons/finance/chart-bar.svg";
+import Arrows from "@/assets/icons/ui/arrow-two.svg?react";
+import Coin from "@/assets/icons/finance/coin.svg?react";
+import ChartBar from "@/assets/icons/finance/chart-bar.svg?react";
 
 const MarketTable = () => {
 	const [

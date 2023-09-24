@@ -1,14 +1,13 @@
-import MarketWidget from "components/pages/market/widget/MarketWidget";
+import MarketWidget from "@/components/pages/market/widget/MarketWidget";
 
 import styles from "./MarketHeader.module.scss";
-import image from "assets/images/market/header/layout.png";
-import cursor from "assets/images/market/header/cursor.png";
-import elementOne from "assets/images/market/header/element-1.png";
-import elementTwo from "assets/images/market/header/element-2.png";
-import elementThree from "assets/images/market/header/element-3.png";
-import elementFour from "assets/images/market/header/element-4.png";
-import elementFive from "assets/images/market/header/element-5.png";
-import { MouseEventHandler, useEffect } from "react";
+import image from "@/assets/images/market/header/layout.png";
+import cursor from "@/assets/images/market/header/cursor.png";
+import elementOne from "@/assets/images/market/header/element-1.png";
+import elementTwo from "@/assets/images/market/header/element-2.png";
+import elementThree from "@/assets/images/market/header/element-3.png";
+import elementFour from "@/assets/images/market/header/element-4.png";
+import elementFive from "@/assets/images/market/header/element-5.png";
 
 const MarketHeader = () => {
 	const text = "Today’s Cryptocurrency prices";

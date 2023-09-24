@@ -1,8 +1,8 @@
 import MarketBlogItem, { BlogItem } from "./item/MarketBlogItem";
-import UiButton from "components/ui/button/UiButton";
+import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./MarketBlog.module.scss";
-import { ReactComponent as Loading } from "assets/icons/controls/loading.svg";
+import Loading from "@/assets/icons/controls/loading.svg?react";
 
 const MarketBlog = () => {
 	const title = "Learn and earn";
