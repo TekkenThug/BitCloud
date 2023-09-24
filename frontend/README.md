@@ -3,10 +3,7 @@
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 TODO:
-Go to Vite
 Read DOC with import order
-Replace imports with absolute @
-set global sass imports
 set icons import
 resolve extensions
 
