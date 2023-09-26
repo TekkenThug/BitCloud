@@ -23,7 +23,7 @@ const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
 		className
 	}) => {
 	return (
-		<div className={`${styles.MarketBlogItem} ${className}`}>
+		<li className={`${styles.MarketBlogItem} ${className}`}>
 			<div className={styles.cover}>
 				<img src={cover ?? defaultCover} alt="Video preview" />
 			</div>
@@ -60,7 +60,7 @@ const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
 					{ date }
 				</div>
 			</div>
-		</div>
+		</li>
 	);
 };
 

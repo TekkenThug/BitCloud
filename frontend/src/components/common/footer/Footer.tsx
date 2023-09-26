@@ -20,6 +20,7 @@ const Footer = () => {
 		}, 2000);
 	};
 
+	// TODO: make hook
 	const list = useRef<HTMLUListElement>(null);
 	const [isVisible, toggleVisibility] = useState(false);
 	const [listHeight, setListHeight] = useState(0);

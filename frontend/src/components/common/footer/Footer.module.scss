@@ -2,7 +2,8 @@
 	border-top: 1px solid $neutral-2;
 
 	@include respond($mobile) {
-		padding: 40px 0 48px;
+		padding: 64px 0 48px;
+		border-top: none;
 	}
 }
 
