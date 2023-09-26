@@ -7,6 +7,10 @@
 	padding: 20px 0;
 	background-color: $neutral-1;
 	border-bottom: 1px solid $neutral-3;
+
+	@include respond($mobile) {
+		padding: 48px 0 24px;
+	}
 }
 
 .wrapper {
@@ -29,6 +33,10 @@
 	margin-right: 40px;
 	padding: 4px 0;
 
+	@include respond($mobile) {
+		margin-right: 26px;
+	}
+
 	&:after {
 		position: absolute;
 		content: "";
@@ -38,6 +46,10 @@
 		right: -41px;
 		top: 0;
 		pointer-events: none;
+
+		@include respond($mobile) {
+			display: none;
+		}
 	}
 }
 
@@ -57,6 +69,10 @@
 	font-weight: 700;
 	cursor: pointer;
 	margin-left: 40px;
+
+	@include respond($mobile) {
+		display: none;
+	}
 }
 
 .dropDownArrow {
@@ -69,14 +85,26 @@
 .right {
 	display: flex;
 
+	@include respond($mobile) {
+		align-items: center;
+	}
+
 	& > * {
 		flex-shrink: 0;
 	}
 }
 
 .button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	&:not(:last-child) {
 		margin-right: 24px;
+
+		@include respond($mobile) {
+			margin-right: 20px;
+		}
 	}
 
 	&_shape_square {
@@ -116,8 +144,18 @@
 	}
 }
 
+.lightning {
+	@include respond($mobile) {
+		display: none;
+	}
+}
+
 .walletButton {
 	border-color: $neutral-3;
+
+	@include respond($mobile) {
+		display: none;
+	}
 }
 
 .avatar {
@@ -126,6 +164,11 @@
 	border-radius: 50%;
 	background-color: $primary-4;
 	overflow: hidden;
+
+	@include respond($mobile) {
+		width: 32px;
+		height: 32px;
+	}
 
 	& > img {
 		display: block;

@@ -29,7 +29,7 @@ const Header = () => {
 
 					<div className={styles.right}>
 						<button
-							className={`${styles.button} ${styles.button_shape_square}`}
+							className={`${styles.button} ${styles.button_shape_square} ${styles.lightning}`}
 						>
 							<Lightning />
 						</button>
