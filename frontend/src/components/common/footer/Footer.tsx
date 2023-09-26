@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
 
 import UiInput from "@/components/ui/input/UiInput";
 
 import styles from "./Footer.module.scss";
 import Logo from "@/assets/icons/common/logo.svg?react";
+import ArrowDownSimple from "@/assets/icons/ui/arrow-down-simple.svg?react";
 
 const Footer = () => {
 	const [loading, setLoading] = useState(false);
@@ -18,36 +20,94 @@ const Footer = () => {
 		}, 2000);
 	};
 
+	const list = useRef<HTMLUListElement>(null);
+	const [isVisible, toggleVisibility] = useState(false);
+	const [listHeight, setListHeight] = useState(0);
+	const slideDownAnimation = useSpring({
+		to: {
+			height: isVisible ? listHeight + 20 : 0,
+			paddingTop: isVisible ? 20 : 0
+		},
+	});
+	useEffect(() => {
+		if (list && list.current) {
+			setListHeight(list.current.offsetHeight);
+		}
+	}, []);
+
+	const links = [
+		{
+			title: "About",
+			link: "/"
+		},
+		{
+			title: "Projects",
+			link: "/"
+		},
+		{
+			title: "What We Do",
+			link: "/"
+		},
+		{
+			title: "Press",
+			link: "/"
+		},
+		{
+			title: "Jobs",
+			link: "/"
+		}
+	];
+
 	return (
 		<footer className={styles.Footer}>
 			<div className="container">
 				<div className={styles.top}>
 					<div className={styles.col}>
-						<a href="/">
-							<Logo className={styles.logo} />
+						<a
+							href="/"
+							className={styles.siteLink}
+						>
+							<Logo className={styles.logo} /> <span className={styles.siteName}>BitCloud</span>
 						</a>
 
-						<ul className={styles.navList}>
-							<li className={styles.navItem}>
-								<a href="/">About</a>
-							</li>
+						<button
+							className={styles.navToggle}
+							onClick={() => toggleVisibility(!isVisible)}
+						>
+							Navigation <ArrowDownSimple className={`${styles.navArrowIcon} ${isVisible ? styles.navArrowIcon_rotated : ""}`} />
+						</button>
 
-							<li className={styles.navItem}>
-								<a href="/">Projects</a>
-							</li>
-
-							<li className={styles.navItem}>
-								<a href="/">What We Do</a>
-							</li>
-
-							<li className={styles.navItem}>
-								<a href="/">Press</a>
-							</li>
-
-							<li className={styles.navItem}>
-								<a href="/">Jobs</a>
-							</li>
+						<ul
+							ref={list}
+							className={`${styles.navList} ${styles.navList_desktop}`}
+						>
+							{
+								links.map(item => (
+									<li
+										key={item.title}
+										className={styles.navItem}
+									>
+										<a href={item.link}>{item.title}</a>
+									</li>
+								))
+							}
 						</ul>
+
+						<animated.ul
+							style={slideDownAnimation}
+							className={`${styles.navList} ${styles.navList_mobile}`}
+						>
+							{
+								links.map(item => (
+									<li
+										key={item.title}
+										className={styles.navItem}
+									>
+										<a href={item.link}>{item.title}</a>
+									</li>
+								))
+							}
+						</animated.ul>
 					</div>
 
 					<div className={styles.col}>
@@ -71,7 +131,7 @@ const Footer = () => {
 							Newsletter
 						</h5>
 
-						<div>
+						<div className={styles.subscribe}>
 							<p className={styles.subscribeText}>
 								Subscribe our newsletter to get more free design course and resource
 							</p>
