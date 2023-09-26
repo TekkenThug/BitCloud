@@ -4,13 +4,13 @@ import MarketBlog from "./blog/MarketBlog";
 
 const Market = () => {
 	return (
-		<div>
+		<>
 			<MarketHeader />
 
 			<MarketTable />
 
 			<MarketBlog />
-		</div>
+		</>
 	);
 };
 
