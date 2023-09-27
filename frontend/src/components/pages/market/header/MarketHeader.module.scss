@@ -1,7 +1,8 @@
 .MarketHeader {
 	position: relative;
 	background-color: #18191D;
-	overflow: hidden;
+	overflow-x: clip;
+	overflow-y: visible;
 
 	@include respond($mobile) {
 		padding: var(--header-height) 0 110px;
