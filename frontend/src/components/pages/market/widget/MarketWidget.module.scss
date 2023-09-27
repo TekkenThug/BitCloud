@@ -53,7 +53,9 @@
 }
 
 .walletButton {
-	display: none;
+	@include respond($mobile) {
+		display: none;
+	}
 }
 
 .select {
