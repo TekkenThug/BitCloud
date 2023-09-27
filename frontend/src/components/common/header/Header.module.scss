@@ -1,5 +1,9 @@
 :root {
 	--header-height: 80px;
+
+	@include respond($mobile) {
+		--header-height: 112px;
+	}
 }
 
 .Header {
