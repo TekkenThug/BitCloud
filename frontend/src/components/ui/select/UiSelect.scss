@@ -1,0 +1,65 @@
+.UiSelect {
+	width: 100%;
+
+	.UiSelect__control {
+		border-radius: 12px;
+		background-color: $neutral-2;
+		border-color: $neutral-3;
+	}
+
+	.UiSelect__value-container {
+		padding: 12px;
+	}
+
+	.UiSelect__input-container {
+		margin: 0;
+		padding: 0;
+	}
+
+	.UiSelect__single-value {
+		@include caption;
+
+		color: $neutral-8;
+		font-weight: 500;
+	}
+
+	.UiSelect__placeholder {
+		@include caption;
+
+		font-weight: 500;
+		margin: 0;
+	}
+
+	.UiSelect__indicator-separator {
+		display: none;
+	}
+
+	.UiSelect__indicator {
+		padding-right: 10px;
+		color: $neutral-8;
+
+		@include hover {
+			color: $neutral-8;
+		}
+	}
+
+	.UiSelect__menu {
+		border-radius: 12px;
+		background-color: $neutral-2;
+		padding: 12px;
+	}
+
+	.UiSelect__option {
+		@include caption;
+
+		font-weight: 500;
+		background-color: $neutral-2;
+		transition: all $transition;
+		border-radius: 8px;
+		cursor: pointer;
+
+		@include hover {
+			background-color: $neutral-3;
+		}
+	}
+}

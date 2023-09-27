@@ -5,6 +5,11 @@
 	user-select: none;
 }
 
+.content {
+	display: flex;
+	align-items: flex-start;
+}
+
 .currency {
 	width: 40px;
 	height: 40px;
@@ -53,4 +58,8 @@
 	width: 100px;
 	height: 32px;
 	margin-left: 16px;
+
+	@include respond($laptop) {
+		display: none;
+	}
 }

@@ -149,8 +149,12 @@
 	position: absolute;
 	left: 50%;
 	bottom: 0;
-	transform: translate(-50%, 85px);
+	transform: translate(-50%, 74px);
 	width: 100%;
+
+	@include respond($mobile) {
+		transform: translate(-50%, 110px);
+	}
 }
 
 @keyframes market-header-cursor {

@@ -1,23 +1,38 @@
 import { useState } from "react";
 
+
 import MarketWidgetCard from "./card/MarketWidgetCard";
 import MarketWidgetNavButton from "./nav-button/MarketWidgetNavButton";
+import UiButton from "@/components/ui/button/UiButton";
+import UiSelect from "@/components/ui/select/UiSelect";
 
 import styles from "./MarketWidget.module.scss";
 
 const MarketWidget = () => {
+	type SelectOptionType = { label: string, value: string }
 	const cryptoCards = [1, 2, 3];
 	const subNavItems = [
-		"Cryptocurrencies",
-		"DeFi",
-		"Innovation",
-		"POS",
-		"NFT",
-		"POW"
+		{ value: "Cryptocurrencies", label: "Cryptocurrencies" },
+		{ value: "DeFi", label: "DeFi" },
+		{ value: "Innovation", label: "Innovation" },
+		{ value: "POS", label: "POS" },
+		{ value: "NFT", label: "NFT" },
+		{ value: "POW", label: "POW" },
 	];
 
-	const [activeNav, setActiveNav] = useState(subNavItems[0]);
+	const [
+		activeNav,
+		setActiveNav
+	] = useState<SelectOptionType>(subNavItems[0]);
 	
+	const handleClickButton = (value: string) => {
+		const newValue = subNavItems.find(item => item.value === value);
+		
+		if (newValue) {
+			setActiveNav(newValue);
+		}
+	};
+
 	return (
 		<div className={styles.MarketWidget}>
 			<div className={styles.top}>
@@ -36,19 +51,34 @@ const MarketWidget = () => {
 			</div>
 
 			<div className={styles.bottom}>
-				<div>
+				<div className={styles.tabList}>
 					{
 						subNavItems.map(button => (
 							<MarketWidgetNavButton
-								key={button}
-								text={button}
-								isActive={button === activeNav}
-								changeHandler={setActiveNav}
+								key={button.value}
+								text={button.label}
+								isActive={button.value === activeNav.value}
+								changeHandler={() => handleClickButton(button.value)}
 								className={styles.navItem}
 							/>
 						))
 					}
 				</div>
+
+				<UiButton
+					className={styles.walletButton}
+					color="dark"
+					clickHandler={() => {}}
+				>
+					Wallet
+				</UiButton>
+				
+				<UiSelect
+					className={styles.select}
+					value={activeNav}
+					options={subNavItems}
+					onChange={setActiveNav}
+				/>
 			</div>
 		</div>
 	);

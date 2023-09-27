@@ -27,7 +27,7 @@ const MarketWidgetCard: React.FC<MarketWidgetCardProps> = (
 
 	return (
 		<div className={`${styles.MarketWidgetCard} ${className}`}>
-			<div>
+			<div className={styles.content}>
 				<Logo className={styles.currency} />
 
 				<div>
