@@ -1,3 +1,7 @@
+:root {
+	--header-height: 80px;
+}
+
 .Header {
 	position: fixed;
 	z-index: $z-header;
