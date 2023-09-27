@@ -31,6 +31,8 @@
 }
 
 .subtitle {
+	@include body-2;
+
 	color: $neutral-5;
 	margin-top: 20px;
 	max-width: 400px;
