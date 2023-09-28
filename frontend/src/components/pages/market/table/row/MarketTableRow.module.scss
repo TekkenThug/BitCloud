@@ -9,6 +9,11 @@
 
 	@include hover {
 		background-color: $neutral-2;
+
+		.buyButton {
+			opacity: 1;
+			visibility: visible;
+		}
 	}
 }
 
@@ -90,4 +95,13 @@
 	height: 16px;
 	margin-right: 10px;
 	flex-shrink: 0;
+}
+
+.buyButton {
+	position: absolute;
+	padding-left: 35px;
+	padding-right: 35px;
+	transition: all $transition;
+	opacity: 0;
+	visibility: hidden;
 }

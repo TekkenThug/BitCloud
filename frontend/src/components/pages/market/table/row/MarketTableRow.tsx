@@ -3,6 +3,7 @@ import React from "react";
 import { CurrencyRow } from "@/types/currency";
 
 import ChartSmall from "@/components/common/charts/ChartSmall";
+import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./MarketTableRow.module.scss";
 import Star from "@/assets/icons/ui/star.svg?react";
@@ -72,6 +73,14 @@ const MarketTableRow: React.FC<CurrencyRow> = (
 				<ChartSmall
 					color={chartColor}
 				/>
+
+				<UiButton
+					className={styles.buyButton}
+					color="blue"
+					tag="a"
+				>
+					Buy
+				</UiButton>
 			</div>
 		</div>
 	);
