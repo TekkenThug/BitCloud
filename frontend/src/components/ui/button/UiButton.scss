@@ -35,4 +35,21 @@
 			opacity: .5;
 		}
 	}
+
+	&_color_blue {
+		color: $neutral-8;
+		background-color: $primary-1;
+		border-color: $primary-1;
+
+		@include hover {
+			background-color: darken($primary-1, 5%);
+			border-color: darken($primary-1, 5%);
+		}
+
+		&:disabled {
+			opacity: .5;
+			background-color: darken($primary-1, 5%);
+			border-color: darken($primary-1, 5%);
+		}
+	}
 }
