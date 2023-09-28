@@ -1,12 +1,8 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
 TODO:
-Read DOC with import order
 set icons import
 resolve extensions
-
 
 Currently, two official plugins are available:
 
@@ -31,3 +27,31 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Development
+
+### Import order
+
+```js
+// Imports from node_modules (libraries, components and etc.)
+import React, { useState } from "react";
+import Select from "react-select";
+import uuid from "uuid";
+
+// Utils and types
+import regexps from "@/utils/regexp";
+import Product from "@/types/product";
+
+// Components (near, use relative path)
+import Component from './components/Component';
+
+// Components (distant, use absolute path)
+import UiButton from "@/components/ui/button";
+
+// Styles
+import styles from "@/styles.module.scss";
+import "@/styles/global.scss";
+
+// Icons and images
+import Icon from "@/assets/icon.svg";
+```
