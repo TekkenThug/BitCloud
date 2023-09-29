@@ -2,7 +2,7 @@ import MarketHeader from "./header/MarketHeader";
 import MarketTable from "./table/MarketTable";
 import MarketBlog from "./blog/MarketBlog";
 
-const Market = () => {
+const MarketPage = () => {
 	return (
 		<>
 			<MarketHeader />
@@ -14,4 +14,4 @@ const Market = () => {
 	);
 };
 
-export default Market;
+export default MarketPage;
