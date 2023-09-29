@@ -50,18 +50,26 @@ const MarketTableRow: React.FC<CurrencyRow> = (
 			</div>
 
 			<div className={styles.cell}>
+				<span className={styles.cellPrefix}>Price</span>
+
 				${ price.toLocaleString("en-US", { minimumFractionDigits: 2 }) }
 			</div>
 
 			<div className={`${styles.cell} ${percentageForWeek > 0 ? styles.cell_positive : styles.cell_negative }`}>
+				<span className={styles.cellPrefix}>24h</span>
+
 				{ percentageForWeek > 0 ? "+" : "" }{ percentageForWeek }%
 			</div>
 
 			<div className={`${styles.cell} ${percentageForDay > 0 ? styles.cell_positive : styles.cell_negative }`}>
+				<span className={styles.cellPrefix}>7d</span>
+
 				{ percentageForDay > 0 ? "+" : "" }{ percentageForDay }%
 			</div>
 
 			<div className={styles.cell}>
+				<span className={styles.cellPrefix}>Marketcap</span>
+
 				${ capitalization.toLocaleString("en-US", { minimumFractionDigits: 0 }) }
 			</div>
 

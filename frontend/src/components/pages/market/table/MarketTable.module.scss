@@ -1,5 +1,9 @@
 .MarketTable {
 	padding-top: 180px;
+
+	@include respond($mobile) {
+		padding: 136px 0 16px;
+	}
 }
 
 .tableHeader {
@@ -10,6 +14,10 @@
 	padding: 10px 16px;
 	font-weight: 600;
 	color: $neutral-4;
+
+	@include respond($mobile) {
+		display: none;
+	}
 }
 
 .tableHeaderCell {
@@ -41,6 +49,12 @@
 		width: 64px;
 	}
 
+	&:nth-child(4) {
+		@include respond($laptop) {
+			margin-left: auto;
+		}
+	}
+
 	&:nth-child(6),
 	&:nth-child(7) {
 		width: 140px;
@@ -48,6 +62,12 @@
 
 	&:nth-child(8) {
 		width: 96px;
+	}
+
+	&:nth-last-child(-n + 2) {
+		@include respond($laptop) {
+			display: none;
+		}
 	}
 
 	&:nth-child(n + 3) {
@@ -78,4 +98,18 @@
 	margin-top: 32px;
 	padding-top: 32px;
 	border-top: 1px solid $neutral-2;
+
+	@include respond($mobile) {
+		border-top: none;
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	& > * {
+		@include respond($mobile) {
+			&:not(:last-child) {
+				margin-bottom: 24px;
+			}
+		}
+	}
 }
