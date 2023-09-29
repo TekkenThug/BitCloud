@@ -152,7 +152,7 @@
 	transform: translate(-50%, 74px);
 	width: 100%;
 
-	@include respond($mobile) {
+	@include respond($laptop) {
 		transform: translate(-50%, 110px);
 	}
 }
