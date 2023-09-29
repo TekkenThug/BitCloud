@@ -8,6 +8,10 @@
 	}
 }
 
+.main {
+	flex-grow: 1;
+}
+
 .spin-animation {
 	animation: common-spin 2s linear infinite;
 }
