@@ -1,0 +1,26 @@
+.AuthBackground {
+	background-color: $neutral-2;
+	min-width: 512px;
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 450px auto;
+}
+
+.wrapper {
+	padding: 64px 0 64px 80px;
+}
+
+.mainLink {
+	@include body-1;
+
+	display: flex;
+	align-items: center;
+	position: relative;
+	font-weight: 600;
+}
+
+.logo {
+	width: 48px;
+	height: 48px;
+	margin-right: 8px;
+}

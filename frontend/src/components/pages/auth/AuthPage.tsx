@@ -1,7 +1,11 @@
+import AuthBackground from "./background/AuthBackground";
+
+import styles from "./AuthPage.module.scss";
+
 const AuthPage = () => {
 	return (
-		<div>
-			This is auth
+		<div className={styles.AuthPage}>
+			<AuthBackground />
 		</div>
 	);
 };
