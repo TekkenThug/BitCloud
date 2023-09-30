@@ -1,0 +1,21 @@
+.Address {
+	@include caption;
+
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	border-radius: 48px;
+	padding: 8px 32px;
+	background-color: $neutral-2;
+}
+
+.icon {
+	width: 24px;
+	height: 24px;
+	color: $primary-4;
+	margin-right: 4px;
+}
+
+.green {
+	color: $primary-4;
+}
