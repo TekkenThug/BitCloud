@@ -60,6 +60,7 @@ const MarketWidget = () => {
 								isActive={button.value === activeNav.value}
 								changeHandler={() => handleClickButton(button.value)}
 								className={styles.navItem}
+								theme="light"
 							/>
 						))
 					}
