@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-
 import MarketWidgetCard from "./card/MarketWidgetCard";
-import MarketWidgetNavButton from "./nav-button/MarketWidgetNavButton";
+
 import UiButton from "@/components/ui/button/UiButton";
 import UiSelect from "@/components/ui/select/UiSelect";
+import UiTab from "@/components/ui/tab/UiTab";
 
 import styles from "./MarketWidget.module.scss";
 
@@ -54,7 +54,7 @@ const MarketWidget = () => {
 				<div className={styles.tabList}>
 					{
 						subNavItems.map(button => (
-							<MarketWidgetNavButton
+							<UiTab
 								key={button.value}
 								text={button.label}
 								isActive={button.value === activeNav.value}

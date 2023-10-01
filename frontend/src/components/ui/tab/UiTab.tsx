@@ -1,8 +1,8 @@
 import React from "react";
 
-import styles from "./MarketWidgetNavButton.module.scss";
+import "./UiTab.scss";
 
-const MarketWidgetNavButton: React.FC<{
+const UiTab: React.FC<{
 	text: string,
 	isActive: boolean,
 	changeHandler: (value: string) => void,
@@ -16,7 +16,7 @@ const MarketWidgetNavButton: React.FC<{
 	}) => {
 	return (
 		<button
-			className={`${className} ${styles.MarketWidgetNavButton} ${isActive ? styles.MarketWidgetNavButton_active : ""}`}
+			className={`${className} UiTab ${isActive ? "UiTab_active" : ""}`}
 			onClick={() => changeHandler(text)}
 		>
 			{ text }
@@ -24,4 +24,4 @@ const MarketWidgetNavButton: React.FC<{
 	);
 };
 
-export default MarketWidgetNavButton;
+export default UiTab;
