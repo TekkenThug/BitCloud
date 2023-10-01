@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
-import UiInput from "@/components/ui/input/UiInput";
+import UiInputConfirm from "@/components/ui/input/input-confirm/UiInputConfirm";
 
 import styles from "./Footer.module.scss";
+
 import Logo from "@/assets/icons/common/logo.svg?react";
 import ArrowDownSimple from "@/assets/icons/ui/arrow-down-simple.svg?react";
 
@@ -137,7 +138,7 @@ const Footer = () => {
 								Subscribe our newsletter to get more free design course and resource
 							</p>
 							
-							<UiInput
+							<UiInputConfirm
 								placeholder="E-mail"
 								submitHandle={testTrigger}
 								isLoading={loading}

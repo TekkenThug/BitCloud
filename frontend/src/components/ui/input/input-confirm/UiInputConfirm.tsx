@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
+import "./UiInputConfirm.scss";
+
 import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
 import Loading from "@/assets/icons/controls/loading.svg?react";
 import Check from "@/assets/icons/ui/check.svg?react";
-
-import "./UiInput.scss";
 
 interface UiInputProps {
 	type?: string;
@@ -15,7 +15,7 @@ interface UiInputProps {
 }
 
 // TODO: make validation and incorrect state
-const UiInput: React.FC<UiInputProps> = (
+const UiInputConfirm: React.FC<UiInputProps> = (
 	{
 		type = "text",
 		placeholder = "",
@@ -32,10 +32,10 @@ const UiInput: React.FC<UiInputProps> = (
 
 	return (
 		<div
-			className={`UiInput ${isLoading ? "UiInput_loading" : ""} ${isSuccess ? "UiInput_success" : ""}`}
+			className={`UiInputConfirm ${isLoading ? "UiInputConfirm_loading" : ""} ${isSuccess ? "UiInputConfirm_success" : ""}`}
 		>
 			<input
-				className="UiInput__nativeInput"
+				className="UiInputConfirm__nativeInput"
 				type={type}
 				value={value}
 				placeholder={placeholder}
@@ -44,16 +44,16 @@ const UiInput: React.FC<UiInputProps> = (
 
 			<button
 				disabled={!value}
-				className="UiInput__extra-button"
+				className="UiInputConfirm__extra-button"
 				onClick={() => submitHandle(value)}
 			>
 				{
-					isLoading ? <Loading className="UiInput__icon spin-animation" /> :
-						isSuccess ? <Check className="UiInput__icon"  /> : <ArrowRight className="UiInput__icon" />
+					isLoading ? <Loading className="UiInputConfirm__icon spin-animation" /> :
+						isSuccess ? <Check className="UiInputConfirm__icon"  /> : <ArrowRight className="UiInputConfirm__icon" />
 				}
 			</button>
 		</div>
 	);
 };
 
-export default UiInput;
+export default UiInputConfirm;
