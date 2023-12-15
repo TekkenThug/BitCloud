@@ -20,10 +20,17 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+      "paths": {
+          "@/*": ["./resources/frontend/*"]
+      }
   },
-  "include": ["src"],
+    "include": [
+        "env.d.ts",
+        "resources/frontend/**/*",
+        "resources/frontend/**/*.tsx",
+        "resources/frontend/**/*.ts",
+        "resources/frontend/**/*.jsx",
+        "resources/frontend/**/*.js"
+    ],
   "references": [{ "path": "./tsconfig.node.json"}]
 }
