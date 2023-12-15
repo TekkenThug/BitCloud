@@ -1,0 +1,26 @@
+.UiLabel {
+	@include hairline-2;
+
+	padding: 8px;
+	border-radius: 4px;
+
+	&_red {
+		background-color: $primary-3;
+	}
+
+	&_green {
+		background-color: $primary-4;
+	}
+
+	&_blue {
+		background-color: $primary-1;
+	}
+
+	&_purple {
+		background-color: $primary-2;
+	}
+
+	&_black {
+		background-color: $neutral-2;
+	}
+}

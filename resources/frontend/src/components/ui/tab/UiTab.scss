@@ -1,0 +1,38 @@
+.UiTab {
+	@include button-2;
+
+	padding: 6px 12px;
+	border-radius: 100px;
+	transition: all $transition;
+	cursor: pointer;
+
+	&_theme_light {
+		color: $neutral-6;
+
+		&:not(.UiTab_active) {
+			@include hover {
+				color: $neutral-8;
+			}
+		}
+
+		&.UiTab_active {
+			background-color: $neutral-6;
+			color: $neutral-2;
+		}
+	}
+
+	&_theme_dark {
+		color: $neutral-4;
+
+		&:not(.UiTab_active) {
+			@include hover {
+				color: $neutral-2;
+			}
+		}
+
+		&.UiTab_active {
+			background-color: $neutral-3;
+			color: $neutral-8;
+		}
+	}
+}

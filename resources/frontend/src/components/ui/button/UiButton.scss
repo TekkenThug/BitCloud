@@ -1,0 +1,56 @@
+.UiButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid transparent;
+	border-radius: 90px;
+	font-weight: 700;
+	transition: all $transition;
+
+	&_size_medium {
+		@include button-2;
+
+		padding: 10px 14px;
+	}
+
+	&_size_large {
+		@include button-1;
+
+		padding: 14px 22px;
+	}
+
+	&_color_dark {
+		border-color: $neutral-4;
+		color: $neutral-8;
+
+		@include hover {
+			background-color: $neutral-8;
+			color: $neutral-2;
+			border-color: transparent;
+		}
+
+		&:disabled {
+			border-color: transparent;
+			background-color: $neutral-8;
+			color: $neutral-2;
+			opacity: .5;
+		}
+	}
+
+	&_color_blue {
+		color: $neutral-8;
+		background-color: $primary-1;
+		border-color: $primary-1;
+
+		@include hover {
+			background-color: darken($primary-1, 5%);
+			border-color: darken($primary-1, 5%);
+		}
+
+		&:disabled {
+			opacity: .5;
+			background-color: darken($primary-1, 5%);
+			border-color: darken($primary-1, 5%);
+		}
+	}
+}

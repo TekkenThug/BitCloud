@@ -1,0 +1,13 @@
+@mixin hover {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+@mixin respond($breakpoint) {
+	@media screen and (max-width: $breakpoint) {
+		@content;
+	}
+}
