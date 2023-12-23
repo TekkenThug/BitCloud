@@ -2,5 +2,5 @@
 !.gitignore
 
 images/
-!images/currency-icon/
-!images/currency-icon/*
+!images/currency-icons/
+!images/currency-icons/*
