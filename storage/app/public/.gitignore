@@ -1,4 +1,4 @@
 *
 !.gitignore
 !images
-!images/currency-icons
+!images/currency-icons/*
