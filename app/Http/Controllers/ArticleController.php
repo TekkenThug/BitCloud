@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Article;
+use App\Services\ArticleService;
 
 class ArticleController extends Controller
 {
+    private ArticleService $articleService;
+
+    public function __construct()
+    {
+        $this->articleService = new ArticleService();
+    }
+
     /**
      * Display a listing of the articles.
      */
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
-        return response()->json(Article::all());
+        return response()->json($this->articleService->getArticles());
     }
 
     /**
