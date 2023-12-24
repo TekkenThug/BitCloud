@@ -2,12 +2,14 @@ import React from "react";
 
 import "./UiLabel.scss";
 
-export interface UiLabelProps {
+export type LabelColor = "black" | "green" | "red" | "blue" | "purple";
+
+interface Props {
 	title: string,
-	color: "black" | "green" | "red" | "blue" | "purple",
+	color: LabelColor,
 }
 
-const UiLabel: React.FC<UiLabelProps> = ({ title, color }) => {
+const UiLabel: React.FC<Props> = ({ title, color }) => {
 	return (
 		<div className={`UiLabel UiLabel_${color}`}>
 			{ title }

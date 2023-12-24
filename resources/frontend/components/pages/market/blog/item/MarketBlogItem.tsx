@@ -1,6 +1,6 @@
 import React from "react";
 
-import UiLabel, { UiLabelProps } from "@/components/ui/label/UiLabel.tsx";
+import UiLabel, { LabelColor } from "@/components/ui/label/UiLabel.tsx";
 
 import defaultCover from "@/assets/images/common/video-cover.png";
 import styles from "./MarketBlogItem.module.scss";
@@ -10,14 +10,19 @@ export interface BlogItem {
 	title: string,
 	author: string,
 	date: string,
-	tags: UiLabelProps[]
+	tag?: string
 }
+
+const COLORS: { [key: string]: LabelColor } = {
+	Featured: "red",
+	New: "blue"
+};
 
 const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
 	{
 		title,
 		author,
-		tags,
+		tag,
 		date,
 		cover,
 		className
@@ -30,17 +35,12 @@ const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
 
 			<div className={styles.middle}>
 				{
-					tags &&
+					tag &&
 					<div className={styles.tagList}>
-						{
-							tags.map((tag, index) => (
-								<UiLabel
-									key={index}
-									title={tag.title}
-									color={tag.color}
-								/>
-							))
-						}
+						<UiLabel
+							title={tag}
+							color={COLORS[tag]}
+						/>
 					</div>
 				}
 
