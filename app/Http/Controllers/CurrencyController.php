@@ -23,6 +23,6 @@ class CurrencyController extends Controller
      * @return JsonResponse
      */
     public function get(Request $request): JsonResponse {
-        return response()->json($this->currencyService->getLatestTrends($request->query('limit')));
+        return response()->json($this->currencyService->getLatestTrends($request->query('limit', 100)));
     }
 }
