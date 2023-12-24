@@ -2,24 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ArticleCollection;
 use Illuminate\Http\Request;
-use App\Services\ArticleService;
+use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    private ArticleService $articleService;
-
-    public function __construct()
-    {
-        $this->articleService = new ArticleService();
-    }
-
     /**
      * Display a listing of the articles.
      */
-    public function index(): \Illuminate\Http\JsonResponse
+    public function index(Request $request)
     {
-        return response()->json($this->articleService->getArticles());
+        return new ArticleCollection(Article::paginate($request->query('limit')));
     }
 
     /**
