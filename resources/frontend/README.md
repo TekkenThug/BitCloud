@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import uuid from "uuid";
 
-// Utils and types
+// Services, utils and types
 import regexps from "@/utils/regexp";
 import Product from "@/types/product";
 
