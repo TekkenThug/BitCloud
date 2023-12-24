@@ -18,4 +18,14 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Relation with article tags
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function articleTag(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(ArticleTag::class);
+    }
 }
