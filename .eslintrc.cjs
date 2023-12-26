@@ -17,7 +17,7 @@ module.exports = {
         "semi": "error",
         "indent": [
             "error",
-            "tab"
+            4
         ],
         "quotes": [
             "error",
