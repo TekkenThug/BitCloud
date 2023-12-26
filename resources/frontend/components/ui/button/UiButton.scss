@@ -7,6 +7,10 @@
 	font-weight: 700;
 	transition: all $transition;
 
+    &:disabled {
+        cursor: not-allowed;
+    }
+
 	&_size_medium {
 		@include button-2;
 

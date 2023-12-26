@@ -3,6 +3,7 @@ import React from "react";
 import "./UiButton.scss";
 
 interface UiButtonProps {
+    disabled?: boolean;
 	tag?: "button" | "a";
 	color: "dark" | "blue";
 	size?: "medium" | "large";
@@ -14,6 +15,7 @@ interface UiButtonProps {
 
 const UiButton: React.FC<UiButtonProps> = (
 	{
+		disabled = false,
 		tag = "button",
 		href = "",
 		color,
@@ -24,11 +26,11 @@ const UiButton: React.FC<UiButtonProps> = (
 	}
 ) => {
 	const handleClick = () => {
-		if (clickHandler) {
+		if (clickHandler && !disabled) {
 			clickHandler();
 		}
 	};
-	
+
 	return (
 		<>
 			{
@@ -36,6 +38,7 @@ const UiButton: React.FC<UiButtonProps> = (
 					<button
 						className={`UiButton UiButton_color_${color} UiButton_size_${size} ${className}`}
 						onClick={() => handleClick()}
+						disabled={disabled}
 					>
 						{ children }
 					</button>
