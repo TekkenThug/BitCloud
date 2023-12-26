@@ -30,6 +30,10 @@ class ArticleCollection extends ResourceCollection
     public function paginationInformation($request, $paginated, $default)
     {
         unset($default['meta']);
+        unset($default['links']);
+
+        $default['pagination']['total'] = $paginated['total'];
+        $default['pagination']['last_page'] = $paginated['last_page'];
 
         return $default;
     }

@@ -13,7 +13,7 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        return new ArticleCollection(Article::paginate($request->query('limit')));
+        return new ArticleCollection(Article::latest()->paginate($request->query('limit')));
     }
 
     /**
