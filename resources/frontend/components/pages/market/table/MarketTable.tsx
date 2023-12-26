@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { CurrencyRow } from "@/types/currency.ts";
+import { getTrendingCurrencies } from "@/services/api/contexts/currency";
+import { Currency } from "@/services/api/contexts/currency/types";
 
 import MarketTableRow from "./row/MarketTableRow.tsx";
 
@@ -11,108 +12,114 @@ import Coin from "@/assets/icons/finance/coin.svg?react";
 import ChartBar from "@/assets/icons/finance/chart-bar.svg?react";
 
 const MarketTable = () => {
-	useEffect(() => { }, []);
+    const [enabled, setEnabled] = useState(true);
+    useEffect(() => {
+        setEnabled(false);
+    }, []);
 
-	const { data: currencies } = useQuery({
-		queryKey: ["marketCurrencies"],
-		queryFn: () =>
-			fetch("http://localhost:3000/currencies/").then((res) =>
-				res.json()
-			),
-	});
+    const { data } = useQuery({
+        queryKey: ["marketCurrencies"],
+        enabled: enabled,
+        queryFn: () => getTrendingCurrencies(10),
+    });
+    const [sortData, setSortData] = useState<Currency[]>([]);
 
-	const [sort, setSort] = useState<keyof CurrencyRow>("number");
-	const [descending, setDescending] = useState(false);
+    const [sort, setSort] = useState<keyof Currency>("number");
+    const [descending, setDescending] = useState(false);
 
-	const sortByField = (field: keyof CurrencyRow) => {
-		if (field === sort) {
-			setDescending((prev) => !prev);
-		} else {
-			setSort(field);
-			setDescending(false);
-		}
-	};
+    const sortByField = (field: keyof Currency) => {
+        if (field === sort) {
+            setDescending((prev) => !prev);
+        } else {
+            setSort(field);
+            setDescending(false);
+        }
+    };
 
-	useEffect(() => {
-		// setCurrencies((prevCurrencies) => {
-		// 	return [...prevCurrencies].sort((a, b) => {
-		// 		if (descending) {
-		// 			if (a[sort] > b[sort]) {
-		// 				return -1;
-		// 			}
+    useEffect(() => {
+        if (!sortData.length && data) {
+            setSortData(data);
+        }
 
-		// 			if (a[sort] < b[sort]) {
-		// 				return 1;
-		// 			}
+        setSortData((prevCurrencies) => {
+            return [...prevCurrencies].sort((a, b) => {
+                if (descending) {
+                    if (a[sort] > b[sort]) {
+                        return -1;
+                    }
 
-		// 			return 0;
-		// 		} else {
-		// 			if (a[sort] < b[sort]) {
-		// 				return -1;
-		// 			}
+                    if (a[sort] < b[sort]) {
+                        return 1;
+                    }
 
-		// 			if (a[sort] > b[sort]) {
-		// 				return 1;
-		// 			}
+                    return 0;
+                } else {
+                    if (a[sort] < b[sort]) {
+                        return -1;
+                    }
 
-		// 			return 0;
-		// 		}
-		// 	});
-		// });
-	}, [sort, descending]);
+                    if (a[sort] > b[sort]) {
+                        return 1;
+                    }
 
-	return (
-		<section className={styles.MarketTable}>
-			<div className="container">
-				<div>
-					<div className={styles.tableHeader}>
-						<div
-							className={`${styles.tableHeaderCell} ${styles.tableHeaderCell_cell_number}`}
-							onClick={() => sortByField("number")}
-						>
-							# <Arrows className={styles.tableHeaderCellArrow} />
-						</div>
+                    return 0;
+                }
+            });
+        });
+    }, [data, sort, descending]);
 
-						<div
-							className={styles.tableHeaderCell}
-							onClick={() => sortByField("name")}
-						>
-							Name <Arrows className={styles.tableHeaderCellArrow} />
-						</div>
+    return (
+        <section className={styles.MarketTable}>
+            <div className="container">
+                <div>
+                    <div className={styles.tableHeader}>
+                        <div
+                            className={`${styles.tableHeaderCell} ${styles.tableHeaderCell_cell_number}`}
+                            onClick={() => sortByField("number")}
+                        >
+                            # <Arrows className={styles.tableHeaderCellArrow} />
+                        </div>
 
-						<div
-							className={styles.tableHeaderCell}
-							onClick={() => sortByField("price")}
-						>
-							Price <Arrows className={styles.tableHeaderCellArrow} />
-						</div>
+                        <div
+                            className={styles.tableHeaderCell}
+                            onClick={() => sortByField("name")}
+                        >
+                            Name <Arrows className={styles.tableHeaderCellArrow} />
+                        </div>
 
-						<div className={styles.tableHeaderCell}>24h %</div>
+                        <div
+                            className={styles.tableHeaderCell}
+                            onClick={() => sortByField("price")}
+                        >
+                            Price <Arrows className={styles.tableHeaderCellArrow} />
+                        </div>
 
-						<div className={styles.tableHeaderCell}>7d %</div>
+                        <div className={styles.tableHeaderCell}>24h %</div>
 
-						<div className={styles.tableHeaderCell}>
-							Marketcap <Coin className={styles.tableHeaderCellIcon} />
-						</div>
+                        <div className={styles.tableHeaderCell}>7d %</div>
 
-						<div className={styles.tableHeaderCell}>
-							Volume (24h) <ChartBar className={styles.tableHeaderCellIcon} />
-						</div>
+                        <div className={styles.tableHeaderCell}>
+                            Marketcap <Coin className={styles.tableHeaderCellIcon} />
+                        </div>
 
-						<div className={styles.tableHeaderCell}>Chart</div>
-					</div>
+                        <div className={styles.tableHeaderCell}>
+                            Volume (24h) <ChartBar className={styles.tableHeaderCellIcon} />
+                        </div>
 
-					{currencies && currencies.length && (
-						<div className={styles.tableContent}>
-							{currencies.map((currency: CurrencyRow) => (
-								<MarketTableRow key={currency.shortName} {...currency} />
-							))}
-						</div>
-					)}
-				</div>
-			</div>
-		</section>
-	);
+                        <div className={styles.tableHeaderCell}>Chart</div>
+                    </div>
+
+                    {sortData && sortData.length && (
+                        <div className={styles.tableContent}>
+                            {sortData.map((currency) => (
+                                <MarketTableRow key={currency.shortName} {...currency} />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default MarketTable;
