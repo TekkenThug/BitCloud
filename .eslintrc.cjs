@@ -27,6 +27,6 @@ module.exports = {
             "error",
             "always"
         ],
-        "@stylistic/ts/max-len": ["error", { "code": 120 }]
+        "@stylistic/js/max-len": ["error", { "code": 120 }]
     },
 };
