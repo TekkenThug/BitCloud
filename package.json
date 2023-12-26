@@ -23,6 +23,7 @@
         "vite-tsconfig-paths": "^4.2.1"
     },
     "devDependencies": {
+        "@stylistic/eslint-plugin-ts": "^1.5.1",
         "@types/humps": "^2.0.6",
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
