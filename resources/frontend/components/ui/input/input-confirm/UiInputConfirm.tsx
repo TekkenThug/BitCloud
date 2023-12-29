@@ -16,44 +16,44 @@ interface UiInputProps {
 
 // TODO: make validation and incorrect state
 const UiInputConfirm: React.FC<UiInputProps> = (
-	{
-		type = "text",
-		placeholder = "",
-		isLoading = false,
-		isSuccess = false,
-		submitHandle
-	}
+    {
+        type = "text",
+        placeholder = "",
+        isLoading = false,
+        isSuccess = false,
+        submitHandle
+    }
 ) => {
-	const [value, setValue] = useState("");
+    const [value, setValue] = useState("");
 
-	const handleInputValue = (event: React.FormEvent<HTMLInputElement>) => {
-		setValue(event.currentTarget.value);
-	};
+    const handleInputValue = (event: React.FormEvent<HTMLInputElement>) => {
+        setValue(event.currentTarget.value);
+    };
 
-	return (
-		<div
-			className={`UiInputConfirm ${isLoading ? "UiInputConfirm_loading" : ""} ${isSuccess ? "UiInputConfirm_success" : ""}`}
-		>
-			<input
-				className="UiInputConfirm__nativeInput"
-				type={type}
-				value={value}
-				placeholder={placeholder}
-				onInput={handleInputValue}
-			/>
+    return (
+        <div
+            className={`UiInputConfirm ${isLoading ? "UiInputConfirm_loading" : ""} ${isSuccess ? "UiInputConfirm_success" : ""}`}
+        >
+            <input
+                className="UiInputConfirm__nativeInput"
+                type={type}
+                value={value}
+                placeholder={placeholder}
+                onInput={handleInputValue}
+            />
 
-			<button
-				disabled={!value}
-				className="UiInputConfirm__extra-button"
-				onClick={() => submitHandle(value)}
-			>
-				{
-					isLoading ? <Loading className="UiInputConfirm__icon spin-animation" /> :
-						isSuccess ? <Check className="UiInputConfirm__icon"  /> : <ArrowRight className="UiInputConfirm__icon" />
-				}
-			</button>
-		</div>
-	);
+            <button
+                disabled={!value}
+                className="UiInputConfirm__extra-button"
+                onClick={() => submitHandle(value)}
+            >
+                {
+                    isLoading ? <Loading className="UiInputConfirm__icon spin-animation" /> :
+                        isSuccess ? <Check className="UiInputConfirm__icon"  /> : <ArrowRight className="UiInputConfirm__icon" />
+                }
+            </button>
+        </div>
+    );
 };
 
 export default UiInputConfirm;

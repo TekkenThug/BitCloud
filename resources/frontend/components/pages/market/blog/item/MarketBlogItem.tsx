@@ -14,54 +14,54 @@ export interface BlogItem {
 }
 
 const COLORS: { [key: string]: LabelColor } = {
-	Featured: "red",
-	New: "blue"
+    Featured: "red",
+    New: "blue"
 };
 
 const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
-	{
-		title,
-		author,
-		tag,
-		date,
-		cover,
-		className
-	}) => {
-	return (
-		<li className={`${styles.MarketBlogItem} ${className}`}>
-			<div className={styles.cover}>
-				<img src={cover ?? defaultCover} alt="Video preview" />
-			</div>
+    {
+        title,
+        author,
+        tag,
+        date,
+        cover,
+        className
+    }) => {
+    return (
+        <li className={`${styles.MarketBlogItem} ${className}`}>
+            <div className={styles.cover}>
+                <img src={cover ?? defaultCover} alt="Video preview" />
+            </div>
 
-			<div className={styles.middle}>
-				{
-					tag &&
+            <div className={styles.middle}>
+                {
+                    tag &&
 					<div className={styles.tagList}>
-						<UiLabel
-							title={tag}
-							color={COLORS[tag]}
-						/>
+					    <UiLabel
+					        title={tag}
+					        color={COLORS[tag]}
+					    />
 					</div>
-				}
+                }
 
-				<h4 className={styles.title}>
-					{ title }
-				</h4>
-			</div>
+                <h4 className={styles.title}>
+                    { title }
+                </h4>
+            </div>
 
-			<div className={styles.bottom}>
-				<div className={styles.bottomAuthor}>
-					<div className={styles.bottomAuthorAvatar}></div>
+            <div className={styles.bottom}>
+                <div className={styles.bottomAuthor}>
+                    <div className={styles.bottomAuthorAvatar}></div>
 
-					<span>{ author }</span>
-				</div>
+                    <span>{ author }</span>
+                </div>
 
-				<div>
-					{ date }
-				</div>
-			</div>
-		</li>
-	);
+                <div>
+                    { date }
+                </div>
+            </div>
+        </li>
+    );
 };
 
 export default MarketBlogItem;

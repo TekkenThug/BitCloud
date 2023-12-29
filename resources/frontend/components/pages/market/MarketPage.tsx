@@ -5,15 +5,15 @@ import MarketBlog from "./blog/MarketBlog.tsx";
 import DefaultLayout from "@/components/layouts/DefaultLayout.tsx";
 
 const MarketPage = () => {
-	return (
-		<DefaultLayout>
-			<MarketHeader />
+    return (
+        <DefaultLayout>
+            <MarketHeader />
 
-			<MarketTable />
+            <MarketTable />
 
-			<MarketBlog />
-		</DefaultLayout>
-	);
+            <MarketBlog />
+        </DefaultLayout>
+    );
 };
 
 export default MarketPage;

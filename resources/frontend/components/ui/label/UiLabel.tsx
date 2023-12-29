@@ -10,11 +10,11 @@ interface Props {
 }
 
 const UiLabel: React.FC<Props> = ({ title, color }) => {
-	return (
-		<div className={`UiLabel UiLabel_${color}`}>
-			{ title }
-		</div>
-	);
+    return (
+        <div className={`UiLabel UiLabel_${color}`}>
+            { title }
+        </div>
+    );
 };
 
 export default UiLabel;

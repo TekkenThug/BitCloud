@@ -9,13 +9,13 @@ interface UiSelectProps {
 }
 
 const UiSelect: React.FC<React.ComponentProps<typeof Select> & UiSelectProps> = (props) => {
-	return (
-		<Select
-			{...props}
-			className={`UiSelect ${props.className ?? ""}`}
-			classNamePrefix="UiSelect"
-		/>
-	);
+    return (
+        <Select
+            {...props}
+            className={`UiSelect ${props.className ?? ""}`}
+            classNamePrefix="UiSelect"
+        />
+    );
 };
 
 export default UiSelect;

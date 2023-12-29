@@ -14,45 +14,45 @@ interface UiButtonProps {
 }
 
 const UiButton: React.FC<UiButtonProps> = (
-	{
-		disabled = false,
-		tag = "button",
-		href = "",
-		color,
-		size = "medium",
-		className = "",
-		children,
-		clickHandler
-	}
+    {
+        disabled = false,
+        tag = "button",
+        href = "",
+        color,
+        size = "medium",
+        className = "",
+        children,
+        clickHandler
+    }
 ) => {
-	const handleClick = () => {
-		if (clickHandler && !disabled) {
-			clickHandler();
-		}
-	};
+    const handleClick = () => {
+        if (clickHandler && !disabled) {
+            clickHandler();
+        }
+    };
 
-	return (
-		<>
-			{
-				tag === "button" ?
-					<button
-						className={`UiButton UiButton_color_${color} UiButton_size_${size} ${className}`}
-						onClick={() => handleClick()}
-						disabled={disabled}
-					>
-						{ children }
-					</button>
-					: tag === "a" &&
+    return (
+        <>
+            {
+                tag === "button" ?
+                    <button
+                        className={`UiButton UiButton_color_${color} UiButton_size_${size} ${className}`}
+                        onClick={() => handleClick()}
+                        disabled={disabled}
+                    >
+                        { children }
+                    </button>
+                    : tag === "a" &&
 					<a
-						href={href}
-						className={`UiButton UiButton_color_${color} UiButton_size_${size} ${className}`}
-						onClick={() => handleClick()}
+					    href={href}
+					    className={`UiButton UiButton_color_${color} UiButton_size_${size} ${className}`}
+					    onClick={() => handleClick()}
 					>
-						{ children }
+					    { children }
 					</a>
-			}
-		</>
-	);
+            }
+        </>
+    );
 };
 
 export default UiButton;

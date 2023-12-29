@@ -14,48 +14,48 @@ interface MarketWidgetCardProps {
 }
 
 const MarketWidgetCard: React.FC<MarketWidgetCardProps> = (
-	{
-		name,
-		percentage,
-		value,
-		secondValue,
-		className = ""
-	}
+    {
+        name,
+        percentage,
+        value,
+        secondValue,
+        className = ""
+    }
 ) => {
-	const chartColor = percentage < 0 ? "#FF6838" : "#58BD7D";
-	const processedPercentage = `${percentage < 0 ? "" : "+"}${percentage}%`;
+    const chartColor = percentage < 0 ? "#FF6838" : "#58BD7D";
+    const processedPercentage = `${percentage < 0 ? "" : "+"}${percentage}%`;
 
-	return (
-		<div className={`${styles.MarketWidgetCard} ${className}`}>
-			<div className={styles.content}>
-				<Logo className={styles.currency} />
+    return (
+        <div className={`${styles.MarketWidgetCard} ${className}`}>
+            <div className={styles.content}>
+                <Logo className={styles.currency} />
 
-				<div>
-					<div className={styles.info}>
-						<div className={styles.name}>
-							{ name }
-						</div>
+                <div>
+                    <div className={styles.info}>
+                        <div className={styles.name}>
+                            { name }
+                        </div>
 
-						<div className={`${styles.percentage} ${percentage < 0 ? styles.percentage_negative : ""}`}>
-							{ processedPercentage }
-						</div>
-					</div>
+                        <div className={`${styles.percentage} ${percentage < 0 ? styles.percentage_negative : ""}`}>
+                            { processedPercentage }
+                        </div>
+                    </div>
 
-					<div className={styles.value}>
-						{ value }
-					</div>
+                    <div className={styles.value}>
+                        { value }
+                    </div>
 
-					<div className={styles.secondValue}>
-						{ secondValue }
-					</div>
-				</div>
-			</div>
+                    <div className={styles.secondValue}>
+                        { secondValue }
+                    </div>
+                </div>
+            </div>
 
-			<div className={styles.chart}>
-				<ChartSmall color={chartColor} />
-			</div>
-		</div>
-	);
+            <div className={styles.chart}>
+                <ChartSmall color={chartColor} />
+            </div>
+        </div>
+    );
 };
 
 export default MarketWidgetCard;

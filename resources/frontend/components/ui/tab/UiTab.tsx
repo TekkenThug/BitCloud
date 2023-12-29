@@ -9,21 +9,21 @@ const UiTab: React.FC<{
 	className?: string
 	theme?: "dark" | "light",
 }> = (
-	{
-		text,
-		isActive = false,
-		changeHandler,
-		className = "",
-		theme = "dark"
-	}) => {
-	return (
-		<button
-			className={`${className} UiTab ${isActive ? "UiTab_active" : ""} UiTab_theme_${theme}`}
-			onClick={() => changeHandler(text)}
-		>
-			{ text }
-		</button>
-	);
+    {
+        text,
+        isActive = false,
+        changeHandler,
+        className = "",
+        theme = "dark"
+    }) => {
+    return (
+        <button
+            className={`${className} UiTab ${isActive ? "UiTab_active" : ""} UiTab_theme_${theme}`}
+            onClick={() => changeHandler(text)}
+        >
+            { text }
+        </button>
+    );
 };
 
 export default UiTab;

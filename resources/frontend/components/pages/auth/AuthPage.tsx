@@ -4,13 +4,13 @@ import AuthSign from "./sign/AuthSign.tsx";
 import styles from "./AuthPage.module.scss";
 
 const AuthPage = () => {
-	return (
-		<div className={styles.AuthPage}>
-			<AuthBackground />
+    return (
+        <div className={styles.AuthPage}>
+            <AuthBackground />
 
-			<AuthSign />
-		</div>
-	);
+            <AuthSign />
+        </div>
+    );
 };
 
 export default AuthPage;

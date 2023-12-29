@@ -6,26 +6,26 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [
-		laravel({
-			input: ["resources/frontend/main.tsx"],
-			refresh: true,
-		}),
-		react(),
-		tsconfigPaths(),
-		svgr(),
-	],
-	css: {
-		preprocessorOptions: {
-			scss: {
-				additionalData: "@use './resources/frontend/assets/styles/exported' as *;"
-			}
-		}
-	},
-	resolve: {
-		alias: {
-			"@": "/resources/frontend",
-		},
-	},
+    plugins: [
+        laravel({
+            input: ["resources/frontend/main.tsx"],
+            refresh: true,
+        }),
+        react(),
+        tsconfigPaths(),
+        svgr(),
+    ],
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: "@use './resources/frontend/assets/styles/exported' as *;"
+            }
+        }
+    },
+    resolve: {
+        alias: {
+            "@": "/resources/frontend",
+        },
+    },
 });
 
