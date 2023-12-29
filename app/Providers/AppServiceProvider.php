@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
         // HTTP macros
         Http::macro('currency', function () {
             return Http::withHeaders([
-                'X-CMC_PRO_API_KEY' => env("MARKET_API_KEY"),
-            ])->baseUrl(env("MARKET_API_URL"));
+                'X-CMC_PRO_API_KEY' => config("api.market_api_key"),
+            ])->baseUrl(config("api.market_api_url"));
         });
     }
 }
