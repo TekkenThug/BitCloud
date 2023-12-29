@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useState } from "react";
+import { useRequest } from "ahooks";
 
 import { getArticlesForMarketPage } from "@/services/api/contexts/article";
+import { Article } from "@/services/api/contexts/article/types";
 
-import MarketBlogItem from "./item/MarketBlogItem.tsx";
-import UiButton from "@/components/ui/button/UiButton.tsx";
+import MarketBlogItem from "./item/MarketBlogItem";
+import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./MarketBlog.module.scss";
 import Loading from "@/assets/icons/controls/loading.svg?react";
@@ -13,35 +14,17 @@ const MarketBlog = () => {
     const title = "Learn and earn";
     const subtitle = "Stacks is a production-ready library of stackable content blocks built in React Native.";
 
-    const [enabled, setEnabled] = useState(true);
-    useEffect(() => {
-        setEnabled(false);
-    }, []);
-
-    const [
-        page,
-        setPage
-    ] = useState<number>(1);
-    const { data, isLoading, refetch } = useQuery({
-        queryKey: ["blogArticles", page],
-        queryFn: () => getArticlesForMarketPage(page),
-        enabled: enabled,
+    const [page, setPage] = useState(1);
+    const [articles, setArticles] = useState<Article[]>([]);
+    const { data, loading } = useRequest(() => getArticlesForMarketPage(page), {
+        refreshDeps: [page],
+        onSuccess: (data) => setArticles((old) => [...old, ...data.articles])
     });
-
-    const [articles, setArticles] = useState([]);
-    useEffect(() => {
-        if (!data || !data.articles.length) return;
-
-        console.log(data.articles);
-
-        setArticles(value => [...value, ...data.articles]);
-    }, [data]);
 
     const loadMoreArticles = () => {
         if (!data || data.pagination.lastPage === page) return;
 
         setPage((page) => page + 1);
-        refetch();
     };
 
     return (
@@ -58,12 +41,12 @@ const MarketBlog = () => {
                 </div>
 
                 {
-                    !isLoading &&
+                    Boolean(articles.length) &&
                     <ul className={styles.blogList}>
                         {
-                            data && articles.map((item, index) => (
+                            articles.map((item) => (
                                 <MarketBlogItem
-                                    key={index}
+                                    key={item.id}
                                     className={styles.blogItem}
                                     title={item.title}
                                     author={item.author}
@@ -82,9 +65,9 @@ const MarketBlog = () => {
                         className={styles.loadingButton}
                         color="dark"
                         clickHandler={loadMoreArticles}
-                        disabled={isLoading}
+                        disabled={loading}
                     >
-                        <Loading className={`${styles.loadingButtonIcon} ${isLoading && "spin-animation"}`}/> Load more
+                        <Loading className={`${styles.loadingButtonIcon} ${loading && "spin-animation"}`}/> Load more
                     </UiButton>
                 }
             </div>
