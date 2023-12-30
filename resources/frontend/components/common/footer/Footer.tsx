@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
-import UiInputConfirm from "@/components/ui/input/input-confirm/UiInputConfirm.tsx";
+import { subscribeToNewsletter } from "@/services/api/contexts/subscribe";
+import { ErrorMessage } from "@/services/api/types";
+
+import UiInputConfirm from "@/components/ui/input/input-confirm/UiInputConfirm";
 
 import styles from "./Footer.module.scss";
 
@@ -9,16 +12,23 @@ import Logo from "@/assets/icons/common/logo.svg?react";
 import ArrowDownSimple from "@/assets/icons/ui/arrow-down-simple.svg?react";
 
 const Footer = () => {
+    const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
 
-    const testTrigger = () => {
+    const subscribe = async (email: string) => {
         setLoading(true);
+        setError("");
 
-        setTimeout(() => {
-            setLoading(false);
+        try {
+            await subscribeToNewsletter(email);
+
             setSuccess(true);
-        }, 2000);
+        } catch (e) {
+            setError((e as ErrorMessage).message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     // TODO: make hook
@@ -76,7 +86,10 @@ const Footer = () => {
                             className={styles.navToggle}
                             onClick={() => toggleVisibility(!isVisible)}
                         >
-							Navigation <ArrowDownSimple className={`${styles.navArrowIcon} ${isVisible ? styles.navArrowIcon_rotated : ""}`} />
+							Navigation
+                            <ArrowDownSimple
+                                className={`${styles.navArrowIcon} ${isVisible ? styles.navArrowIcon_rotated : ""}`}
+                            />
                         </button>
 
                         <ul
@@ -140,9 +153,12 @@ const Footer = () => {
 
                             <UiInputConfirm
                                 placeholder="E-mail"
-                                submitHandle={testTrigger}
+                                submitHandle={subscribe}
+                                inputHandle={() => setError("")}
                                 isLoading={loading}
                                 isSuccess={success}
+                                isError={Boolean(error)}
+                                errorText={error}
                             />
                         </div>
                     </div>

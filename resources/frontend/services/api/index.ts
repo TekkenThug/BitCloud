@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse, AxiosError } from "axios";
 import { camelizeKeys } from "humps";
 
 const api = axios.create({
@@ -17,5 +17,6 @@ api.interceptors.response.use((response: AxiosResponse) => {
 });
 
 export {
-    api
+    api,
+    AxiosError as ApiError,
 };
