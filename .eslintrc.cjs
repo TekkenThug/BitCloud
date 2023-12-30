@@ -14,6 +14,7 @@ module.exports = {
             "warn",
             { allowConstantExport: true },
         ],
+        "react-hooks/exhaustive-deps": ["off"],
         "semi": "error",
         "indent": [
             "error",
