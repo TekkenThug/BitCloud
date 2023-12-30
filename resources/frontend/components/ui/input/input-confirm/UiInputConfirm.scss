@@ -5,14 +5,37 @@
 		pointer-events: none;
 	}
 
+	&_error {
+		.UiInputConfirm__nativeInput {
+			border-color: $primary-3;
+
+			@include hover {
+				border-color: $primary-3;
+			}
+
+			&:focus {
+				border-color: $primary-3;
+			}
+		}
+
+		.UiInputConfirm__extra-button {
+			cursor: not-allowed;
+			background-color: $neutral-5;
+		}
+
+		.UiInputConfirm__icon {
+			color: $neutral-4;
+		}
+	}
+
 	&_success {
 		pointer-events: none;
 
-		.UiInput__nativeInput {
+		.UiInputConfirm__nativeInput {
 			border-color: $primary-4;
 		}
 
-		.UiInput__extra-button {
+		.UiInputConfirm__extra-button {
 			background-color: $primary-4;
 		}
 	}
@@ -69,5 +92,21 @@
 		height: 24px;
 		color: $neutral-8;
 		flex-shrink: 0;
+	}
+
+	&__error {
+		@include caption-2;
+
+		background-color: $neutral-8;
+		border-radius: 100px;
+		padding: 5px 16px;
+		color: $primary-3;
+		font-weight: 700;
+		margin-top: 4px;
+		max-width: 250px;
+
+		@include respond($mobile) {
+			max-width: unset;
+		}
 	}
 }
