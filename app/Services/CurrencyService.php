@@ -41,6 +41,26 @@ class CurrencyService {
                 'marketCap' => $item['quote'][$this->comparedCurrency]['market_cap'],
                 'volume' => $item['quote'][$this->comparedCurrency]['volume_24h'],
                 'icon' => $imageUrl,
+
+                // FAKE DATA
+                'quote' => [
+                    [
+                        'date' => date("Y-m-d", strtotime("-3 day")),
+                        'value' => rand(1, $item['quote'][$this->comparedCurrency]['price']),
+                    ],
+                    [
+                        'date' => date("Y-m-d", strtotime("-2 day")),
+                        'value' => rand(1, $item['quote'][$this->comparedCurrency]['price']),
+                    ],
+                    [
+                        'date' => date("Y-m-d", strtotime("-1 day")),
+                        'value' => rand(1, $item['quote'][$this->comparedCurrency]['price']),
+                    ],
+                    [
+                        'date' => date('Y-m-d'),
+                        'value' => $item['quote'][$this->comparedCurrency]['price'],
+                    ]
+                ]
             ];
         }, $response->json()['data']);
     }
