@@ -1,5 +1,6 @@
 .UiButton {
 	display: flex;
+	width: max-content;
 	align-items: center;
 	justify-content: center;
 	border: 2px solid transparent;
@@ -11,19 +12,19 @@
         cursor: not-allowed;
     }
 
-	&_size_medium {
+	&--size-medium {
 		@include button-2;
 
 		padding: 10px 14px;
 	}
 
-	&_size_large {
+	&--size-large {
 		@include button-1;
 
 		padding: 14px 22px;
 	}
 
-	&_color_dark {
+	&--color-dark {
 		border-color: $neutral-4;
 		color: $neutral-8;
 
@@ -41,7 +42,7 @@
 		}
 	}
 
-	&_color_blue {
+	&--color-blue {
 		color: $neutral-8;
 		background-color: $primary-1;
 		border-color: $primary-1;

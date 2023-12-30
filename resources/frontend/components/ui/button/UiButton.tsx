@@ -1,19 +1,19 @@
-import React from "react";
+import { FC, ReactNode } from "react";
 
 import "./UiButton.scss";
 
-interface UiButtonProps {
+interface Props {
     disabled?: boolean;
-	tag?: "button" | "a";
-	color: "dark" | "blue";
-	size?: "medium" | "large";
-	href?: string;
-	className?: string;
-	clickHandler?: () => void; // TODO: replace
-	children: React.ReactNode
+    tag?: "button" | "a";
+    color: "dark" | "blue";
+    size?: "medium" | "large";
+    href?: string;
+    className?: string;
+    clickHandler?: () => void; // TODO: replace
+    children: ReactNode
 }
 
-const UiButton: React.FC<UiButtonProps> = (
+const UiButton: FC<Props> = (
     {
         disabled = false,
         tag = "button",
@@ -31,25 +31,32 @@ const UiButton: React.FC<UiButtonProps> = (
         }
     };
 
+    const classes = [
+        "UiButton",
+        color ? `UiButton--color-${color}` : "",
+        size ? `UiButton--size-${size}` : "",
+        className ? `${className}` : "",
+    ].filter(item => Boolean(item)).join(" ");
+
     return (
         <>
             {
                 tag === "button" ?
                     <button
-                        className={`UiButton UiButton_color_${color} UiButton_size_${size} ${className}`}
+                        className={classes}
                         onClick={() => handleClick()}
                         disabled={disabled}
                     >
-                        { children }
+                        {children}
                     </button>
                     : tag === "a" &&
-					<a
-					    href={href}
-					    className={`UiButton UiButton_color_${color} UiButton_size_${size} ${className}`}
-					    onClick={() => handleClick()}
-					>
-					    { children }
-					</a>
+                    <a
+                        href={href}
+                        className={classes}
+                        onClick={() => handleClick()}
+                    >
+                        {children}
+                    </a>
             }
         </>
     );
