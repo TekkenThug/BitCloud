@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Currency } from "@/services/api/contexts/currency/types";
+import { QuotatedCurrency } from "@/services/api/contexts/currency/types";
 
 import ChartSmall from "@/components/common/charts/ChartSmall";
 import UiButton from "@/components/ui/button/UiButton";
@@ -9,7 +9,7 @@ import styles from "./MarketTableRow.module.scss";
 
 import Star from "@/assets/icons/ui/star.svg?react";
 
-const MarketTableRow: FC<Currency> = (
+const MarketTableRow: FC<QuotatedCurrency> = (
     {
         number,
         name,
@@ -19,7 +19,8 @@ const MarketTableRow: FC<Currency> = (
         percentageForDay,
         marketCap,
         volume,
-        icon
+        icon,
+        quote,
     }
 ) => {
     const chartColor = percentageForDay < 0 ? "#FF6838" : "#58BD7D";
@@ -69,6 +70,7 @@ const MarketTableRow: FC<Currency> = (
             <div className={styles.cell}>
                 <ChartSmall
                     color={chartColor}
+                    data={quote}
                 />
 
                 <UiButton

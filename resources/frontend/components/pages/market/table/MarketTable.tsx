@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getTrendingCurrencies } from "@/services/api/contexts/currency";
-import { Currency } from "@/services/api/contexts/currency/types";
+import { QuotatedCurrency } from "@/services/api/contexts/currency/types";
 
 import MarketTableRow from "./row/MarketTableRow";
 
@@ -25,12 +25,12 @@ const MarketTable = () => {
         enabled: enabled,
         queryFn: () => getTrendingCurrencies(10),
     });
-    const [sortData, setSortData] = useState<Currency[]>([]);
+    const [sortData, setSortData] = useState<QuotatedCurrency[]>([]);
 
-    const [sort, setSort] = useState<keyof Currency>("number");
+    const [sort, setSort] = useState<keyof QuotatedCurrency>("number");
     const [descending, setDescending] = useState(false);
 
-    const sortByField = (field: keyof Currency) => {
+    const sortByField = (field: keyof QuotatedCurrency) => {
         if (field === sort) {
             setDescending((prev) => !prev);
         } else {
