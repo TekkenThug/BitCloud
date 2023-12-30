@@ -175,3 +175,14 @@
 	opacity: 0;
 	visibility: hidden;
 }
+
+.fullName {
+	max-width: 75px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	@include respond($mobile) {
+		max-width: unset;
+	}
+}

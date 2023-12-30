@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { Currency } from "@/services/api/contexts/currency/types";
 
@@ -6,9 +6,10 @@ import ChartSmall from "@/components/common/charts/ChartSmall";
 import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./MarketTableRow.module.scss";
+
 import Star from "@/assets/icons/ui/star.svg?react";
 
-const MarketTableRow: React.FC<Currency> = (
+const MarketTableRow: FC<Currency> = (
     {
         number,
         name,
@@ -30,7 +31,8 @@ const MarketTableRow: React.FC<Currency> = (
             </div>
 
             <div className={styles.cell}>
-                <img className={styles.cellCurrencyIcon} src={icon} alt="Currency icon" /> { name }
+                <img className={styles.cellCurrencyIcon} src={icon} alt="Currency icon" />
+                <span className={styles.fullName}>{ name }</span>
                 <span className={styles.shortName}>{ shortName }</span>
             </div>
 
