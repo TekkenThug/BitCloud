@@ -12,7 +12,7 @@ const queryClient = new QueryClient();
 const App = () => {
     const router = createBrowserRouter([
         {
-            path: "/",
+            path: "/market",
             element: <MarketPage />,
         },
         {
