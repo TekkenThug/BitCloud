@@ -3,8 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\SubscriberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('currencies', [CurrencyController::class, 'get']);
 Route::resource('articles', ArticleController::class);
+
+Route::post('subscribe', [SubscriberController::class, 'post']);
