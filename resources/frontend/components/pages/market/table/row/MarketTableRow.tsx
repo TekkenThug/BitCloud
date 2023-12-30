@@ -71,6 +71,7 @@ const MarketTableRow: FC<QuotatedCurrency> = (
                 <ChartSmall
                     color={chartColor}
                     data={quote}
+                    className={styles.chart}
                 />
 
                 <UiButton

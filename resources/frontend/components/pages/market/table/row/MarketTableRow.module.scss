@@ -14,6 +14,11 @@
 			opacity: 1;
 			visibility: visible;
 		}
+
+		.chart {
+			opacity: 0;
+			visibility: hidden;
+		}
 	}
 
 	@include respond($mobile) {
@@ -174,6 +179,10 @@
 	transition: all $transition;
 	opacity: 0;
 	visibility: hidden;
+}
+
+.chart {
+	transition: all $transition;
 }
 
 .fullName {
