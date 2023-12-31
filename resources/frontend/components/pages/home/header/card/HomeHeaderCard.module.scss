@@ -1,0 +1,42 @@
+.HomeHeaderCard {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 80px 32px 32px;
+    border-radius: 12px;
+    transition: all $transition;
+    user-select: none;
+
+    @include hover {
+        background-color: $neutral-3;
+    }
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 16px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.shortName {
+    @include caption-2;
+
+    color: $neutral-4;
+    font-weight: 600;
+}
+
+.price {
+    @include body-1;
+
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.pricePerWeek {
+    @include caption-2;
+}
