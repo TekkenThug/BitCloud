@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-import HomeHeaderCard from "./card/HomeHeaderCard";
-
 import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./HomeHeader.module.scss";
 
-import image from "@/assets/images/home/header.png";
 import ArrowDown from "@/assets/icons/ui/arrow-down.svg?react";
+import image from "@/assets/images/home/header.png";
+
+import HomeHeaderCard from "./card/HomeHeaderCard";
 
 const HomeHeader: FC<{ id: string }> = ({ id }) => {
     const cards = [

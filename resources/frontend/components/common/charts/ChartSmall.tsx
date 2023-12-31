@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { v4 as uuid4 } from "uuid";
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
+import { v4 as uuid4 } from "uuid";
 
 interface Props {
 	color: string;

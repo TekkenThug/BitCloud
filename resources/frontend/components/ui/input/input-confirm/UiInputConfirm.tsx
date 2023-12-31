@@ -1,9 +1,9 @@
-import{ useState, FC, FormEvent } from "react";
+import{ FC, FormEvent,useState } from "react";
 
 import "./UiInputConfirm.scss";
 
-import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
 import Loading from "@/assets/icons/controls/loading.svg?react";
+import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
 import Check from "@/assets/icons/ui/check.svg?react";
 
 interface UiInputProps {

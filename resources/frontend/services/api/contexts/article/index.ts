@@ -1,8 +1,8 @@
 import { api } from "@/services/api";
+import { WithPagination } from "@/services/api/types";
 
 import { dateAdapter } from "./adapters";
 import { Article } from "./types";
-import { WithPagination } from "@/services/api/types";
 
 const REQUEST_URL = "/articles";
 

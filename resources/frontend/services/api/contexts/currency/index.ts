@@ -1,6 +1,7 @@
 import { api } from "@/services/api";
+import { chartsAdapter,numbersAdapter } from "@/services/api/contexts/currency/adapters.ts";
+
 import { Currency } from "./types";
-import { numbersAdapter, chartsAdapter } from "@/services/api/contexts/currency/adapters.ts";
 
 const REQUEST_URL = "/currencies";
 

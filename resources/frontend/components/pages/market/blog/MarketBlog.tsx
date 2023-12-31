@@ -4,11 +4,13 @@ import { useRequest } from "ahooks";
 import { getArticlesForMarketPage } from "@/services/api/contexts/article";
 import { Article } from "@/services/api/contexts/article/types";
 
-import MarketBlogItem from "./item/MarketBlogItem";
 import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./MarketBlog.module.scss";
+
 import Loading from "@/assets/icons/controls/loading.svg?react";
+
+import MarketBlogItem from "./item/MarketBlogItem";
 
 const MarketBlog = () => {
     const title = "Learn and earn";

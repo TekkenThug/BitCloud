@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { animated,useSpring } from "@react-spring/web";
 
 import { subscribeToNewsletter } from "@/services/api/contexts/subscribe";
 import { ErrorMessage } from "@/services/api/types";

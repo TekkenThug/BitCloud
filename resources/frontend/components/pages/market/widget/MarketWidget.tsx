@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import MarketWidgetCard from "./card/MarketWidgetCard.tsx";
-
 import UiButton from "@/components/ui/button/UiButton.tsx";
 import UiSelect from "@/components/ui/select/UiSelect.tsx";
 import UiTab from "@/components/ui/tab/UiTab.tsx";
@@ -12,7 +11,7 @@ const MarketWidget = () => {
 	type SelectOptionType = { label: string, value: string }
 	const cryptoCards = [1, 2, 3];
 	const subNavItems = [
-	    { value: "Cryptocurrencies", label: "Cryptocurrencies" },
+		{ value: "Cryptocurrencies", label: "Cryptocurrencies" },
 	    { value: "DeFi", label: "DeFi" },
 	    { value: "Innovation", label: "Innovation" },
 	    { value: "POS", label: "POS" },
@@ -69,7 +68,7 @@ const MarketWidget = () => {
 	            <UiButton
 	                className={styles.walletButton}
 	                color="dark"
-	                clickHandler={() => {}}
+	                clickHandler={() => { }}
 	            >
 					Wallet
 	            </UiButton>

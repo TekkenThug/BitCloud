@@ -1,13 +1,14 @@
-import UiButton from "@/components/ui/button/UiButton.tsx";
+import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./Header.module.scss";
+
+import Lightning from "@/assets/icons/ce/lightning.svg?react";
 import Logo from "@/assets/icons/common/logo.svg?react";
 import ArrowDown from "@/assets/icons/ui/arrow-down-simple.svg?react";
 import Bell from "@/assets/icons/ui/bell.svg?react";
-import Lightning from "@/assets/icons/ce/lightning.svg?react";
 
 const Header = () => {
-    const goToWallet = () => {};
+    const goToWallet = () => { };
     const userAvatar = "";
     const hasNotifications = true;
 
@@ -19,11 +20,11 @@ const Header = () => {
                         <a href="/" className={styles.mainLink}>
                             <Logo className={styles.logo} />
 
-							BitCloud
+                            BitCloud
                         </a>
 
                         <div className={styles.dropDownTrigger}>
-							Exchange <ArrowDown className={styles.dropDownArrow} />
+                            Exchange <ArrowDown className={styles.dropDownArrow} />
                         </div>
                     </div>
 
@@ -37,9 +38,9 @@ const Header = () => {
                         <button
                             className={
                                 `${styles.button} ` +
-								`${styles.button_shape_square} ` +
-								`${styles.bell} ` +
-								`${hasNotifications ? styles.bell_active : ""}`}
+                                `${styles.button_shape_square} ` +
+                                `${styles.bell} ` +
+                                `${hasNotifications ? styles.bell_active : ""}`}
                         >
                             <Bell />
                         </button>
@@ -49,7 +50,7 @@ const Header = () => {
                             clickHandler={goToWallet}
                             className={`${styles.button} ${styles.walletButton}`}
                         >
-							Wallet
+                            Wallet
                         </UiButton>
 
                         <div
@@ -57,10 +58,10 @@ const Header = () => {
                         >
                             {
                                 userAvatar &&
-								<img
-								    src={userAvatar}
-								    alt="Avatar"
-								/>
+                                <img
+                                    src={userAvatar}
+                                    alt="Avatar"
+                                />
                             }
                         </div>
                     </div>

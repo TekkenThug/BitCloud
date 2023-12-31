@@ -1,11 +1,11 @@
-import { useState, FC } from "react";
-
-import HomeNewsItem from "./item/HomeNewsItem";
+import { FC,useState } from "react";
 
 import UiButton from "@/components/ui/button/UiButton";
 import UiTab from "@/components/ui/tab/UiTab";
 
 import styles from "./HomeNews.module.scss";
+
+import HomeNewsItem from "./item/HomeNewsItem";
 
 const HomeNews: FC<{ id: string }> = ({ id }) => {
     const tabs = [

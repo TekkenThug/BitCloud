@@ -1,5 +1,6 @@
 import { api, ApiError } from "@/services/api";
 import { WithMessage } from "@/services/api/types";
+
 import { Subscriber } from "./types";
 
 const REQUEST_URL = "/subscribe";

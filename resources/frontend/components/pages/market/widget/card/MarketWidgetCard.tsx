@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import UiPercentageTag from "@/components/ui/percentage-tag/UiPercentageTag";
 import ChartSmall from "@/components/common/charts/ChartSmall";
+import UiPercentageTag from "@/components/ui/percentage-tag/UiPercentageTag";
 
 import styles from "./MarketWidgetCard.module.scss";
 

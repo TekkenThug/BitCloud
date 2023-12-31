@@ -2,9 +2,9 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import Address from "@/components/common/address/Address.tsx";
-import UiTab from "@/components/ui/tab/UiTab.tsx";
-import UiInputSimple from "@/components/ui/input/input-simple/UiInputSimple.tsx";
 import UiButton from "@/components/ui/button/UiButton.tsx";
+import UiInputSimple from "@/components/ui/input/input-simple/UiInputSimple.tsx";
+import UiTab from "@/components/ui/tab/UiTab.tsx";
 
 import styles from "./AuthSign.module.scss";
 
