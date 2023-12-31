@@ -7,7 +7,7 @@ interface Props {
 }
 
 const UiPercentageTag: FC<Props> = ({ percentage }) => {
-    const processedPercentage = `${percentage < 0 ? "-" : "+"}${percentage}%`;
+    const processedPercentage = `${percentage < 0 ? "" : "+"}${percentage}%`;
     const classes = [
         "UiPercentageTag",
         percentage < 0 ? "UiPercentageTag--negative" : ""
