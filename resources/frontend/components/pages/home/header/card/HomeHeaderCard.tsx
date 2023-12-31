@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { formatPrice } from "@/components/utils/numbers";
+import { formatPrice } from "@/utils/numbers";
 
 import UiPercentageTag from "@/components/ui/percentage-tag/UiPercentageTag";
 
