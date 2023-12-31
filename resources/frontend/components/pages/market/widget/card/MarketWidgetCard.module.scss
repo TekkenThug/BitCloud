@@ -29,20 +29,6 @@
 	font-weight: 600;
 }
 
-.percentage {
-	@include caption-2;
-
-	flex-shrink: 0;
-	font-weight: 600;
-	padding: 2px 8px;
-	border-radius: 24px;
-	background-color: $primary-4;
-
-	&_negative {
-		background-color: $primary-3;
-	}
-}
-
 .value {
 	@include body-1;
 

@@ -1,9 +1,11 @@
-import React from "react";
+import { FC } from "react";
 
-import ChartSmall from "@/components/common/charts/ChartSmall.tsx";
+import UiPercentageTag from "@/components/ui/percentage-tag/UiPercentageTag";
+import ChartSmall from "@/components/common/charts/ChartSmall";
+
+import styles from "./MarketWidgetCard.module.scss";
 
 import Logo from "@/assets/icons/currency/bitcoin.svg?react";
-import styles from "./MarketWidgetCard.module.scss";
 
 interface MarketWidgetCardProps {
 	name: string;
@@ -13,7 +15,7 @@ interface MarketWidgetCardProps {
 	className?: string;
 }
 
-const MarketWidgetCard: React.FC<MarketWidgetCardProps> = (
+const MarketWidgetCard: FC<MarketWidgetCardProps> = (
     {
         name,
         percentage,
@@ -23,7 +25,6 @@ const MarketWidgetCard: React.FC<MarketWidgetCardProps> = (
     }
 ) => {
     const chartColor = percentage < 0 ? "#FF6838" : "#58BD7D";
-    const processedPercentage = `${percentage < 0 ? "" : "+"}${percentage}%`;
 
     return (
         <div className={`${styles.MarketWidgetCard} ${className}`}>
@@ -36,9 +37,7 @@ const MarketWidgetCard: React.FC<MarketWidgetCardProps> = (
                             { name }
                         </div>
 
-                        <div className={`${styles.percentage} ${percentage < 0 ? styles.percentage_negative : ""}`}>
-                            { processedPercentage }
-                        </div>
+                        <UiPercentageTag percentage={percentage} />
                     </div>
 
                     <div className={styles.value}>
