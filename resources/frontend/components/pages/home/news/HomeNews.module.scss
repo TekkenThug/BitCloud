@@ -1,0 +1,33 @@
+.HomeNews {
+    padding-top: 136px;
+}
+
+.top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.title {
+    @include headline-2;
+
+    margin-bottom: 40px;
+}
+
+.tabList {
+    display: flex;
+    gap: 24px;
+}
+
+.newsList {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 32px;
+    justify-content: space-between;
+
+    li:first-child {
+        grid-area: 1 / 1 / 4 / 2;
+    }
+}
