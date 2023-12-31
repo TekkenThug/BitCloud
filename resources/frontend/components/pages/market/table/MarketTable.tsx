@@ -4,15 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 import { getTrendingCurrencies } from "@/services/api/contexts/currency";
 import { QuotatedCurrency } from "@/services/api/contexts/currency/types";
 
-import MarketTableRow from "./row/MarketTableRow";
-
 import UiLoader from "@/components/ui/loader/UiLoader";
+
+import MarketTableRow from "./row/MarketTableRow.tsx";
 
 import styles from "./MarketTable.module.scss";
 
-import Arrows from "@/assets/icons/ui/arrow-two.svg?react";
-import Coin from "@/assets/icons/finance/coin.svg?react";
 import ChartBar from "@/assets/icons/finance/chart-bar.svg?react";
+import Coin from "@/assets/icons/finance/coin.svg?react";
+import Arrows from "@/assets/icons/ui/arrow-two.svg?react";
 
 const MarketTable = () => {
     const [enabled, setEnabled] = useState(true);

@@ -8,7 +8,11 @@ module.exports = {
     ],
     ignorePatterns: ["node_modules", "vendor", ".eslintrc.cjs"],
     parser: "@typescript-eslint/parser",
-    plugins: ["react-refresh", "@stylistic/eslint-plugin-js"],
+    plugins: [
+        "react-refresh",
+        "@stylistic/eslint-plugin-js",
+        "simple-import-sort",
+    ],
     rules: {
         "react-refresh/only-export-components": [
             "warn",
@@ -28,6 +32,19 @@ module.exports = {
             "error",
             "always"
         ],
-        "@stylistic/js/max-len": ["error", { "code": 120 }]
+        "@stylistic/js/max-len": ["error", { "code": 120 }],
+        "simple-import-sort/imports": [
+            "error",
+            {
+                "groups": [
+                  ["^react", "^@?\\w"],
+                  ["^@/hooks", "^@/services", "^@/utils", "^@/types"],
+                  ["^@/components"],
+                  ["^\.*\.tsx$"],
+                  ["^.+\\.?(css)$"],
+                  ["^@/assets"]
+                ]
+            }
+        ],
     },
 };
