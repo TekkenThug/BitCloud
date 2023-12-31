@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 
 import HomeNewsItem from "./item/HomeNewsItem";
 
@@ -7,7 +7,7 @@ import UiTab from "@/components/ui/tab/UiTab";
 
 import styles from "./HomeNews.module.scss";
 
-const HomeNews = () => {
+const HomeNews: FC<{ id: string }> = ({ id }) => {
     const tabs = [
         "All", "Bitcoin", "Blockchain", "Tutorial"
     ];
@@ -41,7 +41,7 @@ const HomeNews = () => {
     ];
 
     return (
-        <section className={styles.HomeNews}>
+        <section className={styles.HomeNews} id={id}>
             <div className="container">
                 <div className={styles.top}>
                     <div>
@@ -51,7 +51,7 @@ const HomeNews = () => {
 
                         <ul className={styles.tabList}>
                             { tabs.map(tab => 
-                                <li>
+                                <li key={tab}>
                                     <UiTab
                                         isActive={tab === activeTab}
                                         text={tab}
@@ -72,7 +72,7 @@ const HomeNews = () => {
 
                     <ul className={styles.newsList}>
                         {news.map((item, index) =>
-                            <li>
+                            <li key={index}>
                                 <HomeNewsItem {...item} isBig={index === 0}/>
                             </li>    
                         )}

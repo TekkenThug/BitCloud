@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 import HomeHeaderCard from "./card/HomeHeaderCard";
 
 import UiButton from "@/components/ui/button/UiButton";
@@ -7,7 +9,7 @@ import styles from "./HomeHeader.module.scss";
 import image from "@/assets/images/home/header.png";
 import ArrowDown from "@/assets/icons/ui/arrow-down.svg?react";
 
-const HomeHeader = () => {
+const HomeHeader: FC<{ id: string }> = ({ id }) => {
     const cards = [
         {
             icon: "/storage/images/currency-icons/BTC.svg",
@@ -39,6 +41,18 @@ const HomeHeader = () => {
         }
     ];
 
+    const scrollToNextSection = () =>  {
+        const element = document.querySelector(`#${id}`);
+
+        console.log(element);
+
+        if (!element) return;
+
+        element.scrollIntoView({
+            behavior: "smooth",
+        });
+    };
+
     return (
         <section className={styles.HomeHeader}>
             <div className="container">
@@ -65,14 +79,14 @@ const HomeHeader = () => {
                         <img src={image} alt="Header image" />
                     </div>
 
-                    <button className={styles.buttonDown}>
+                    <button className={styles.buttonDown} onClick={scrollToNextSection}>
                         <ArrowDown />
                     </button>
                 </div>
 
                 <div className={styles.list}>
-                    {cards.map(card => 
-                        <HomeHeaderCard {...card} />
+                    {cards.map((card, index) => 
+                        <HomeHeaderCard {...card} key={index} />
                     )}
                 </div>
             </div>

@@ -4,11 +4,13 @@ import HomeNews from "./news/HomeNews";
 import DefaultLayout from "@/components/layouts/DefaultLayout";
 
 const HomePage = () => {
+    const scrollableId = "news";
+    
     return (
         <DefaultLayout>
-            <HomeHeader />
+            <HomeHeader id={scrollableId} />
 
-            <HomeNews />
+            <HomeNews id={scrollableId} />
         </DefaultLayout>
     );
 };
