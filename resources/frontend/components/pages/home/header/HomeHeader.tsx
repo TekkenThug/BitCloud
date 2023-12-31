@@ -44,8 +44,6 @@ const HomeHeader: FC<{ id: string }> = ({ id }) => {
     const scrollToNextSection = () =>  {
         const element = document.querySelector(`#${id}`);
 
-        console.log(element);
-
         if (!element) return;
 
         element.scrollIntoView({
