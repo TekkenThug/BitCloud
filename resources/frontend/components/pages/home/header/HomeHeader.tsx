@@ -1,3 +1,5 @@
+import HomeHeaderCard from "./card/HomeHeaderCard";
+
 import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./HomeHeader.module.scss";
@@ -6,6 +8,37 @@ import image from "@/assets/images/home/header.png";
 import ArrowDown from "@/assets/icons/ui/arrow-down.svg?react";
 
 const HomeHeader = () => {
+    const cards = [
+        {
+            icon: "/storage/images/currency-icons/BTC.svg",
+            percentage: -0.79,
+            shortName: "BTC/USDT",
+            pricePerDay: 36641.20,
+            pricePerWeek: 36641.20,
+        },
+        {
+            icon: "/storage/images/currency-icons/BTC.svg",
+            percentage: -0.79,
+            shortName: "BTC/USDT",
+            pricePerDay: 36641.20,
+            pricePerWeek: 36641.20,
+        },
+        {
+            icon: "/storage/images/currency-icons/BTC.svg",
+            percentage: -0.79,
+            shortName: "BTC/USDT",
+            pricePerDay: 36641.20,
+            pricePerWeek: 36641.20,
+        },
+        {
+            icon: "/storage/images/currency-icons/BTC.svg",
+            percentage: -0.79,
+            shortName: "BTC/USDT",
+            pricePerDay: 36641.20,
+            pricePerWeek: 36641.20,
+        }
+    ];
+
     return (
         <section className={styles.HomeHeader}>
             <div className="container">
@@ -37,7 +70,11 @@ const HomeHeader = () => {
                     </button>
                 </div>
 
-                <div></div>
+                <div className={styles.list}>
+                    {cards.map(card => 
+                        <HomeHeaderCard {...card} />
+                    )}
+                </div>
             </div>
         </section>
     );

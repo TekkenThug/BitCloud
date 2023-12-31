@@ -70,3 +70,11 @@
         transition: all $transition;
     }
 }
+
+.list {
+    display: flex;
+    gap: 32px;
+    background-color: $neutral-2;
+    border-radius: 24px;
+    padding: 24px;
+}
