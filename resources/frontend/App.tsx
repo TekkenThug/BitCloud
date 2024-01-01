@@ -6,7 +6,6 @@ import HomePage from "@/components/pages/home/HomePage";
 import MarketPage from "@/components/pages/market/MarketPage";
 
 import "@/assets/styles/global.scss";
-import styles from "./App.module.scss";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +26,7 @@ const App = () => {
     ]);
 
     return (
-        <div className={styles.App}>
+        <div className="app">
             <QueryClientProvider client={queryClient}>
                 <RouterProvider router={router} />
             </QueryClientProvider>
