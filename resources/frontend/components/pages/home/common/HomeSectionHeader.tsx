@@ -6,6 +6,8 @@ import UiTab from "@/components/ui/tab/UiTab";
 import styles from "./HomeSectionHeader.module.scss";
 
 interface Props {
+    title: string;
+    link: string;
     tabs: string[];
     activeTab: number | string;
     onChange: (tab: string) => void;
@@ -13,6 +15,8 @@ interface Props {
 
 const HomeSectionHeader: FC<Props> = (
     {
+        title,
+        link,
         tabs,
         activeTab,
         onChange,
@@ -22,7 +26,7 @@ const HomeSectionHeader: FC<Props> = (
         <div className={styles.HomeSectionHeader}>
             <div>
                 <h2 className={styles.title}>
-                    Learn crypto
+                    {title}
                 </h2>
 
                 <ul className={styles.tabList}>
@@ -38,7 +42,11 @@ const HomeSectionHeader: FC<Props> = (
                 </ul>
             </div>
 
-            <UiButton color="dark">
+            <UiButton
+                color="dark"
+                tag="a"
+                href={link}
+            >
                 View more
             </UiButton>
         </div>
