@@ -40,7 +40,7 @@ module.exports = {
                   ["^react", "^@?\\w"],
                   ["^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/types.*"],
                   ["^@\/components.*"],
-                  ["^\..+\.tsx$"],
+                  ["^\.+.+\.tsx$"],
                   ["^.+\\.?(css)$"],
                   ["^@/assets"]
                 ]
