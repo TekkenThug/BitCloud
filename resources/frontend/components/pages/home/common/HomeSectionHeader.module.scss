@@ -1,0 +1,16 @@
+.HomeSectionHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.title {
+    @include headline-2;
+
+    margin-bottom: 40px;
+}
+
+.tabList {
+    display: flex;
+    gap: 24px;
+}

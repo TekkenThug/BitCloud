@@ -1,11 +1,9 @@
 import { FC,useState } from "react";
 
-import UiButton from "@/components/ui/button/UiButton";
-import UiTab from "@/components/ui/tab/UiTab";
+import HomeSectionHeader from "../common/HomeSectionHeader.tsx";
+import HomeNewsItem from "./item/HomeNewsItem.tsx";
 
 import styles from "./HomeNews.module.scss";
-
-import HomeNewsItem from "./item/HomeNewsItem";
 
 const HomeNews: FC<{ id: string }> = ({ id }) => {
     const tabs = [
@@ -43,29 +41,11 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
     return (
         <section className={styles.HomeNews} id={id}>
             <div className="container">
-                <div className={styles.top}>
-                    <div>
-                        <h2 className={styles.title}>
-                            Learn crypto
-                        </h2>
-
-                        <ul className={styles.tabList}>
-                            { tabs.map(tab => 
-                                <li key={tab}>
-                                    <UiTab
-                                        isActive={tab === activeTab}
-                                        text={tab}
-                                        changeHandler={() => setTab(tab)}
-                                    />
-                                </li>
-                            )}
-                        </ul>
-                    </div>
-
-                    <UiButton color="dark">
-                        View more
-                    </UiButton> 
-                </div>
+                <HomeSectionHeader
+                    tabs={tabs}
+                    activeTab={activeTab}
+                    onChange={setTab}
+                />
 
                 <div>
                     <div></div>
