@@ -1,8 +1,35 @@
 # CryptoExchange React app
 
-## Development
+## How to run
+Before running frontend application, install Laravel dependencies (see main README.md file, spotted in the root directory)
 
-### Import order
+In the root directory, install dependencies
+
+```bash
+npm install
+```
+And start development
+
+```bash
+npm run dev
+```
+
+## Project structure
+```bash
+├─assets
+│   ├─icons     // SVG icons, separated by usage context
+│   ├─images    // Static images
+│   └─styles    // SCSS styles, included variables, mixins, typography and etc.
+├─components
+│   ├─common    // Commonly used images
+│   ├─layouts   // Page layouts
+│   ├─pages     // Page views, use it in React Router
+│   └─ui        // UI Components
+├─services      // Services for bussines logic (API calls and etc.)
+└─utils         // Different util functions
+```
+
+## Import order
 
 ```js
 // Imports from node_modules (libraries, components and etc.)
