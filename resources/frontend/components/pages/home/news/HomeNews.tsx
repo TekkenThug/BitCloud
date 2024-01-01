@@ -1,4 +1,6 @@
-import { FC,useState } from "react";
+import { FC } from "react";
+
+import useTabs from "@/hooks/useTabs";
 
 import HomeSectionHeader from "../common/HomeSectionHeader.tsx";
 import HomeNewsItem from "./item/HomeNewsItem.tsx";
@@ -6,10 +8,9 @@ import HomeNewsItem from "./item/HomeNewsItem.tsx";
 import styles from "./HomeNews.module.scss";
 
 const HomeNews: FC<{ id: string }> = ({ id }) => {
-    const tabs = [
+    const { tabs, activeTab, setTab } = useTabs([
         "All", "Bitcoin", "Blockchain", "Tutorial"
-    ];
-    const [activeTab, setTab] = useState<string>(tabs[0]);
+    ]);
 
     const news = [
         {
@@ -45,6 +46,8 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
                     tabs={tabs}
                     activeTab={activeTab}
                     onChange={setTab}
+                    title="Learn crypto"
+                    link="/"
                 />
 
                 <div>
