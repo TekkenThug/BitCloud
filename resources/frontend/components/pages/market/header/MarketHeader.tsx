@@ -8,7 +8,7 @@ import elementTwo from "@/assets/images/market/header/element-2.png";
 import elementThree from "@/assets/images/market/header/element-3.png";
 import elementFour from "@/assets/images/market/header/element-4.png";
 import elementFive from "@/assets/images/market/header/element-5.png";
-import image from "@/assets/images/market/header/layout.png";
+import image from "@/assets/images/common/become-2.png";
 
 const MarketHeader = () => {
     const text = "Today’s Cryptocurrency prices";
