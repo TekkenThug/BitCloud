@@ -23,8 +23,6 @@ const MarketTableRow: FC<QuotatedCurrency> = (
         quote,
     }
 ) => {
-    const chartColor = percentageForDay < 0 ? "#FF6838" : "#58BD7D";
-
     return (
         <div className={styles.MarketTableRow}>
             <div className={styles.cell}>
@@ -43,18 +41,18 @@ const MarketTableRow: FC<QuotatedCurrency> = (
                 ${ price.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) }
             </div>
 
-            <div className={`${styles.cell} ${percentageForWeek > 0 ? styles.cell_positive : styles.cell_negative }`}>
-                <span className={styles.cellPrefix}>24h</span>
-
-                { percentageForWeek > 0 ? "+" : "" }
-                { percentageForWeek.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) }%
-            </div>
-
             <div className={`${styles.cell} ${percentageForDay > 0 ? styles.cell_positive : styles.cell_negative }`}>
-                <span className={styles.cellPrefix}>7d</span>
+                <span className={styles.cellPrefix}>24h</span>
 
                 { percentageForDay > 0 ? "+" : "" }
                 { percentageForDay.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) }%
+            </div>
+
+            <div className={`${styles.cell} ${percentageForWeek > 0 ? styles.cell_positive : styles.cell_negative }`}>
+                <span className={styles.cellPrefix}>7d</span>
+
+                { percentageForWeek > 0 ? "+" : "" }
+                { percentageForWeek.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) }%
             </div>
 
             <div className={styles.cell}>
@@ -69,7 +67,7 @@ const MarketTableRow: FC<QuotatedCurrency> = (
 
             <div className={styles.cell}>
                 <ChartSmall
-                    color={chartColor}
+                    isNegative={percentageForDay < 0}
                     data={quote}
                     className={styles.chart}
                 />
