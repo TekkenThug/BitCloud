@@ -1,6 +1,9 @@
 import useTabs from "@/hooks/useTabs";
 import { formatPercent, formatPrice } from "@/utils/numbers";
 
+import ChartSmall from "@/components/common/charts/ChartSmall.tsx";
+import UiButton from "@/components/ui/button/UiButton.tsx";
+
 import HomeSectionHeader from "../common/HomeSectionHeader.tsx";
 
 import styles from "./HomeTrend.module.scss";
@@ -21,23 +24,75 @@ const HomeTrend = () => {
             percentage: 2.04,
             quote: [
                 {
-                    "date": "2023-12-30",
-                    "value": 13448
+                    x: "2023-12-30",
+                    y: 13448
                 },
                 {
-                    "date": "2023-12-31",
-                    "value": 37451
+                    x: "2023-12-31",
+                    y: 37451
                 },
                 {
-                    "date": "2024-01-01",
-                    "value": 39736
+                    x: "2024-01-01",
+                    y: 39736
                 },
                 {
-                    "date": "2024-01-02",
-                    "value": 45570.6887703269
+                    x: "2024-01-02",
+                    y: 45570.6887703269
                 }
             ]
-        }
+        },
+        {
+            number: 1,
+            image: "/storage/images/currency-icons/BTC.svg",
+            shortName: "BTC",
+            name: "Bitcoin",
+            price: 36201.34,
+            percentage: 2.04,
+            quote: [
+                {
+                    x: "2023-12-30",
+                    y: 13448
+                },
+                {
+                    x: "2023-12-31",
+                    y: 37451
+                },
+                {
+                    x: "2024-01-01",
+                    y: 39736
+                },
+                {
+                    x: "2024-01-02",
+                    y: 45570.6887703269
+                }
+            ]
+        },
+        {
+            number: 1,
+            image: "/storage/images/currency-icons/BTC.svg",
+            shortName: "BTC",
+            name: "Bitcoin",
+            price: 36201.34,
+            percentage: 2.04,
+            quote: [
+                {
+                    x: "2023-12-30",
+                    y: 13448
+                },
+                {
+                    x: "2023-12-31",
+                    y: 37451
+                },
+                {
+                    x: "2024-01-01",
+                    y: 39736
+                },
+                {
+                    x: "2024-01-02",
+                    y: 45570.6887703269
+                }
+            ]
+        },
     ];
 
     return (
@@ -64,26 +119,46 @@ const HomeTrend = () => {
                     </div>
 
                     <div className={styles.tableBody}>
-                        {tableData.map(row => (
-                            <div className={styles.tableRow}>
-                                <div>
+                        {tableData.map((row, index) => (
+                            <div className={styles.tableRow} key={index}>
+                                <div className={styles.tableRowCell}>
                                     {row.number}
                                 </div>
 
-                                <div>
-                                    <img src={row.image} alt="Currency icon" />
+                                <div className={styles.tableRowCell}>
+                                    <img
+                                        className={styles.tableRowCellIcon}
+                                        src={row.image}
+                                        alt="Currency icon"
+                                    />
 
                                     {row.name}
 
-                                    {row.shortName}
+                                    <span className={styles.tableRowCellShortName}>{row.shortName}</span>
                                 </div>
 
-                                <div>
+                                <div className={styles.tableRowCell}>
                                     ${formatPrice(row.price)}
                                 </div>
 
-                                <div>
+                                <div
+                                    className={
+                                        `${styles.tableRowCell}
+                                        ${styles.tableRowCellPercentage}
+                                        ${row.percentage < 0 ? styles["tableRowCellPercentage--negative"] : ""}`
+                                    }
+                                >
                                     {formatPercent(row.percentage)}
+                                </div>
+
+                                <div className={styles.tableRowCell}>
+                                    <ChartSmall isNegative={row.percentage < 0} data={row.quote} />
+                                </div>
+
+                                <div className={styles.tableRowCell}>
+                                    <UiButton color="dark" tag="a" href="/">
+                                        Trade
+                                    </UiButton>
                                 </div>
                             </div>
                         ))}
