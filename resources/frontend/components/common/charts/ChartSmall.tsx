@@ -3,7 +3,7 @@ import { Area, AreaChart, ResponsiveContainer } from "recharts";
 import { v4 as uuid4 } from "uuid";
 
 interface Props {
-	color: string;
+    isNegative?: boolean;
     className?: string;
     data: {
         y: number;
@@ -13,12 +13,13 @@ interface Props {
 
 const ChartSmall: FC<Props> = (
     {
-        color,
+        isNegative = false,
         data,
         className = "",
     }
 ) => {
     const uniqueId = uuid4();
+    const color = isNegative ? "#FF6838" : "#58BD7D";
 	
     return (
         <ResponsiveContainer
