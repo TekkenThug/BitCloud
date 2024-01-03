@@ -5,3 +5,7 @@ export const formatPrice = (number: number) => {
         maximumFractionDigits: 2
     });
 };
+
+export const formatPercent = (number: number) => {
+    return number < 0 ? `${number}%` : `+${number}%`;
+};
