@@ -1,0 +1,29 @@
+.HomeBecomeCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $neutral-2;
+    padding: 32px;
+    border-radius: 20px;
+    text-align: center;
+    height: 460px;
+}
+
+.image {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.description {
+    @include caption;
+
+    color: $neutral-4;
+}

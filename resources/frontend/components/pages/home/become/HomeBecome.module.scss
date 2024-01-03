@@ -1,0 +1,30 @@
+.HomeBecome {
+    background-color: $shade-2-30;
+    padding: 136px 0;
+}
+
+.header {
+    width: 450px;
+    margin: 0 auto 88px;
+    text-align: center;
+}
+
+.title {
+    @include headline-2;
+
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: $neutral-4;
+}
+
+.cardList {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.button {
+    margin: 0 auto;
+}
