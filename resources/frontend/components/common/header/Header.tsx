@@ -1,9 +1,9 @@
+import Logo from "@/components/common/logo/Logo";
 import UiButton from "@/components/ui/button/UiButton";
 
 import styles from "./Header.module.scss";
 
 import Lightning from "@/assets/icons/ce/lightning.svg?react";
-import Logo from "@/assets/icons/common/logo.svg?react";
 import ArrowDown from "@/assets/icons/ui/arrow-down-simple.svg?react";
 import Bell from "@/assets/icons/ui/bell.svg?react";
 
@@ -17,11 +17,7 @@ const Header = () => {
             <div className="container">
                 <div className={styles.wrapper}>
                     <div className={styles.left}>
-                        <a href="/" className={styles.mainLink}>
-                            <Logo className={styles.logo} />
-
-                            BitCloud
-                        </a>
+                        <Logo isLink className={styles.mainLink} />
 
                         <div className={styles.dropDownTrigger}>
                             Exchange <ArrowDown className={styles.dropDownArrow} />

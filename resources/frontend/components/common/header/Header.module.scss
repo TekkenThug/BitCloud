@@ -32,12 +32,7 @@
 }
 
 .mainLink {
-	@include body-1;
-
-	display: flex;
-	align-items: center;
 	position: relative;
-	font-weight: 600;
 	margin-right: 40px;
 	padding: 4px 0;
 
@@ -59,12 +54,6 @@
 			display: none;
 		}
 	}
-}
-
-.logo {
-	width: 32px;
-	height: 32px;
-	margin-right: 8px;
 }
 
 .dropDownTrigger {
