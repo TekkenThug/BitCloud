@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import { quote } from "@/data/mocks";
+
 import ChartSmall from "@/components/common/charts/ChartSmall";
 import UiPercentageTag from "@/components/ui/percentage-tag/UiPercentageTag";
 
@@ -24,8 +26,6 @@ const MarketWidgetCard: FC<MarketWidgetCardProps> = (
         className = ""
     }
 ) => {
-    const chartColor = percentage < 0 ? "#FF6838" : "#58BD7D";
-
     return (
         <div className={`${styles.MarketWidgetCard} ${className}`}>
             <div className={styles.content}>
@@ -51,7 +51,7 @@ const MarketWidgetCard: FC<MarketWidgetCardProps> = (
             </div>
 
             <div className={styles.chart}>
-                <ChartSmall color={chartColor} />
+                <ChartSmall data={quote} />
             </div>
         </div>
     );

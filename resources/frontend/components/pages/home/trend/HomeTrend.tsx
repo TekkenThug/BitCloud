@@ -1,5 +1,6 @@
 import useTabs from "@/hooks/useTabs";
 import { formatPercent, formatPrice } from "@/utils/numbers";
+import { quote } from "@/data/mocks";
 
 import ChartSmall from "@/components/common/charts/ChartSmall.tsx";
 import UiButton from "@/components/ui/button/UiButton.tsx";
@@ -22,24 +23,7 @@ const HomeTrend = () => {
             name: "Bitcoin",
             price: 36201.34,
             percentage: 2.04,
-            quote: [
-                {
-                    x: "2023-12-30",
-                    y: 13448
-                },
-                {
-                    x: "2023-12-31",
-                    y: 37451
-                },
-                {
-                    x: "2024-01-01",
-                    y: 39736
-                },
-                {
-                    x: "2024-01-02",
-                    y: 45570.6887703269
-                }
-            ]
+            quote,
         },
         {
             number: 1,
