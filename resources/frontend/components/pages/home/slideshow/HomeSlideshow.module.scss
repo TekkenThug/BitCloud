@@ -1,0 +1,38 @@
+.HomeSlideshow {
+    padding: 136px 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 545px;
+    margin: 0 auto 80px;
+}
+
+.title {
+    @include headline-2;
+
+    margin: 16px 0 20px;
+}
+
+.subtitle {
+    color: $neutral-4;
+}
+
+.sliderWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    width: calc(100% - (96px * 2));
+    height: 445px;
+}
+
+.navButton {
+    width: 24px;
+    height: 24px;
+    color: $neutral-4;
+}

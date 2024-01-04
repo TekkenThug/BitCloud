@@ -1,0 +1,43 @@
+.HomeSlideshowSlide {
+    display: flex;
+    padding: 80px 96px;
+    background-color: $neutral-2;
+    border-radius: 24px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    height: 100%;
+}
+
+.category {
+    @include hairline-2;
+
+    text-transform: uppercase;
+    color: $neutral-4;
+    margin-bottom: 16px;
+}
+
+.title {
+    @include body-1;
+
+    margin-bottom: 20px;
+}
+
+.description {
+    color: $neutral-4;
+}
+
+.link {
+    margin-top: auto;
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    right: 96px;
+    width: 350px;
+    transform: translateY(-50%);
+}

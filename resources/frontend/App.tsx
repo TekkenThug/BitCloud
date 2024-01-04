@@ -5,6 +5,7 @@ import AuthPage from "@/components/pages/auth/AuthPage";
 import HomePage from "@/components/pages/home/HomePage";
 import MarketPage from "@/components/pages/market/MarketPage";
 
+import "swiper/css";
 import "@/assets/styles/global.scss";
 
 const queryClient = new QueryClient();
