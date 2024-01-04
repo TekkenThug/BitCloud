@@ -38,7 +38,7 @@ module.exports = {
             {
                 "groups": [
                   ["^react", "^@?\\w"],
-                  ["^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/types.*"],
+                  ["^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/data.*", "^@\/types.*"],
                   ["^@\/components.*"],
                   ["^\.+.+\.tsx$"],
                   ["^.+\\.?(css)$"],
