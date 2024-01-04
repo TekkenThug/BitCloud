@@ -1,19 +1,5 @@
 # CryptoExchange React app
 
-## How to run
-Before running frontend application, install Laravel dependencies (see main README.md file, spotted in the root directory)
-
-In the root directory, install dependencies
-
-```bash
-npm install
-```
-And start development
-
-```bash
-npm run dev
-```
-
 ## Project structure
 ```bash
 ├─assets
