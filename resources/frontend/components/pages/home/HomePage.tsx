@@ -5,6 +5,7 @@ import HomeHeader from "./header/HomeHeader.tsx";
 import HomeNews from "./news/HomeNews.tsx";
 import HomeSlideshow from "./slideshow/HomeSlideshow.tsx";
 import HomeTrend from "./trend/HomeTrend.tsx";
+import HomeWork from "./work/HomeWork.tsx";
 
 const HomePage = () => {
     const scrollableId = "news";
@@ -20,6 +21,8 @@ const HomePage = () => {
             <HomeBecome />
 
             <HomeSlideshow />
+
+            <HomeWork />
         </DefaultLayout>
     );
 };
