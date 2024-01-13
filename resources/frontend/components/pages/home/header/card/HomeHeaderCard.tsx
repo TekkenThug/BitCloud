@@ -30,19 +30,21 @@ const HomeHeaderCard: FC<Props> = (
                 alt="Currency icon"
             />
 
-            <div className={styles.top}>
-                <span className={styles.shortName}>{shortName}</span>
+            <div className={styles.content}>
+                <div className={styles.top}>
+                    <span className={styles.shortName}>{shortName}</span>
 
-                <UiPercentageTag percentage={percentage} />
+                    <UiPercentageTag percentage={percentage} />
+                </div>
+
+                <strong className={styles.price}>
+                    {formatPrice(pricePerDay)}
+                </strong>
+
+                <span className={styles.pricePerWeek}>
+                    {formatPrice(pricePerWeek)}
+                </span>
             </div>
-
-            <strong className={styles.price}>
-                {formatPrice(pricePerDay)}
-            </strong>
-
-            <span className={styles.pricePerWeek}>
-                {formatPrice(pricePerWeek)}
-            </span>
         </div>
     );
 };

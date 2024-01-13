@@ -83,7 +83,7 @@ const HomeHeader: FC<{ id: string }> = ({ id }) => {
                 </div>
 
                 <div className={styles.list}>
-                    {cards.map((card, index) => 
+                    {cards.map((card, index) =>
                         <HomeHeaderCard {...card} key={index} />
                     )}
                 </div>

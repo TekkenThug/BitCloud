@@ -1,13 +1,30 @@
 .HomeHeaderCard {
     display: flex;
     flex-direction: column;
-    padding: 32px 80px 32px 32px;
+    padding: 32px 12px 32px 32px;
     border-radius: 12px;
     transition: all $transition;
     user-select: none;
+    flex-grow: 1;
 
     @include hover {
         background-color: $neutral-3;
+    }
+
+    &:nth-child(n + 4) {
+        @include respond($laptop) {
+            display: none;
+        }
+
+        @include respond($mobile) {
+            display: flex;
+        }
+    }
+
+    @include respond($mobile) {
+        padding: 32px;
+        flex-direction: row;
+        gap: 16px;
     }
 }
 
@@ -15,6 +32,11 @@
     width: 40px;
     height: 40px;
     margin-bottom: 16px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
 }
 
 .top {
