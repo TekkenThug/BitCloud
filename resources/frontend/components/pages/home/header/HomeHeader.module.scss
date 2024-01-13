@@ -5,6 +5,10 @@
     @include respond($laptop) {
         padding-bottom: 80px;
     }
+
+    @include respond($mobile) {
+        padding: calc(var(--header-height) + 16px) 0;
+    }
 }
 
 .top {
@@ -21,7 +25,7 @@
 
     @include respond($mobile) {
         flex-direction: column;
-        padding: 16px 0 0;
+        padding: 0;
     }
 }
 
