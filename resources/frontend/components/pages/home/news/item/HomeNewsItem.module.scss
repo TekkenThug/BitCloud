@@ -2,41 +2,49 @@
     display: flex;
     gap: 16px;
 
-    &--big {
+    @include respond($laptop, true) {
+        &--big {
+            flex-direction: column-reverse;
+            gap: 40px;
+
+            .content {
+                max-width: unset;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .contentText {
+                max-width: 340px;
+            }
+
+            .title {
+                @include headline-4;
+            }
+
+            .description {
+                @include body-2;
+            }
+
+            .date {
+                display: none;
+            }
+
+            .image {
+                width: 540px;
+                height: 510px;
+            }
+
+            .buttonMore {
+                display: flex;
+            }
+        }
+    }
+
+    @include respond($laptop) {
         flex-direction: column-reverse;
-        gap: 40px;
-
-        .content {
-            max-width: unset;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
-
-        .contentText {
-            max-width: 340px;
-        }
-
-        .title {
-            @include headline-4;
-        }
-
-        .description {
-            @include body-2;
-        }
-
-        .date {
-            display: none;
-        }
-
-        .image {
-            width: 540px;
-            height: 510px;
-        }
-
-        .buttonMore {
-            display: flex;
-        }
+        gap: 24px;
+        user-select: none;
     }
 }
 
@@ -45,6 +53,10 @@
     flex-direction: column;
     justify-content: space-between;
     max-width: 245px;
+
+    @include respond($laptop) {
+        max-width: unset;
+    }
 }
 
 .title {
@@ -52,6 +64,20 @@
 
     font-weight: 600;
     margin-bottom: 16px;
+
+    @include respond($laptop) {
+        @include body-1;
+
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    @include respond($mobile) {
+        @include body-2;
+
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
 }
 
 .description,
@@ -61,10 +87,22 @@
     color: $neutral-4;
 }
 
+.date {
+    @include respond($laptop) {
+        display: none;
+    }
+}
+
 .image {
     width: 220px;
     height: 220px;
     border-radius: 16px;
+    object-fit: cover;
+
+    @include respond($laptop) {
+        height: 320px;
+        width: unset;
+    }
 }
 
 .buttonMore {

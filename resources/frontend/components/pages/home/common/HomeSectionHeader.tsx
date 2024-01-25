@@ -24,7 +24,7 @@ const HomeSectionHeader: FC<Props> = (
 ) => {
     return (
         <div className={styles.HomeSectionHeader}>
-            <div>
+            <div className={styles.content}>
                 <h2 className={styles.title}>
                     {title}
                 </h2>
@@ -46,6 +46,7 @@ const HomeSectionHeader: FC<Props> = (
                 color="dark"
                 tag="a"
                 href={link}
+                className={styles.linkButton}
             >
                 View more
             </UiButton>

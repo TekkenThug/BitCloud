@@ -2,15 +2,45 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
+    @include respond($mobile) {
+        justify-content: center;
+    }
+}
+
+.content {
+    @include respond($mobile) {
+        overflow-x: auto;
+    }
 }
 
 .title {
     @include headline-2;
 
     margin-bottom: 40px;
+
+    @include respond($mobile) {
+        @include headline-3;
+
+        text-align: center;
+        margin-bottom: 32px;
+    }
 }
 
 .tabList {
     display: flex;
     gap: 24px;
+
+    @include hide-scrollbar;
+
+    @include respond($mobile) {
+        gap: 20px;
+        overflow-x: auto;
+    }
+}
+
+.linkButton {
+    @include respond($mobile) {
+        display: none;
+    }
 }
