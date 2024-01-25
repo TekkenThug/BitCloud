@@ -6,8 +6,14 @@
 	}
 }
 
-@mixin respond($breakpoint) {
-	@media screen and (max-width: $breakpoint) {
-		@content;
-	}
+@mixin respond($breakpoint, $is-min: false) {
+    @if ($is-min) {
+        @media screen and (min-width: $breakpoint) {
+            @content;
+        }
+    } @else {
+        @media screen and (max-width: $breakpoint) {
+            @content;
+        }
+    }
 }
