@@ -7,10 +7,10 @@
 .container {
 	margin: 0 auto;
 	max-width: 1150px;
-	padding: 0 15px;
+	padding: 0 $container-offset;
 
 	@include respond($mobile) {
-		padding: 0 32px;
+		padding: 0 $container-offset-mobile;
 	}
 }
 
