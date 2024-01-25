@@ -8,6 +8,17 @@
     border-radius: 20px;
     text-align: center;
     height: 460px;
+    transition: all $transition;
+
+    @include respond($laptop, true) {
+        @include hover {
+            transform: scale(1.02);
+        }
+    }
+
+    @include respond($mobile) {
+        padding: 24px;
+    }
 }
 
 .image {
@@ -15,6 +26,11 @@
     height: 160px;
     object-fit: contain;
     margin-bottom: 32px;
+
+    @include respond($mobile) {
+        width: 130px;
+        height: 130px;
+    }
 }
 
 .title {

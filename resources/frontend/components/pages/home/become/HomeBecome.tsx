@@ -1,3 +1,8 @@
+import { useEffect, useRef } from "react";
+import Swiper from "swiper";
+
+import { BREAKPOINTS } from "@/data/styles.ts";
+
 import UiButton from "@/components/ui/button/UiButton.tsx";
 
 import HomeBecomeCard from "./card/HomeBecomeCard.tsx";
@@ -27,6 +32,23 @@ const HomeBecome = () => {
         }
     ];
 
+    const slider = useRef(null);
+    useEffect(() => {
+        if (!slider.current) return;
+
+        new Swiper(slider.current, {
+            slidesPerView: 1.1,
+            spaceBetween: 8,
+            centeredSlides: true,
+
+            breakpoints: {
+                [BREAKPOINTS.MOBILE]: {
+                    enabled: false,
+                },
+            }
+        });
+    }, []);
+
     return (
         <section className={styles.HomeBecome}>
             <div className="container">
@@ -39,8 +61,20 @@ const HomeBecome = () => {
                 </div>
 
                 <ul className={styles.cardList}>
-                    {cards.map((card, key) => <HomeBecomeCard {...card} key={key} />)}
+                    {cards.map((card, key) => (
+                        <HomeBecomeCard {...card} key={key} />
+                    ))}
                 </ul>
+
+                <div ref={slider} className={`${styles.cardListSlider} swiper`}>
+                    <div className="swiper-wrapper">
+                        {cards.map((card, key) => (
+                            <div className="swiper-slide" key={key}>
+                                <HomeBecomeCard {...card} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 <UiButton
                     color="blue"
