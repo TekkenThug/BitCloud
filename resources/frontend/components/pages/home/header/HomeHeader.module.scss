@@ -7,7 +7,7 @@
     }
 
     @include respond($mobile) {
-        padding: calc(var(--header-height) + 16px) 0;
+        padding: calc(var(--header-height) + 16px) 0 16px;
     }
 }
 
