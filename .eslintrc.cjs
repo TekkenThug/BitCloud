@@ -41,7 +41,7 @@ module.exports = {
                   ["^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/data.*", "^@\/types.*"],
                   ["^@\/components.*"],
                   ["^\.+.+\.tsx$"],
-                  ["^.+\\.?(css)$"],
+                  ["^.+\\.?(css)\\/?.*$"],
                   ["^@/assets"]
                 ]
             }
