@@ -16,3 +16,12 @@ export const quote = [
         y: 45570.6887703269
     }
 ];
+
+export const cryptoOptions = [
+    { value: "Cryptocurrencies", label: "Cryptocurrencies" },
+    { value: "DeFi", label: "DeFi" },
+    { value: "Innovation", label: "Innovation" },
+    { value: "POS", label: "POS" },
+    { value: "NFT", label: "NFT" },
+    { value: "POW", label: "POW" },
+];

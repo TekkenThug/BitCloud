@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { cryptoOptions } from "@/data/mocks.ts";
+
 import UiButton from "@/components/ui/button/UiButton.tsx";
 import UiSelect from "@/components/ui/select/UiSelect.tsx";
 import UiTab from "@/components/ui/tab/UiTab.tsx";
@@ -11,22 +13,14 @@ import styles from "./MarketWidget.module.scss";
 const MarketWidget = () => {
     type SelectOptionType = { label: string, value: string }
     const cryptoCards = [1, 2, 3];
-    const subNavItems = [
-        { value: "Cryptocurrencies", label: "Cryptocurrencies" },
-        { value: "DeFi", label: "DeFi" },
-        { value: "Innovation", label: "Innovation" },
-        { value: "POS", label: "POS" },
-        { value: "NFT", label: "NFT" },
-        { value: "POW", label: "POW" },
-    ];
 
     const [
         activeNav,
         setActiveNav
-    ] = useState<SelectOptionType>(subNavItems[0]);
+    ] = useState<SelectOptionType>(cryptoOptions[0]);
 
     const handleClickButton = (value: string) => {
-        const newValue = subNavItems.find(item => item.value === value);
+        const newValue = cryptoOptions.find(item => item.value === value);
 
         if (newValue) {
             setActiveNav(newValue);
@@ -53,7 +47,7 @@ const MarketWidget = () => {
             <div className={styles.bottom}>
                 <div className={styles.tabList}>
                     {
-                        subNavItems.map(button => (
+                        cryptoOptions.map(button => (
                             <UiTab
                                 key={button.value}
                                 text={button.label}
@@ -77,7 +71,7 @@ const MarketWidget = () => {
                 <UiSelect
                     className={styles.select}
                     value={activeNav}
-                    options={subNavItems}
+                    options={cryptoOptions}
                     onChange={setActiveNav}
                 />
             </div>
