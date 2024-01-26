@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 
+import { BREAKPOINTS } from "@/data/styles.ts";
+
 import Logo from "@/components/common/logo/Logo.tsx";
 
 import HomeSlideshowSlide from "./slide/HomeSlideshowSlide.tsx";
@@ -10,7 +12,6 @@ import styles from "./HomeSlideshow.module.scss";
 
 import ArrowLeft from "@/assets/icons/ui/arrow-left.svg?react";
 import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
-import { BREAKPOINTS } from "@/data/styles.ts";
 
 const HomeSlideshow = () => {
     const slider = useRef(null);
