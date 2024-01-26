@@ -6,6 +6,25 @@
     @include respond($mobile) {
         justify-content: center;
     }
+
+    &--is-market {
+        @include respond($mobile) {
+            justify-content: left;
+
+            .content {
+                width: 100%;
+                overflow-x: unset;
+            }
+
+            .tabList {
+                display: none;
+            }
+
+            .title {
+                text-align: left;
+            }
+        }
+    }
 }
 
 .content {
@@ -41,6 +60,12 @@
 
 .linkButton {
     @include respond($mobile) {
+        display: none;
+    }
+}
+
+.select {
+    @include respond($mobile, true) {
         display: none;
     }
 }
