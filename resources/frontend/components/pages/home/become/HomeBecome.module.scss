@@ -4,6 +4,7 @@
 
     @include respond($laptop) {
         padding: 115px 0;
+        background-color: transparent;
     }
 
     @include respond($mobile) {
