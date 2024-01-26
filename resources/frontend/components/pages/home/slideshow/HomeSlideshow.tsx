@@ -10,6 +10,7 @@ import styles from "./HomeSlideshow.module.scss";
 
 import ArrowLeft from "@/assets/icons/ui/arrow-left.svg?react";
 import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
+import { BREAKPOINTS } from "@/data/styles.ts";
 
 const HomeSlideshow = () => {
     const slider = useRef(null);
@@ -29,6 +30,15 @@ const HomeSlideshow = () => {
                 nextEl: `.${styles.navButton}:last-of-type`,
                 prevEl: `.${styles.navButton}:first-of-type`,
             },
+
+            breakpoints: {
+                [BREAKPOINTS.ZERO]: {
+                    enabled: false,
+                },
+                [BREAKPOINTS.MOBILE]: {
+                    enabled: true,
+                },
+            }
         });
     }, []);
 

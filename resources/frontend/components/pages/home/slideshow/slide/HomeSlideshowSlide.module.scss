@@ -1,8 +1,21 @@
 .HomeSlideshowSlide {
-    display: flex;
-    padding: 80px 96px;
+    padding: 80px;
     background-color: $neutral-2;
     border-radius: 24px;
+
+    @include respond($mobile) {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    &:global(.swiper-slide) {
+        @include respond($mobile) {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 24px;
+        }
+    }
 }
 
 .content {
@@ -10,6 +23,16 @@
     flex-direction: column;
     max-width: 350px;
     height: 100%;
+
+    @include respond($laptop) {
+        max-width: 250px;
+    }
+
+    @include respond($mobile) {
+        max-width: unset;
+        text-align: center;
+        align-items: center;
+    }
 }
 
 .category {
@@ -32,6 +55,10 @@
 
 .link {
     margin-top: auto;
+
+    @include respond($mobile) {
+        margin-top: 64px;
+    }
 }
 
 .image {
@@ -40,4 +67,14 @@
     right: 96px;
     width: 350px;
     transform: translateY(-50%);
+
+    @include respond($laptop) {
+        right: 10px;
+    }
+
+    @include respond($mobile) {
+        position: static;
+        transform: none;
+        width: 300px;
+    }
 }
