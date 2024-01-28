@@ -52,11 +52,12 @@ To run this project, you will need to add the following environment variables to
 
 ## Roadmap
 - Make authorize state
-- Make email subscription
+- Make unsubscribe link
 - Make GitHub workflow
 - Make tagging for version
 - Make API autogenerate
 - Make Swagger documentation
+- Make PHP linter configuration
 
 ## Changelog
 
