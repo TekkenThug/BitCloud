@@ -1,12 +1,9 @@
-import { useState } from "react";
-
 import useTabs from "@/hooks/useTabs";
 import { formatPercent, formatPrice } from "@/utils/numbers";
-import { cryptoOptions, quote } from "@/data/mocks";
+import { quote } from "@/data/mocks";
 
 import ChartSmall from "@/components/common/charts/ChartSmall.tsx";
 import UiButton from "@/components/ui/button/UiButton.tsx";
-import UiSelect from "@/components/ui/select/UiSelect.tsx";
 
 import HomeSectionHeader from "../common/HomeSectionHeader.tsx";
 

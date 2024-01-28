@@ -11,7 +11,13 @@
 }
 
 .table {
+    @include hide-scrollbar;
+
     margin-top: 64px;
+
+    @include respond($laptop) {
+        overflow-x: auto;
+    }
 
     @include respond($mobile) {
         margin-top: 32px;
@@ -58,6 +64,8 @@
 
 .tableHeaderCell,
 .tableRowCell {
+    flex-shrink: 0;
+
     &:nth-child(1) {
         text-align: center;
         min-width: 40px;
@@ -69,15 +77,36 @@
 
     &:nth-child(2) {
         width: 352px;
+
+        @include respond($laptop) {
+            width: 280px;
+        }
+
+        @include respond($mobile) {
+            flex-shrink: 1;
+            margin-right: auto;
+        }
     }
 
-    &:nth-child(3),
-    &:nth-child(4) {
+    &:nth-child(3) {
         width: 160px;
+
+        @include respond($mobile) {
+            width: 75px;
+        }
+    }
+
+    &:nth-child(4) {
+        width: 100px;
+
+        @include respond($mobile) {
+            width: 75px;
+        }
     }
 
     &:nth-child(5) {
         width: 136px;
+        margin-right: auto;
 
         @include respond($mobile) {
             display: none;
