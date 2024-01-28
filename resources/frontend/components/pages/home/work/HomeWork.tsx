@@ -43,17 +43,13 @@ const HomeWork = () => {
                     </p>
                 </div>
 
-                <ul className={styles.imageList}>
-                    {steps.map((step, index) => (
-                        <li key={index} className={styles.itemImageWrapper}>
-                            <img className={styles.itemImage} src={step.image} alt="Work step image" />
-                        </li>
-                    ))}
-                </ul>
-
                 <ul className={styles.list}>
                     {steps.map((step, index) => (
                         <li key={index} className={styles.item}>
+                            <div className={styles.itemImageWrapper}>
+                                <img className={styles.itemImage} src={step.image} alt="Work step image" />
+                            </div>
+
                             <span className={styles.itemStep}>
                                 Step {index + 1}
                             </span>
