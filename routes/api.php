@@ -25,4 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('currencies', [CurrencyController::class, 'get']);
 Route::resource('articles', ArticleController::class);
 
-Route::post('subscribe', [SubscriberController::class, 'post']);
+Route::post('subscribers', [SubscriberController::class, 'post']);
+Route::delete('subscribers', [SubscriberController::class, 'destroy']);
