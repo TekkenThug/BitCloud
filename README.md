@@ -6,14 +6,19 @@ BitCloud - the imaginary stock exchange of crypto
 
 ## Tech Stack
 
-**Client:** ``Node.js v.20.10.0`` ```React v18.2```
+**Client:** ``Node.js v.20.10.0`` ```React v18.2```, ``TypeScript v5.0.2``
 
-**Server:** ```PHP v8.1```, ```Laravel v10.10```
+**Server:** ```PHP v8.1```, ```Laravel v10.10```, ```MySQL v8.0```
 
 ## Installation
 
 ### Core
-For installing, follow [this instruction](https://laravel.com/docs/10.x#docker-installation-using-sail). Use Docker and Laravel Sail.
+Before you need install Docker for working with Laravel Sail.
+
+After installing Docker, up Laravel Sail containers
+```bash
+./vendor/bin/sail up -d
+```
 
 ### Backend
 Create ```.env``` file with values from <a href="#env-variables">Environment Variables section</a>, based on ```.env.example```.
