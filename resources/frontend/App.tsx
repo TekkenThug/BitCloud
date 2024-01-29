@@ -1,9 +1,10 @@
-import { Provider } from "react-redux";
+import { useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { store } from "@/stores/main";
+import { RootState } from "@/stores/main";
 
+import Protected from "@/components/common/protected/Protected";
 import AuthPage from "@/components/pages/auth/AuthPage";
 import HomePage from "@/components/pages/home/HomePage";
 import MarketPage from "@/components/pages/market/MarketPage";
@@ -15,6 +16,7 @@ import "@/assets/styles/global.scss";
 const queryClient = new QueryClient();
 
 const App = () => {
+    const isAuth = useSelector((state: RootState) => state.auth.isAuth);
     const router = createBrowserRouter([
         {
             path: "/",
@@ -22,21 +24,19 @@ const App = () => {
         },
         {
             path: "/market",
-            element: <MarketPage />,
+            element: <Protected isAllowed={ isAuth }><MarketPage /></Protected>,
         },
         {
             path: "/auth",
-            element: <AuthPage />,
+            element: <Protected isAllowed={ !isAuth }><AuthPage /></Protected>,
         },
     ]);
 
     return (
         <div className="app" id="bebra">
-            <Provider store={ store }>
-                <QueryClientProvider client={ queryClient }>
-                    <RouterProvider router={ router } />
-                </QueryClientProvider>
-            </Provider>
+            <QueryClientProvider client={ queryClient }>
+                <RouterProvider router={ router } />
+            </QueryClientProvider>
         </div>
     );
 };
