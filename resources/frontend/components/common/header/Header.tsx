@@ -70,12 +70,15 @@ const Header = () => {
                         </div>
                         :
                         <div className={ styles.right }>
-                            <UiButton color="blue" tag="router-link" href="/auth">
-                                Sign up
-                            </UiButton>
-                            <UiButton color="dark" tag="router-link" href="/auth">
-                               Login
-                            </UiButton>
+                            <div className={ styles.buttons }>
+                                <UiButton color="blue" tag="router-link" href="/auth">
+                                    Sign up
+                                </UiButton>
+
+                                <UiButton color="dark" tag="router-link" href="/auth">
+                                    Login
+                                </UiButton>
+                            </div>
                         </div>
                     }
                 </div>
