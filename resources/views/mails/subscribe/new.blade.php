@@ -11,7 +11,8 @@
 @section('footer')
     <tr>
         <td>
-            If you want to unsubscribe, please, click to <a href="https://google.com" target="_blank">this link</a>
+            If you want to unsubscribe, please,
+            click to <a href="{{ $unsubscribeLink ?? "https://google.com" }}" target="_blank">this link</a>
         </td>
     </tr>
 @endsection

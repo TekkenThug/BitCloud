@@ -33,4 +33,15 @@ class SubscriberController extends Controller
             ]);
         }
     }
+
+    public function unsubscribe(SubscriberService $subscriberService, string $email)
+    {
+        try {
+            $subscriberService->unsubscribeFromNewsletter($email);
+
+            return response()->view('unsubscribe', ['message' => 'You successfully unsubscribed from newsletter']);
+        } catch (\Exception $e) {
+            return response()->view('unsubscribe', ['message' => $e->getMessage()]);
+        }
+    }
 }

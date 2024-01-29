@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\URL;
 
 class UserIsSubscribed extends Mailable
 {
@@ -40,6 +41,7 @@ class UserIsSubscribed extends Mailable
             view: 'mails.subscribe.new',
             with: [
                 'email' => $this->subscriber->email,
+                'unsubscribeLink' => URL::signedRoute('unsubscribe', ['email' => $this->subscriber->email])
             ]
         );
     }
