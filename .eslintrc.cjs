@@ -4,6 +4,8 @@ module.exports = {
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
     ],
     ignorePatterns: ["node_modules", "vendor", ".eslintrc.cjs"],
@@ -38,7 +40,7 @@ module.exports = {
             {
                 "groups": [
                   ["^react", "^@?\\w"],
-                  ["^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/data.*", "^@\/types.*"],
+                  ["^@\/stores.*", "^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/data.*", "^@\/types.*"],
                   ["^@\/components.*"],
                   ["^\.+.+\.tsx$"],
                   ["^.+\\.?(css)\\/?.*$"],
@@ -46,5 +48,8 @@ module.exports = {
                 ]
             }
         ],
+        "react/jsx-max-props-per-line": ["error", { "when": "multiline" }],
+        "react/jsx-curly-spacing": ["error", { "when": "always" }],
+        "react/jsx-first-prop-new-line": ["error", "multiline"]
     },
 };
