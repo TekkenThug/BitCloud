@@ -25,4 +25,11 @@ class SubscriberRequest extends FormRequest
             'email' => 'required|email|unique:subscribers|min:6|max:64'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.unique' => 'User has been subscribed',
+        ];
+    }
 }

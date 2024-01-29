@@ -104,6 +104,7 @@
 		font-weight: 700;
 		margin-top: 4px;
 		max-width: 250px;
+        width: max-content;
 
 		@include respond($mobile) {
 			max-width: unset;

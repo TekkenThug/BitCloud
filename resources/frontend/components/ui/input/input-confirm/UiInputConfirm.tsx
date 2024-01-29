@@ -1,4 +1,4 @@
-import{ FC, FormEvent,useState } from "react";
+import { FC, FormEvent,useState } from "react";
 
 import "./UiInputConfirm.scss";
 

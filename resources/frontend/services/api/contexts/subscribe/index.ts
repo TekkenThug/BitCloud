@@ -3,7 +3,7 @@ import { WithMessage } from "@/services/api/types";
 
 import { Subscriber } from "./types";
 
-const REQUEST_URL = "/subscribe";
+const REQUEST_URL = "/subscribers";
 
 export const subscribeToNewsletter = async (email: string) => {
     try {
