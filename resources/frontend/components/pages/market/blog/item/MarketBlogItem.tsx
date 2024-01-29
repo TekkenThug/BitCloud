@@ -29,30 +29,30 @@ const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
         className
     }) => {
     return (
-        <li className={`${styles.MarketBlogItem} ${className}`}>
-            <div className={styles.cover}>
-                <img src={cover ?? defaultCover} alt="Video preview" />
+        <li className={ `${styles.MarketBlogItem} ${className}` }>
+            <div className={ styles.cover }>
+                <img src={ cover ?? defaultCover } alt="Video preview" />
             </div>
 
-            <div className={styles.middle}>
+            <div className={ styles.middle }>
                 {
                     tag &&
-                    <div className={styles.tagList}>
+                    <div className={ styles.tagList }>
                         <UiLabel
-                            title={tag}
-                            color={COLORS[tag]}
+                            title={ tag }
+                            color={ COLORS[tag] }
                         />
                     </div>
                 }
 
-                <h4 className={styles.title}>
+                <h4 className={ styles.title }>
                     {title}
                 </h4>
             </div>
 
-            <div className={styles.bottom}>
-                <div className={styles.bottomAuthor}>
-                    <div className={styles.bottomAuthorAvatar}></div>
+            <div className={ styles.bottom }>
+                <div className={ styles.bottomAuthor }>
+                    <div className={ styles.bottomAuthorAvatar }></div>
 
                     <span>{author}</span>
                 </div>

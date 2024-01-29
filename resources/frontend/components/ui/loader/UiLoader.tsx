@@ -21,11 +21,11 @@ const UiLoader: FC<Props> = ({
 
     return (
         <div
-            style={{ height: `${height}px` }}
-            className={`UiLoader__wrapper ${covered ? "UiLoader__wrapper_covered" : ""}`}
+            style={ { height: `${height}px` } }
+            className={ `UiLoader__wrapper ${covered ? "UiLoader__wrapper_covered" : ""}` }
         >
             <Loading
-                className={classes}
+                className={ classes }
             />
         </div>
     );

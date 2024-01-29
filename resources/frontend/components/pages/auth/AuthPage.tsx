@@ -5,7 +5,7 @@ import styles from "./AuthPage.module.scss";
 
 const AuthPage = () => {
     return (
-        <div className={styles.AuthPage}>
+        <div className={ styles.AuthPage }>
             <AuthBackground />
 
             <AuthSign />

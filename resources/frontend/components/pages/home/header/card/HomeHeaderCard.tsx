@@ -23,25 +23,25 @@ const HomeHeaderCard: FC<Props> = (
     }
 ) => {
     return (
-        <div className={styles.HomeHeaderCard}>
+        <div className={ styles.HomeHeaderCard }>
             <img
-                className={styles.icon}
+                className={ styles.icon }
                 src="/storage/images/currency-icons/BTC.svg"
                 alt="Currency icon"
             />
 
-            <div className={styles.content}>
-                <div className={styles.top}>
-                    <span className={styles.shortName}>{shortName}</span>
+            <div className={ styles.content }>
+                <div className={ styles.top }>
+                    <span className={ styles.shortName }>{shortName}</span>
 
-                    <UiPercentageTag percentage={percentage} />
+                    <UiPercentageTag percentage={ percentage } />
                 </div>
 
-                <strong className={styles.price}>
+                <strong className={ styles.price }>
                     {formatPrice(pricePerDay)}
                 </strong>
 
-                <span className={styles.pricePerWeek}>
+                <span className={ styles.pricePerWeek }>
                     {formatPrice(pricePerWeek)}
                 </span>
             </div>

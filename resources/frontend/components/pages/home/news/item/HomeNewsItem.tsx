@@ -24,24 +24,24 @@ const HomeNewsItem: FC<Props> = (
     }
 ) => {
     return (
-        <div className={`${styles.HomeNewsItem} ${isBig ? styles["HomeNewsItem--big"] : ""}`}>
-            <div className={styles.content}>
-                <div className={styles.contentText}>
-                    <h3 className={styles.title}>
+        <div className={ `${styles.HomeNewsItem} ${isBig ? styles["HomeNewsItem--big"] : ""}` }>
+            <div className={ styles.content }>
+                <div className={ styles.contentText }>
+                    <h3 className={ styles.title }>
                         {title}
                     </h3>
 
-                    <p className={styles.description}>
+                    <p className={ styles.description }>
                         {description}
                     </p>
                 </div>
 
-                <time className={styles.date}>
+                <time className={ styles.date }>
                     {date}
                 </time>
 
                 <UiButton
-                    className={styles.buttonMore}
+                    className={ styles.buttonMore }
                     color="dark"
                     size="large"
                 >
@@ -50,8 +50,8 @@ const HomeNewsItem: FC<Props> = (
             </div>
 
             <img
-                className={styles.image}
-                src={image}
+                className={ styles.image }
+                src={ image }
                 alt="Article image"
             />
         </div>

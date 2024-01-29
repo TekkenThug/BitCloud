@@ -14,7 +14,7 @@ const UiPercentageTag: FC<Props> = ({ percentage }) => {
     ].filter(item => item).join(" ");
 
     return (
-        <div className={classes}>
+        <div className={ classes }>
             { processedPercentage }
         </div>
     );

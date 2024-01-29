@@ -26,31 +26,31 @@ const HomeSlideshowSlide: FC<Props> = (
     }
 ) => {
     return (
-        <div className={`${styles.HomeSlideshowSlide} ${className}`}>
-            <div className={styles.content}>
-                <p className={styles.category}>
+        <div className={ `${styles.HomeSlideshowSlide} ${className}` }>
+            <div className={ styles.content }>
+                <p className={ styles.category }>
                     {category}
                 </p>
 
-                <h3 className={styles.title}>
+                <h3 className={ styles.title }>
                     {title}
                 </h3>
 
-                <p className={styles.description}>
+                <p className={ styles.description }>
                     {description}
                 </p>
 
                 <UiButton
                     color="dark"
                     tag="a"
-                    href={link}
-                    className={styles.link}
+                    href={ link }
+                    className={ styles.link }
                 >
                     {linkText}
                 </UiButton>
             </div>
 
-            <img className={styles.image} src={templateImage} alt="Slide image" />
+            <img className={ styles.image } src={ templateImage } alt="Slide image" />
         </div>
     );
 };

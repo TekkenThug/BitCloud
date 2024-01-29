@@ -50,27 +50,27 @@ const HomeBecome = () => {
     }, []);
 
     return (
-        <section className={styles.HomeBecome}>
+        <section className={ styles.HomeBecome }>
             <div className="container">
-                <div className={styles.header}>
-                    <h2 className={styles.title}>Become a crypto trader in seconds</h2>
+                <div className={ styles.header }>
+                    <h2 className={ styles.title }>Become a crypto trader in seconds</h2>
 
-                    <p className={styles.subtitle}>
+                    <p className={ styles.subtitle }>
                         We've got everything you need to start trading.
                     </p>
                 </div>
 
-                <ul className={styles.cardList}>
+                <ul className={ styles.cardList }>
                     {cards.map((card, key) => (
-                        <HomeBecomeCard {...card} key={key} />
+                        <HomeBecomeCard { ...card } key={ key } />
                     ))}
                 </ul>
 
-                <div ref={slider} className={`${styles.cardListSlider} swiper`}>
+                <div ref={ slider } className={ `${styles.cardListSlider} swiper` }>
                     <div className="swiper-wrapper">
                         {cards.map((card, key) => (
-                            <div className="swiper-slide" key={key}>
-                                <HomeBecomeCard {...card} />
+                            <div className="swiper-slide" key={ key }>
+                                <HomeBecomeCard { ...card } />
                             </div>
                         ))}
                     </div>
@@ -81,7 +81,7 @@ const HomeBecome = () => {
                     tag="a"
                     href="/"
                     size="large"
-                    className={styles.button}
+                    className={ styles.button }
                 >
                     Contact Us
                 </UiButton>

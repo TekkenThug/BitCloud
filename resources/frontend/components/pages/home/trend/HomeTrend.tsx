@@ -46,49 +46,49 @@ const HomeTrend = () => {
     ];
 
     return (
-        <section className={styles.HomeTrend}>
+        <section className={ styles.HomeTrend }>
             <div className="container">
                 <HomeSectionHeader
-                    tabs={tabs}
-                    activeTab={activeTab}
-                    onChange={setTab}
+                    tabs={ tabs }
+                    activeTab={ activeTab }
+                    onChange={ setTab }
                     title="Market trend"
                     link="/"
                     isMarket
                 />
 
-                <div className={styles.table}>
-                    <div className={styles.tableHeader}>
+                <div className={ styles.table }>
+                    <div className={ styles.tableHeader }>
                         {tableHeaders.map(cell => (
                             <div
-                                className={styles.tableHeaderCell}
-                                key={cell}
+                                className={ styles.tableHeaderCell }
+                                key={ cell }
                             >
                                 {cell}
                             </div>
                         ))}
                     </div>
 
-                    <div className={styles.tableBody}>
+                    <div className={ styles.tableBody }>
                         {tableData.map((row, index) => (
-                            <div className={styles.tableRow} key={index}>
-                                <div className={styles.tableRowCell}>
+                            <div className={ styles.tableRow } key={ index }>
+                                <div className={ styles.tableRowCell }>
                                     {row.number}
                                 </div>
 
-                                <div className={styles.tableRowCell}>
+                                <div className={ styles.tableRowCell }>
                                     <img
-                                        className={styles.tableRowCellIcon}
-                                        src={row.image}
+                                        className={ styles.tableRowCellIcon }
+                                        src={ row.image }
                                         alt="Currency icon"
                                     />
 
                                     {row.name}
 
-                                    <span className={styles.tableRowCellShortName}>{row.shortName}</span>
+                                    <span className={ styles.tableRowCellShortName }>{row.shortName}</span>
                                 </div>
 
-                                <div className={styles.tableRowCell}>
+                                <div className={ styles.tableRowCell }>
                                     ${formatPrice(row.price)}
                                 </div>
 
@@ -102,11 +102,11 @@ const HomeTrend = () => {
                                     {formatPercent(row.percentage)}
                                 </div>
 
-                                <div className={styles.tableRowCell}>
-                                    <ChartSmall isNegative={row.percentage < 0} data={row.quote} />
+                                <div className={ styles.tableRowCell }>
+                                    <ChartSmall isNegative={ row.percentage < 0 } data={ row.quote } />
                                 </div>
 
-                                <div className={styles.tableRowCell}>
+                                <div className={ styles.tableRowCell }>
                                     <UiButton color="dark" tag="a" href="/">
                                         Trade
                                     </UiButton>
@@ -120,7 +120,7 @@ const HomeTrend = () => {
                     color="dark"
                     tag="a"
                     href="/"
-                    className={styles.viewMoreButton}
+                    className={ styles.viewMoreButton }
                 >
                     View more
                 </UiButton>

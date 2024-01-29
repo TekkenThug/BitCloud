@@ -52,13 +52,13 @@ const HomeHeader: FC<{ id: string }> = ({ id }) => {
     };
 
     return (
-        <section className={styles.HomeHeader}>
+        <section className={ styles.HomeHeader }>
             <div className="container">
-                <div className={styles.top}>
-                    <div className={styles.left}>
-                        <h1 className={styles.title}>Buy & sell crypto in minutes</h1>
+                <div className={ styles.top }>
+                    <div className={ styles.left }>
+                        <h1 className={ styles.title }>Buy & sell crypto in minutes</h1>
 
-                        <p className={styles.subtitle}>
+                        <p className={ styles.subtitle }>
                             Trade Bitcoin, Ethereum, USDT, and
                             the top altcoins on the legendary crypto asset exchange.
                         </p>
@@ -66,25 +66,25 @@ const HomeHeader: FC<{ id: string }> = ({ id }) => {
                         <UiButton
                             tag="a"
                             color="blue"
-                            className={styles.button}
+                            className={ styles.button }
                             size="large"
                         >
                             Get started now
                         </UiButton>
                     </div>
 
-                    <div className={styles.right}>
-                        <img src={image} alt="Header image" />
+                    <div className={ styles.right }>
+                        <img src={ image } alt="Header image" />
                     </div>
 
-                    <button className={styles.buttonDown} onClick={scrollToNextSection}>
+                    <button className={ styles.buttonDown } onClick={ scrollToNextSection }>
                         <ArrowDown />
                     </button>
                 </div>
 
-                <div className={styles.list}>
+                <div className={ styles.list }>
                     {cards.map((card, index) =>
-                        <HomeHeaderCard {...card} key={index} />
+                        <HomeHeaderCard { ...card } key={ index } />
                     )}
                 </div>
             </div>

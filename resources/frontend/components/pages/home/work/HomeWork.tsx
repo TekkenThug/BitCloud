@@ -30,35 +30,35 @@ const HomeWork = () => {
     ];
 
     return (
-        <section className={styles.HomeWork}>
+        <section className={ styles.HomeWork }>
             <div className="container">
-                <div className={styles.header}>
-                    <h2 className={styles.title}>
+                <div className={ styles.header }>
+                    <h2 className={ styles.title }>
                         How it work
                     </h2>
 
-                    <p className={styles.subtitle}>
+                    <p className={ styles.subtitle }>
                         Stacks is a production-ready library of stackable
                         content blocks built in React Native.
                     </p>
                 </div>
 
-                <ul className={styles.list}>
+                <ul className={ styles.list }>
                     {steps.map((step, index) => (
-                        <li key={index} className={styles.item}>
-                            <div className={styles.itemImageWrapper}>
-                                <img className={styles.itemImage} src={step.image} alt="Work step image" />
+                        <li key={ index } className={ styles.item }>
+                            <div className={ styles.itemImageWrapper }>
+                                <img className={ styles.itemImage } src={ step.image } alt="Work step image" />
                             </div>
 
-                            <span className={styles.itemStep}>
+                            <span className={ styles.itemStep }>
                                 Step {index + 1}
                             </span>
 
-                            <h4 className={styles.itemTitle}>
+                            <h4 className={ styles.itemTitle }>
                                 {step.title}
                             </h4>
 
-                            <p className={styles.itemDescription}>
+                            <p className={ styles.itemDescription }>
                                 {step.description}
                             </p>
                         </li>

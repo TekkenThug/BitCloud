@@ -16,19 +16,19 @@ const HomeBecomeCard: FC<Props> = (
     }
 ) => {
     return (
-        <li className={styles.HomeBecomeCard}>
+        <li className={ styles.HomeBecomeCard }>
             <img
-                className={styles.image}
-                src={image}
+                className={ styles.image }
+                src={ image }
                 alt="Become image"
             />
 
             <div>
-                <h4 className={styles.title}>
+                <h4 className={ styles.title }>
                     {title}
                 </h4>
 
-                <p className={styles.description}>
+                <p className={ styles.description }>
                     {description}
                 </p>
             </div>

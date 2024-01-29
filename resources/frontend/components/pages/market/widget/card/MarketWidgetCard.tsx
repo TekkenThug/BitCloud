@@ -27,31 +27,31 @@ const MarketWidgetCard: FC<MarketWidgetCardProps> = (
     }
 ) => {
     return (
-        <div className={`${styles.MarketWidgetCard} ${className}`}>
-            <div className={styles.content}>
-                <Logo className={styles.currency} />
+        <div className={ `${styles.MarketWidgetCard} ${className}` }>
+            <div className={ styles.content }>
+                <Logo className={ styles.currency } />
 
                 <div>
-                    <div className={styles.info}>
-                        <div className={styles.name}>
+                    <div className={ styles.info }>
+                        <div className={ styles.name }>
                             { name }
                         </div>
 
-                        <UiPercentageTag percentage={percentage} />
+                        <UiPercentageTag percentage={ percentage } />
                     </div>
 
-                    <div className={styles.value}>
+                    <div className={ styles.value }>
                         { value }
                     </div>
 
-                    <div className={styles.secondValue}>
+                    <div className={ styles.secondValue }>
                         { secondValue }
                     </div>
                 </div>
             </div>
 
-            <div className={styles.chart}>
-                <ChartSmall data={quote} />
+            <div className={ styles.chart }>
+                <ChartSmall data={ quote } />
             </div>
         </div>
     );

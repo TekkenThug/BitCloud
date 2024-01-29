@@ -24,56 +24,56 @@ const MarketTableRow: FC<QuotatedCurrency> = (
     }
 ) => {
     return (
-        <div className={styles.MarketTableRow}>
-            <div className={styles.cell}>
-                <Star className={styles.cellStar} /> { number }
+        <div className={ styles.MarketTableRow }>
+            <div className={ styles.cell }>
+                <Star className={ styles.cellStar } /> { number }
             </div>
 
-            <div className={styles.cell}>
-                <img className={styles.cellCurrencyIcon} src={icon} alt="Currency icon" />
-                <span className={styles.fullName}>{ name }</span>
-                <span className={styles.shortName}>{ shortName }</span>
+            <div className={ styles.cell }>
+                <img className={ styles.cellCurrencyIcon } src={ icon } alt="Currency icon" />
+                <span className={ styles.fullName }>{ name }</span>
+                <span className={ styles.shortName }>{ shortName }</span>
             </div>
 
-            <div className={styles.cell}>
-                <span className={styles.cellPrefix}>Price</span>
+            <div className={ styles.cell }>
+                <span className={ styles.cellPrefix }>Price</span>
 
                 ${ price.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) }
             </div>
 
-            <div className={`${styles.cell} ${percentageForDay > 0 ? styles.cell_positive : styles.cell_negative }`}>
-                <span className={styles.cellPrefix}>24h</span>
+            <div className={ `${styles.cell} ${percentageForDay > 0 ? styles.cell_positive : styles.cell_negative }` }>
+                <span className={ styles.cellPrefix }>24h</span>
 
                 { percentageForDay > 0 ? "+" : "" }
                 { percentageForDay.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) }%
             </div>
 
-            <div className={`${styles.cell} ${percentageForWeek > 0 ? styles.cell_positive : styles.cell_negative }`}>
-                <span className={styles.cellPrefix}>7d</span>
+            <div className={ `${styles.cell} ${percentageForWeek > 0 ? styles.cell_positive : styles.cell_negative }` }>
+                <span className={ styles.cellPrefix }>7d</span>
 
                 { percentageForWeek > 0 ? "+" : "" }
                 { percentageForWeek.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) }%
             </div>
 
-            <div className={styles.cell}>
-                <span className={styles.cellPrefix}>Marketcap</span>
+            <div className={ styles.cell }>
+                <span className={ styles.cellPrefix }>Marketcap</span>
 
                 { marketCap.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }) }
             </div>
 
-            <div className={styles.cell}>
+            <div className={ styles.cell }>
                 { volume.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }) }
             </div>
 
-            <div className={styles.cell}>
+            <div className={ styles.cell }>
                 <ChartSmall
-                    isNegative={percentageForDay < 0}
-                    data={quote}
-                    className={styles.chart}
+                    isNegative={ percentageForDay < 0 }
+                    data={ quote }
+                    className={ styles.chart }
                 />
 
                 <UiButton
-                    className={styles.buyButton}
+                    className={ styles.buyButton }
                     color="blue"
                     tag="a"
                 >

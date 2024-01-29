@@ -68,36 +68,36 @@ const HomeSlideshow = () => {
     ];
 
     return (
-        <section className={styles.HomeSlideshow}>
+        <section className={ styles.HomeSlideshow }>
             <div className="container">
-                <div className={styles.header}>
+                <div className={ styles.header }>
                     <Logo />
 
-                    <h2 className={styles.title}>
+                    <h2 className={ styles.title }>
                         Stay in the know on crypto with BitCloud
                     </h2>
 
-                    <p className={styles.subtitle}>
+                    <p className={ styles.subtitle }>
                         A creative agency that lead and inspire
                     </p>
                 </div>
 
-                <div className={styles.sliderWrapper}>
-                    <button className={styles.navButton}>
+                <div className={ styles.sliderWrapper }>
+                    <button className={ styles.navButton }>
                         <ArrowLeft />
                     </button>
 
-                    <div ref={slider} className={`${styles.slider} swiper`}>
+                    <div ref={ slider } className={ `${styles.slider} swiper` }>
                         <div className="swiper-wrapper">
                             {
                                 slides.map((slide, index) => (
-                                    <HomeSlideshowSlide className="swiper-slide" {...slide} key={index} />
+                                    <HomeSlideshowSlide className="swiper-slide" { ...slide } key={ index } />
                                 ))
                             }
                         </div>
                     </div>
 
-                    <button className={styles.navButton}>
+                    <button className={ styles.navButton }>
                         <ArrowRight />
                     </button>
                 </div>

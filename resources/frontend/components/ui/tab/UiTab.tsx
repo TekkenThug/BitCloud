@@ -18,8 +18,8 @@ const UiTab: React.FC<{
     }) => {
     return (
         <button
-            className={`${className} UiTab ${isActive ? "UiTab_active" : ""} UiTab_theme_${theme}`}
-            onClick={() => changeHandler(text)}
+            className={ `${className} UiTab ${isActive ? "UiTab_active" : ""} UiTab_theme_${theme}` }
+            onClick={ () => changeHandler(text) }
         >
             { text }
         </button>

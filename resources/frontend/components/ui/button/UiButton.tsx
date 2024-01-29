@@ -1,10 +1,11 @@
 import { FC, ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 import "./UiButton.scss";
 
 interface Props {
     disabled?: boolean;
-    tag?: "button" | "a";
+    tag?: "button" | "a" | "router-link";
     color: "dark" | "blue";
     size?: "medium" | "large";
     href?: string;
@@ -43,20 +44,28 @@ const UiButton: FC<Props> = (
             {
                 tag === "button" ?
                     <button
-                        className={classes}
-                        onClick={() => handleClick()}
-                        disabled={disabled}
+                        className={ classes }
+                        onClick={ () => handleClick() }
+                        disabled={ disabled }
                     >
-                        {children}
+                        { children }
                     </button>
-                    : tag === "a" &&
-                    <a
-                        href={href}
-                        className={classes}
-                        onClick={() => handleClick()}
+                    : tag === "a" ?
+                        <a
+                            href={ href }
+                            className={ classes }
+                            onClick={ () => handleClick() }
+                        >
+                            { children }
+                        </a>
+                        : tag === "router-link" &&
+                    <Link
+                        to={ href }
+                        className={ classes }
+                        onClick={ () => handleClick() }
                     >
-                        {children}
-                    </a>
+                        { children }
+                    </Link>
             }
         </>
     );

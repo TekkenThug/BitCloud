@@ -45,19 +45,19 @@ const UiInputConfirm: FC<UiInputProps> = (
     ];
 
     return (
-        <div className={classes.join(" ")}>
+        <div className={ classes.join(" ") }>
             <input
                 className="UiInputConfirm__nativeInput"
-                type={type}
-                value={value}
-                placeholder={placeholder}
-                onInput={handleInputValue}
+                type={ type }
+                value={ value }
+                placeholder={ placeholder }
+                onInput={ handleInputValue }
             />
 
             <button
-                disabled={!value || isError}
+                disabled={ !value || isError }
                 className="UiInputConfirm__extra-button"
-                onClick={() => submitHandle(value)}
+                onClick={ () => submitHandle(value) }
             >
                 {
                     isLoading ? <Loading className="UiInputConfirm__icon spin-animation" /> :

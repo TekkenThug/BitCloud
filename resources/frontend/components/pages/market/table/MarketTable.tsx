@@ -72,50 +72,50 @@ const MarketTable = () => {
     }, [data, sort, descending]);
 
     return (
-        <section className={styles.MarketTable}>
+        <section className={ styles.MarketTable }>
             <div className="container">
                 { isLoading ? <UiLoader covered /> :
                     <div>
-                        <div className={styles.tableHeader}>
+                        <div className={ styles.tableHeader }>
                             <div
-                                className={`${styles.tableHeaderCell} ${styles.tableHeaderCell_cell_number}`}
-                                onClick={() => sortByField("number")}
+                                className={ `${styles.tableHeaderCell} ${styles.tableHeaderCell_cell_number}` }
+                                onClick={ () => sortByField("number") }
                             >
-                                # <Arrows className={styles.tableHeaderCellArrow} />
-                            </div>
-
-                            <div
-                                className={styles.tableHeaderCell}
-                                onClick={() => sortByField("name")}
-                            >
-                                Name <Arrows className={styles.tableHeaderCellArrow} />
+                                # <Arrows className={ styles.tableHeaderCellArrow } />
                             </div>
 
                             <div
-                                className={styles.tableHeaderCell}
-                                onClick={() => sortByField("price")}
+                                className={ styles.tableHeaderCell }
+                                onClick={ () => sortByField("name") }
                             >
-                                Price <Arrows className={styles.tableHeaderCellArrow} />
+                                Name <Arrows className={ styles.tableHeaderCellArrow } />
                             </div>
 
-                            <div className={styles.tableHeaderCell}>24h %</div>
-
-                            <div className={styles.tableHeaderCell}>7d %</div>
-
-                            <div className={styles.tableHeaderCell}>
-                                Marketcap <Coin className={styles.tableHeaderCellIcon} />
+                            <div
+                                className={ styles.tableHeaderCell }
+                                onClick={ () => sortByField("price") }
+                            >
+                                Price <Arrows className={ styles.tableHeaderCellArrow } />
                             </div>
 
-                            <div className={styles.tableHeaderCell}>
-                                Volume (24h) <ChartBar className={styles.tableHeaderCellIcon} />
+                            <div className={ styles.tableHeaderCell }>24h %</div>
+
+                            <div className={ styles.tableHeaderCell }>7d %</div>
+
+                            <div className={ styles.tableHeaderCell }>
+                                Marketcap <Coin className={ styles.tableHeaderCellIcon } />
                             </div>
 
-                            <div className={styles.tableHeaderCell}>Chart</div>
+                            <div className={ styles.tableHeaderCell }>
+                                Volume (24h) <ChartBar className={ styles.tableHeaderCellIcon } />
+                            </div>
+
+                            <div className={ styles.tableHeaderCell }>Chart</div>
                         </div>
 
-                        <div className={styles.tableContent}>
+                        <div className={ styles.tableContent }>
                             {sortData.map((currency) => (
-                                <MarketTableRow key={currency.shortName} {...currency} />
+                                <MarketTableRow key={ currency.shortName } { ...currency } />
                             ))}
                         </div>
                     </div>

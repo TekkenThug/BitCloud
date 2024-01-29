@@ -12,9 +12,9 @@ const HomePage = () => {
 
     return (
         <DefaultLayout>
-            <HomeHeader id={scrollableId} />
+            <HomeHeader id={ scrollableId } />
 
-            <HomeNews id={scrollableId} />
+            <HomeNews id={ scrollableId } />
 
             <HomeTrend />
 

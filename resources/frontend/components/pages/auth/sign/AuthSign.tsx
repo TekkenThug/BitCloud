@@ -12,8 +12,8 @@ const AuthSign = () => {
     const [tab, setTab] = useState<"email" | "mobile">("email");
 
     return (
-        <div className={styles.AuthSign}>
-            <div className={styles.top}>
+        <div className={ styles.AuthSign }>
+            <div className={ styles.top }>
 				Don’t have an account?
 
                 <a href="/auth">
@@ -21,52 +21,52 @@ const AuthSign = () => {
                 </a>
             </div>
 
-            <div className={styles.main}>
-                <h1 className={styles.title}>
+            <div className={ styles.main }>
+                <h1 className={ styles.title }>
 					Sign in to BitCloud
                 </h1>
 
                 <form
-                    className={styles.form}
-                    onSubmit={(event) => event.preventDefault()}
+                    className={ styles.form }
+                    onSubmit={ (event) => event.preventDefault() }
                 >
-                    <div className={styles.addressConfirm}>
+                    <div className={ styles.addressConfirm }>
                         <span>Please ensure you are visiting the correct url.</span>
 
                         <Address />
                     </div>
 
-                    <div className={styles.formContent}>
-                        <div className={styles.tabContainer}>
+                    <div className={ styles.formContent }>
+                        <div className={ styles.tabContainer }>
                             <UiTab
                                 text="Email"
-                                isActive={tab === "email"}
-                                changeHandler={() => setTab("email")}
+                                isActive={ tab === "email" }
+                                changeHandler={ () => setTab("email") }
                             />
 
                             <UiTab
                                 text="Mobile"
-                                isActive={tab === "mobile"}
-                                changeHandler={() => setTab("mobile")}
+                                isActive={ tab === "mobile" }
+                                changeHandler={ () => setTab("mobile") }
                             />
                         </div>
 
                         <div>
-                            <div className={styles.inputField}>
+                            <div className={ styles.inputField }>
                                 <UiInputSimple
                                     label="Email"
                                     placeholder="Email address"
                                 />
                             </div>
 
-                            <div className={styles.inputField}>
+                            <div className={ styles.inputField }>
                                 <UiInputSimple
                                     label="password"
                                     placeholder="Password"
                                     type="password"
                                 />
 
-                                <div className={styles.signature}>
+                                <div className={ styles.signature }>
                                     <span>Scan to login</span> <NavLink to="/">Forgot password?</NavLink>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@ const AuthSign = () => {
                             <UiButton
                                 color="blue"
                                 size="large"
-                                className={styles.submitButton}
+                                className={ styles.submitButton }
                             >
 								Login
                             </UiButton>

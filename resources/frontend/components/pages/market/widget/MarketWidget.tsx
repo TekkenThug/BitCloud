@@ -28,32 +28,32 @@ const MarketWidget = () => {
     };
 
     return (
-        <div className={styles.MarketWidget}>
-            <div className={styles.top}>
+        <div className={ styles.MarketWidget }>
+            <div className={ styles.top }>
                 {
                     cryptoCards.map(card => (
                         <MarketWidgetCard
-                            key={card}
+                            key={ card }
                             name="BTC/USDT"
-                            percentage={0.79}
+                            percentage={ 0.79 }
                             value="36,641.20"
                             secondValue="36,641.20"
-                            className={styles.cryptoCard}
+                            className={ styles.cryptoCard }
                         />
                     ))
                 }
             </div>
 
-            <div className={styles.bottom}>
-                <div className={styles.tabList}>
+            <div className={ styles.bottom }>
+                <div className={ styles.tabList }>
                     {
                         cryptoOptions.map(button => (
                             <UiTab
-                                key={button.value}
-                                text={button.label}
-                                isActive={button.value === activeNav.value}
-                                changeHandler={() => handleClickButton(button.value)}
-                                className={styles.navItem}
+                                key={ button.value }
+                                text={ button.label }
+                                isActive={ button.value === activeNav.value }
+                                changeHandler={ () => handleClickButton(button.value) }
+                                className={ styles.navItem }
                                 theme="light"
                             />
                         ))
@@ -61,18 +61,18 @@ const MarketWidget = () => {
                 </div>
 
                 <UiButton
-                    className={styles.walletButton}
+                    className={ styles.walletButton }
                     color="dark"
-                    clickHandler={() => { }}
+                    clickHandler={ () => { } }
                 >
                     Wallet
                 </UiButton>
 
                 <UiSelect
-                    className={styles.select}
-                    value={activeNav}
-                    options={cryptoOptions}
-                    onChange={setActiveNav}
+                    className={ styles.select }
+                    value={ activeNav }
+                    options={ cryptoOptions }
+                    onChange={ setActiveNav }
                 />
             </div>
         </div>

@@ -17,11 +17,11 @@ const UiInputSimple: FC<UiInputSimpleProps> = (
         className = "",
     }
 ) => {
-    const inputField = <input className="UiInputSimple__nativeInput" type={type} placeholder={placeholder} />;
+    const inputField = <input className="UiInputSimple__nativeInput" type={ type } placeholder={ placeholder } />;
     const inputFieldWithLabel = <label className="UiInputSimple__label"><span>{ label }</span>{ inputField }</label>;
-	
+
     return (
-        <div className={`${className}`}>
+        <div className={ `${className}` }>
             {
                 label ? inputFieldWithLabel : inputField
             }

@@ -34,19 +34,19 @@ const HomeSectionHeader: FC<Props> = (
     ] = useState<SelectOptionType>(cryptoOptions[0]);
 
     return (
-        <div className={`${styles.HomeSectionHeader} ${isMarket ? styles["HomeSectionHeader--is-market"] : ""}`}>
-            <div className={styles.content}>
-                <h2 className={styles.title}>
+        <div className={ `${styles.HomeSectionHeader} ${isMarket ? styles["HomeSectionHeader--is-market"] : ""}` }>
+            <div className={ styles.content }>
+                <h2 className={ styles.title }>
                     {title}
                 </h2>
 
-                <ul className={styles.tabList}>
+                <ul className={ styles.tabList }>
                     {tabs.map(tab =>
-                        <li key={tab}>
+                        <li key={ tab }>
                             <UiTab
-                                isActive={tab === activeTab}
-                                text={tab}
-                                changeHandler={() => onChange(tab)}
+                                isActive={ tab === activeTab }
+                                text={ tab }
+                                changeHandler={ () => onChange(tab) }
                             />
                         </li>
                     )}
@@ -54,10 +54,10 @@ const HomeSectionHeader: FC<Props> = (
 
                 { isMarket &&
                     <UiSelect
-                        className={styles.select}
-                        value={activeNav}
-                        options={cryptoOptions}
-                        onChange={setActiveNav}
+                        className={ styles.select }
+                        value={ activeNav }
+                        options={ cryptoOptions }
+                        onChange={ setActiveNav }
                     />
                 }
             </div>
@@ -65,8 +65,8 @@ const HomeSectionHeader: FC<Props> = (
             <UiButton
                 color="dark"
                 tag="a"
-                href={link}
-                className={styles.linkButton}
+                href={ link }
+                className={ styles.linkButton }
             >
                 View more
             </UiButton>

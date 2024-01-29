@@ -118,39 +118,39 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
     }, []);
 
     return (
-        <section className={styles.HomeNews} id={id}>
+        <section className={ styles.HomeNews } id={ id }>
             <div className="container">
                 <HomeSectionHeader
-                    tabs={tabs}
-                    activeTab={activeTab}
-                    onChange={setTab}
+                    tabs={ tabs }
+                    activeTab={ activeTab }
+                    onChange={ setTab }
                     title="Learn crypto"
                     link="/"
                 />
 
-                <ul className={styles.newsList}>
+                <ul className={ styles.newsList }>
                     {news.map((item, index) =>
-                        <li key={index}>
-                            <HomeNewsItem {...item} isBig={index === 0} />
+                        <li key={ index }>
+                            <HomeNewsItem { ...item } isBig={ index === 0 } />
                         </li>
                     )}
                 </ul>
 
-                <div ref={slider} className={`${styles.newsListSlider} swiper`}>
+                <div ref={ slider } className={ `${styles.newsListSlider} swiper` }>
                     <div className="swiper-wrapper">
                         {news.map((item, index) =>
-                            <div key={index} className="swiper-slide">
-                                <HomeNewsItem {...item} isBig={index === 0} />
+                            <div key={ index } className="swiper-slide">
+                                <HomeNewsItem { ...item } isBig={ index === 0 } />
                             </div>
                         )}
                     </div>
 
-                    <div className={styles.navButtonContainer}>
-                        <button className={styles.navButton}>
+                    <div className={ styles.navButtonContainer }>
+                        <button className={ styles.navButton }>
                             <ArrowLeft />
                         </button>
 
-                        <button className={styles.navButton}>
+                        <button className={ styles.navButton }>
                             <ArrowRight />
                         </button>
                     </div>
@@ -160,7 +160,7 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
                     color="dark"
                     tag="a"
                     href="/"
-                    className={styles.viewMoreButton}
+                    className={ styles.viewMoreButton }
                 >
                     View more
                 </UiButton>

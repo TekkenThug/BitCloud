@@ -11,7 +11,7 @@ interface Props {
 
 const UiLabel: React.FC<Props> = ({ title, color }) => {
     return (
-        <div className={`UiLabel UiLabel_${color}`}>
+        <div className={ `UiLabel UiLabel_${color}` }>
             { title }
         </div>
     );

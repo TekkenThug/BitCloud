@@ -19,13 +19,13 @@ const Logo: FC<Props> = (
 
     return (
         isLink ?
-            <a href="/" className={classes}>
-                <Logotype className={styles.image} />
+            <a href="/" className={ classes }>
+                <Logotype className={ styles.image } />
 
                 BitCloud
             </a> :
-            <div className={classes}>
-                <Logotype className={styles.image} />
+            <div className={ classes }>
+                <Logotype className={ styles.image } />
 
                 BitCloud
             </div>

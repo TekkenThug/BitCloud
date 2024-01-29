@@ -30,31 +30,31 @@ const MarketBlog = () => {
     };
 
     return (
-        <section className={styles.MarketBlog}>
+        <section className={ styles.MarketBlog }>
             <div className="container">
-                <div className={styles.content}>
-                    <h2 className={styles.title}>
+                <div className={ styles.content }>
+                    <h2 className={ styles.title }>
                         {title}
                     </h2>
 
-                    <p className={styles.subtitle}>
+                    <p className={ styles.subtitle }>
                         {subtitle}
                     </p>
                 </div>
 
                 {
                     Boolean(articles.length) &&
-                    <ul className={styles.blogList}>
+                    <ul className={ styles.blogList }>
                         {
                             articles.map((item) => (
                                 <MarketBlogItem
-                                    key={item.id}
-                                    className={styles.blogItem}
-                                    title={item.title}
-                                    author={item.author}
-                                    date={item.date}
-                                    cover={item.coverUrl}
-                                    tag={item.tag}
+                                    key={ item.id }
+                                    className={ styles.blogItem }
+                                    title={ item.title }
+                                    author={ item.author }
+                                    date={ item.date }
+                                    cover={ item.coverUrl }
+                                    tag={ item.tag }
                                 />
                             ))
                         }
@@ -64,12 +64,12 @@ const MarketBlog = () => {
                 {
                     data?.pagination.lastPage !== page &&
                     <UiButton
-                        className={styles.loadingButton}
+                        className={ styles.loadingButton }
                         color="dark"
-                        clickHandler={loadMoreArticles}
-                        disabled={loading}
+                        clickHandler={ loadMoreArticles }
+                        disabled={ loading }
                     >
-                        <Loading className={`${styles.loadingButtonIcon} ${loading && "spin-animation"}`}/> Load more
+                        <Loading className={ `${styles.loadingButtonIcon} ${loading && "spin-animation"}` }/> Load more
                     </UiButton>
                 }
             </div>
