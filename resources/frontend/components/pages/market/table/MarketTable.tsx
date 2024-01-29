@@ -74,7 +74,7 @@ const MarketTable = () => {
     return (
         <section className={ styles.MarketTable }>
             <div className="container">
-                { isLoading ? <UiLoader covered /> :
+                { isLoading ? <UiLoader covered height={  200 } /> :
                     <div>
                         <div className={ styles.tableHeader }>
                             <div

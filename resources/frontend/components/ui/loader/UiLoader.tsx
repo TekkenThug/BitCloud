@@ -13,7 +13,7 @@ interface Props {
 
 const UiLoader: FC<Props> = ({
     covered = false,
-    height = 200,
+    height,
     size = "md",
     color = "white"
 }) => {
@@ -21,7 +21,7 @@ const UiLoader: FC<Props> = ({
 
     return (
         <div
-            style={ { height: `${height}px` } }
+            style={ { height: height ? `${height}px` : "unset" } }
             className={ `UiLoader__wrapper ${covered ? "UiLoader__wrapper_covered" : ""}` }
         >
             <Loading
