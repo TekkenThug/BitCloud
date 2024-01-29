@@ -1,5 +1,8 @@
+import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import { store } from "@/stores/main";
 
 import AuthPage from "@/components/pages/auth/AuthPage";
 import HomePage from "@/components/pages/home/HomePage";
@@ -28,10 +31,12 @@ const App = () => {
     ]);
 
     return (
-        <div className="app">
-            <QueryClientProvider client={queryClient}>
-                <RouterProvider router={router} />
-            </QueryClientProvider>
+        <div className="app" id="bebra">
+            <Provider store={ store }>
+                <QueryClientProvider client={ queryClient }>
+                    <RouterProvider router={ router } />
+                </QueryClientProvider>
+            </Provider>
         </div>
     );
 };
