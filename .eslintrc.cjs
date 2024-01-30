@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    env: { browser: true, es2020: true },
+    env: {browser: true, es2020: true},
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -18,7 +18,7 @@ module.exports = {
     rules: {
         "react-refresh/only-export-components": [
             "warn",
-            { allowConstantExport: true },
+            {allowConstantExport: true},
         ],
         "react-hooks/exhaustive-deps": ["off"],
         "semi": "error",
@@ -34,22 +34,23 @@ module.exports = {
             "error",
             "always"
         ],
-        "@stylistic/js/max-len": ["error", { "code": 120 }],
+        "@stylistic/js/max-len": ["error", {"code": 120}],
         "simple-import-sort/imports": [
             "error",
             {
                 "groups": [
-                  ["^react", "^@?\\w"],
-                  ["^@\/stores.*", "^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/data.*", "^@\/types.*"],
-                  ["^@\/components.*"],
-                  ["^\.+.+\.tsx$"],
-                  ["^.+\\.?(css)\\/?.*$"],
-                  ["^@/assets"]
+                    ["^react", "^@?\\w"],
+                    ["^@\/stores.*"],
+                    ["^@\/hooks.*", "^@\/services.*", "^@\/utils.*", "^@\/data.*", "^@\/types.*"],
+                    ["^@\/components.*"],
+                    ["^\.+.+\.tsx$"],
+                    ["^.+\\.?(css)\\/?.*$"],
+                    ["^@/assets"]
                 ]
             }
         ],
-        "react/jsx-max-props-per-line": ["error", { "when": "multiline" }],
-        "react/jsx-curly-spacing": ["error", { "when": "always" }],
+        "react/jsx-max-props-per-line": ["error", {"when": "multiline"}],
+        "react/jsx-curly-spacing": ["error", {"when": "always"}],
         "react/jsx-first-prop-new-line": ["error", "multiline"]
     },
 };
