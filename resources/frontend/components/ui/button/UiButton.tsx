@@ -1,6 +1,8 @@
 import { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
 
+import UiLoader from "@/components/ui/loader/UiLoader.tsx";
+
 import "./UiButton.scss";
 
 interface Props {
@@ -11,7 +13,8 @@ interface Props {
     href?: string;
     className?: string;
     clickHandler?: () => void; // TODO: replace
-    children: ReactNode
+    children: ReactNode,
+    isLoading?: boolean
 }
 
 const UiButton: FC<Props> = (
@@ -23,7 +26,8 @@ const UiButton: FC<Props> = (
         size = "medium",
         className = "",
         children,
-        clickHandler
+        clickHandler,
+        isLoading = false,
     }
 ) => {
     const handleClick = () => {
@@ -39,6 +43,8 @@ const UiButton: FC<Props> = (
         className ? `${className}` : "",
     ].filter(item => Boolean(item)).join(" ");
 
+    const content = isLoading ? <UiLoader height={ 16 } size="sm" />: children;
+
     return (
         <>
             {
@@ -48,7 +54,7 @@ const UiButton: FC<Props> = (
                         onClick={ () => handleClick() }
                         disabled={ disabled }
                     >
-                        { children }
+                        { content }
                     </button>
                     : tag === "a" ?
                         <a
@@ -56,7 +62,7 @@ const UiButton: FC<Props> = (
                             className={ classes }
                             onClick={ () => handleClick() }
                         >
-                            { children }
+                            { content }
                         </a>
                         : tag === "router-link" &&
                     <Link
@@ -64,7 +70,7 @@ const UiButton: FC<Props> = (
                         className={ classes }
                         onClick={ () => handleClick() }
                     >
-                        { children }
+                        { content }
                     </Link>
             }
         </>
