@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ToastContainer, ToastOptions, Slide } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { RootState } from "@/stores/main";
@@ -11,9 +12,18 @@ import MarketPage from "@/components/pages/market/MarketPage";
 
 import "swiper/css/grid";
 import "swiper/css";
+import "react-toastify/dist/ReactToastify.css";
 import "@/assets/styles/global.scss";
 
 const queryClient = new QueryClient();
+
+const toastOptions: ToastOptions = {
+    theme: "dark",
+    position: "bottom-right",
+    pauseOnHover: false,
+    draggable: false,
+    transition: Slide,
+};
 
 const App = () => {
     const isAuth = useSelector((state: RootState) => state.auth.isAuth);
@@ -33,10 +43,12 @@ const App = () => {
     ]);
 
     return (
-        <div className="app" id="bebra">
+        <div className="app">
             <QueryClientProvider client={ queryClient }>
                 <RouterProvider router={ router } />
             </QueryClientProvider>
+
+            <ToastContainer { ...toastOptions } />
         </div>
     );
 };
