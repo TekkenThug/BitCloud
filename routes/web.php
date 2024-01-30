@@ -24,7 +24,7 @@ Route::get('/test-mail/{template?}', function ($template = null) {
     return view("mails.$template");
 })->where('any', '.*')->middleware("dev-env");
 
-Route::get('/unsubscribe/{email}', [SubscriberController::class, 'unsubscribe'])->name('unsubscribe');
+Route::get('/unsubscribe/{email}', [SubscriberController::class, 'unsubscribe'])->name('unsubscribe')->middleware('signed');
 
 Route::get('{any}', function () {
     return view('index');
