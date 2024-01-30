@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Logo.module.scss";
 
@@ -16,18 +17,19 @@ const Logo: FC<Props> = (
     },
 ) => {
     const classes = [`${styles.Logo}`, className].filter(name => name).join(" ");
+    const content = <>
+        <Logotype className={ styles.image } />
+
+        BitCloud
+    </>;
 
     return (
         isLink ?
-            <a href="/" className={ classes }>
-                <Logotype className={ styles.image } />
-
-                BitCloud
-            </a> :
+            <Link to="/" className={ classes }>
+                { content }
+            </Link> :
             <div className={ classes }>
-                <Logotype className={ styles.image } />
-
-                BitCloud
+                { content }
             </div>
     );
 };
