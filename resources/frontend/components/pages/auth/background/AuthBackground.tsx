@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./AuthBackground.module.scss";
 
 import Logo from "@/assets/icons/common/logo.svg?react";
@@ -12,11 +14,11 @@ const AuthBackground = () => {
             className={ styles.AuthBackground }
         >
             <div className={ styles.wrapper }>
-                <a href="/" className={ styles.mainLink }>
+                <Link to="/" className={ styles.mainLink }>
                     <Logo className={ styles.logo } />
 
-					BitCloud
-                </a>
+                    BitCloud
+                </Link>
             </div>
         </div>
     );
