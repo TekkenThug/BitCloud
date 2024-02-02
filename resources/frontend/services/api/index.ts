@@ -2,7 +2,9 @@ import axios, { AxiosError,AxiosResponse } from "axios";
 import { camelizeKeys } from "humps";
 
 const api = axios.create({
-    baseURL: "/api"
+    baseURL: "/api",
+    withCredentials: true,
+    withXSRFToken: true,
 });
 
 api.interceptors.response.use((response: AxiosResponse) => {
