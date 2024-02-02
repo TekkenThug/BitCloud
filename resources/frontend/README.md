@@ -1,5 +1,3 @@
-# CryptoExchange React app
-
 ## Project structure
 ```bash
 ├─assets
@@ -11,7 +9,9 @@
 │   ├─layouts   // Page layouts
 │   ├─pages     // Page views, use it in React Router
 │   └─ui        // UI Components
-├─services      // Services for bussines logic (API calls and etc.)
+├─hooks         // Self-write hooks
+├─services      // Services for business logic (API calls and etc.)
+├─stores        // Redux store
 └─utils         // Different util functions
 ```
 
@@ -23,10 +23,14 @@ import React, { useState } from "react";
 import Select from "react-select";
 import uuid from "uuid";
 
+// Store
+import countReducer from "@/stores/index";
+
 // Hooks, services, utils and types
 import { useHttp } from "@/hooks";
 import apiService from "@/services/api";
 import regexps from "@/utils/regexp";
+import mock from "@/data/currency";
 import Product from "@/types/product";
 
 // Components (distant, use absolute path)
