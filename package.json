@@ -7,12 +7,14 @@
         "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
     },
     "dependencies": {
+        "@hookform/resolvers": "^3.3.4",
         "@react-spring/web": "^9.7.3",
         "@reduxjs/toolkit": "^2.1.0",
         "@tanstack/react-query": "^5.0.0",
         "@types/uuid": "^9.0.4",
         "ahooks": "^3.7.8",
         "axios": "^1.6.2",
+        "classnames": "^2.5.1",
         "date-fns": "^3.0.6",
         "normalize.css": "^8.0.1",
         "react": "^18.2.0",
@@ -27,7 +29,8 @@
         "swiper": "^11.0.5",
         "uuid": "^9.0.1",
         "vite-plugin-svgr": "^4.0.0",
-        "vite-tsconfig-paths": "^4.2.1"
+        "vite-tsconfig-paths": "^4.2.1",
+        "zod": "^3.22.4"
     },
     "devDependencies": {
         "@stylistic/eslint-plugin-js": "^1.5.1",
