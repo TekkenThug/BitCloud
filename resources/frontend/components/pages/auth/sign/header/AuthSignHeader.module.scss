@@ -1,0 +1,12 @@
+.AuthSignHeader {
+    @include button-2;
+
+    display: flex;
+    justify-content: flex-end;
+    padding: 80px;
+
+    a {
+        color: $primary-1;
+        margin-left: 8px;
+    }
+}
