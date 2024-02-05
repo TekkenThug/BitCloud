@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./Logo.module.scss";
 
-import Logotype from "@/assets/icons/common/logo.svg?react";
+import Logotype from "@/assets/icons/common/logo.svg";
 
 interface Props {
     isLink?: boolean;
@@ -18,7 +18,11 @@ const Logo: FC<Props> = (
 ) => {
     const classes = [`${styles.Logo}`, className].filter(name => name).join(" ");
     const content = <>
-        <Logotype className={ styles.image } />
+        <img
+            className={ styles.image }
+            src={ Logotype }
+            alt="Logo"
+        />
 
         BitCloud
     </>;
