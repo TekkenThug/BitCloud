@@ -4,6 +4,10 @@
 	background-repeat: no-repeat;
 	background-position: center right;
 	background-size: 450px auto;
+
+    @include respond($laptop) {
+        display: none;
+    }
 }
 
 .wrapper {
