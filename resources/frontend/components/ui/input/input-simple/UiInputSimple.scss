@@ -2,15 +2,15 @@
 	&__label {
 		display: flex;
 		flex-direction: column;
-
-		& > span {
-			@include hairline-2;
-			flex-direction: column;
-			font-weight: 700;
-			color: $neutral-5;
-			margin-bottom: 12px;
-		}
 	}
+
+    &__labelText {
+        @include hairline-2;
+        flex-direction: column;
+        font-weight: 700;
+        color: $neutral-5;
+        margin-bottom: 12px;
+    }
 
     &__inputWrapper {
         position: relative;
@@ -29,7 +29,7 @@
 
 		@include hover {
 			&:not(:focus) {
-				border-color: $neutral-5;
+				border-color: $neutral-4;
 			}
 		}
 
@@ -57,5 +57,24 @@
         right: 12px;
         transform: translateY(-50%);
         color: $neutral-4;
+    }
+
+    &__error {
+        @include caption;
+
+        user-select: none;
+        margin-top: 5px;
+        color: $primary-3;
+    }
+
+    &--error {
+        .UiInputSimple__nativeInput:not(:focus) {
+            border-color: $primary-3;
+
+            &::placeholder {
+                color: $primary-3;
+                opacity: .5;
+            }
+        }
     }
 }

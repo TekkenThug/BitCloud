@@ -1,4 +1,6 @@
-import { FC, useState } from "react";
+import { forwardRef, useState } from "react";
+import { UseFormRegister } from "react-hook-form";
+import classNames from "classnames";
 
 import "./UiInputSimple.scss";
 
@@ -9,46 +11,73 @@ interface Props {
 	label?: string;
 	placeholder?: string;
 	className?: string;
+    error?: string;
     hasShowPassword?: boolean;
-    onChange: (value: string) => void;
 }
 
-const UiInputSimple: FC<Props> = (
+const UiInputSimple = forwardRef<HTMLInputElement, Props & ReturnType<UseFormRegister<never>>>((
     {
         type = "text",
         label = "",
         placeholder = "",
         className = "",
         hasShowPassword = false,
+        error = "",
         onChange,
-    }
+        onBlur,
+        name,
+    },
+    ref
 ) => {
     const [showPassword, setShowPassword] = useState(false);
+    const inputClasses = classNames(className, {
+        "UiInputSimple--error": error
+    });
 
     const inputField =
-        <div className="UiInputSimple__inputWrapper">
-            <input
-                className="UiInputSimple__nativeInput"
-                type={ type === "password" ? showPassword ? "text" : "password" : type }
-                placeholder={ placeholder }
-                onChange={ ({ target }) => onChange(target.value) }
-            />
+        <>
+            <div className="UiInputSimple__inputWrapper">
+                <input
+                    ref={ ref }
+                    onBlur={ onBlur }
+                    name={ name }
+                    className="UiInputSimple__nativeInput"
+                    type={ type === "password" ? showPassword ? "text" : "password" : type }
+                    placeholder={ placeholder }
+                    onChange={ onChange }
+                />
 
-            { hasShowPassword &&
-                <button className="UiInputSimple__showPasswordButton" onClick={ () => setShowPassword(!showPassword) }>
-                    <Eye />
-                </button>
-            }
-        </div>;
-    const inputFieldWithLabel = <label className="UiInputSimple__label"><span>{ label }</span>{ inputField }</label>;
+                { hasShowPassword &&
+                    <button
+                        type="button"
+                        className="UiInputSimple__showPasswordButton"
+                        onClick={ () => setShowPassword(!showPassword) }
+                    >
+                        <Eye />
+                    </button>
+                }
+            </div>
+
+            <span className="UiInputSimple__error">
+                { error }
+            </span>
+        </>;
+    const inputFieldWithLabel =
+        <label className="UiInputSimple__label">
+            <span className="UiInputSimple__labelText">{ label }</span>
+
+            { inputField }
+        </label>;
 
     return (
-        <div className={ `${className}` }>
+        <div className={ inputClasses }>
             {
                 label ? inputFieldWithLabel : inputField
             }
         </div>
     );
-};
+});
+
+UiInputSimple.displayName = "UiInputSimple";
 
 export default UiInputSimple;
