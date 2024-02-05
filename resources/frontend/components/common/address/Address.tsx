@@ -10,7 +10,7 @@ interface Props {
     address?: string
 }
 
-const Address: FC<Props> = ({ address = "/login" }) => {
+const Address: FC<Props> = ({ address = "/auth" }) => {
     return (
         <div className={ styles.Address }>
             <LockIcon className={ styles.icon } />
