@@ -3,7 +3,29 @@
 
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     padding: 80px;
+
+    @include respond($laptop) {
+        padding: 48px;
+        justify-content: space-between;
+    }
+
+    @include respond($mobile) {
+        flex-direction: column;
+        gap: 24px;
+        padding: 0;
+    }
+}
+
+.logo {
+    @include respond($laptop, true) {
+        display: none;
+    }
+}
+
+.text {
+    text-align: center;
 
     a {
         color: $primary-1;
