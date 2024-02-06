@@ -23,10 +23,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('currencies', [CurrencyController::class, 'get']);
     Route::resource('articles', ArticleController::class);
 
-    Route::prefix('users')->group(function () {
-        Route::get('me', [UserController::class, 'me']);
-    });
+    Route::get('users/me', [UserController::class, 'me']);
 });
+
+Route::post('users/register', [UserController::class, 'register']);
 
 Route::post('subscribers', [SubscriberController::class, 'post']);
 Route::delete('subscribers', [SubscriberController::class, 'destroy']);
