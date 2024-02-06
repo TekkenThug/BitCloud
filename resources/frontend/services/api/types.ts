@@ -5,9 +5,9 @@ interface PaginationLinks {
 
 export type WithPagination<T> = { data: T, pagination: PaginationLinks }
 export type WithMessage<T> = { data: T, message: string }
-export interface ErrorMessage {
+export interface ErrorMessage<T = string> {
     message: string;
     errors: {
-        [field: string]: string[]
+        [field in (T extends string ? T : keyof T)]: string[]
     }
 }
