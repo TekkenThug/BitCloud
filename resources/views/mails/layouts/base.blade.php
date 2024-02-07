@@ -66,7 +66,13 @@
         </tbody>
 
         <tfoot class="mail__footer">
-            @yield('footer')
+            @hasSection('footer')
+                @yield('footer')
+            @endif
+
+            @sectionMissing('footer')
+                VI, BitCloud Project
+            @endif
         </tfoot>
     </table>
 </body>
