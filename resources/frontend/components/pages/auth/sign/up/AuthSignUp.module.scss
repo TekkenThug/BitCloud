@@ -1,0 +1,38 @@
+.alternate {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    border-bottom: 1px solid $neutral-3;
+    padding-bottom: 32px;
+}
+
+.alternateTitle {
+    @include caption-2;
+
+    color: $neutral-4;
+}
+
+.alternateButtons {
+    display: flex;
+    gap: 20px;
+}
+
+.continueTitle {
+    @include caption-2;
+
+    color: $neutral-4;
+    margin: 32px 0;
+}
+
+.checkboxText {
+    @include caption;
+
+    color: $neutral-4;
+    transform: translateY(-2px);
+
+    a {
+        color: $neutral-8;
+    }
+}
