@@ -1,5 +1,6 @@
 import { api, ApiError } from "@/services/api";
-import { AuthCredentials, User } from "@/services/api/contexts/auth/types";
+import { AuthCredentials } from "@/services/api/contexts/auth/types";
+import { User } from "@/services/api/contexts/user/types.ts";
 import { WithMessage } from "@/services/api/types.ts";
 
 // const getCSRFProtection = async () => {
@@ -23,10 +24,4 @@ export const login = async (credentials: AuthCredentials) => {
     }
 };
 
-export const getUser = async () => {
-    const REQUEST_URL = "/users/me";
-
-    const { data } = await api.get<User>(REQUEST_URL);
-
-    return data;
-};
+export const logout = () => {};
