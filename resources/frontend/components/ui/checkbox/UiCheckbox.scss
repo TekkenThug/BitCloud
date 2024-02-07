@@ -1,0 +1,50 @@
+.UiCheckbox {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+
+    @include hover {
+        .UiCheckbox__fakeCheckbox {
+            background-color: $neutral-3;
+        }
+    }
+
+    &--error {
+        .UiCheckbox__fakeCheckbox {
+            border-color: $primary-3;
+        }
+    }
+
+    &__checkbox {
+        position: absolute;
+        width: 0;
+        height: 0;
+
+        &:checked ~ .UiCheckbox__fakeCheckbox {
+            background-color: $primary-1;
+            border-color: transparent;
+
+            svg {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__fakeCheckbox {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        border: 2px solid $neutral-3;
+        background-color: $neutral-2;
+        transition: all $transition;
+
+        svg {
+            opacity: 0;
+            transition: all $transition;
+        }
+    }
+}
