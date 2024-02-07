@@ -1,21 +1,22 @@
-import { useSelector } from "react-redux";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch,useSelector } from "react-redux";
+import { RouterProvider } from "react-router-dom";
 import { Slide, ToastContainer, ToastOptions } from "react-toastify";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import { setUser } from "@/stores/auth.ts";
 import { RootState } from "@/stores/main";
 
-import Protected from "@/components/common/protected/Protected";
-import AuthPage from "@/components/pages/auth/AuthPage";
-import HomePage from "@/components/pages/home/HomePage";
-import MarketPage from "@/components/pages/market/MarketPage";
+import createRouter from "@/router";
+import { ApiError } from "@/services/api";
+import { getCurrentUser } from "@/services/api/contexts/user";
+import HTTP_CODE from "@/data/httpCode";
+
+import PageLoader from "@/components/common/page-loader/PageLoader.tsx";
 
 import "swiper/css/grid";
 import "swiper/css";
 import "react-toastify/dist/ReactToastify.css";
 import "@/assets/styles/global.scss";
-
-const queryClient = new QueryClient();
 
 const toastOptions: ToastOptions = {
     theme: "dark",
@@ -26,27 +27,38 @@ const toastOptions: ToastOptions = {
 };
 
 const App = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const isAuth = useSelector((state: RootState) => state.auth.isAuth);
-    const router = createBrowserRouter([
-        {
-            path: "/",
-            element: <HomePage />
-        },
-        {
-            path: "/market",
-            element: <Protected isAllowed={ isAuth }><MarketPage /></Protected>,
-        },
-        {
-            path: "/auth",
-            element: <Protected isAllowed={ !isAuth }><AuthPage /></Protected>,
-        },
-    ]);
+    const dispatch = useDispatch();
+
+    const router = createRouter(isAuth);
+
+    const fetchInitialAppData = async () => {
+        try {
+            const user = await getCurrentUser();
+
+            dispatch(setUser(user));
+        } catch (e) {
+            const err = e as ApiError;
+
+            if (err.response?.status !== HTTP_CODE.UNAUTHORIZED) {
+                console.warn(err.response?.data);
+                return;
+            }
+        } finally {
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 1500);
+        }
+    };
+
+    useEffect( () => {
+        fetchInitialAppData();
+    }, []);
 
     return (
         <div className="app">
-            <QueryClientProvider client={ queryClient }>
-                <RouterProvider router={ router } />
-            </QueryClientProvider>
+            { isLoading ? <PageLoader /> : <RouterProvider router={ router } /> }
 
             <ToastContainer { ...toastOptions } />
         </div>
