@@ -1,0 +1,40 @@
+.addressConfirm {
+    width: 100%;
+    margin-bottom: 32px;
+    text-align: center;
+
+    & > span {
+        @include caption-2;
+
+        display: inline-block;
+        color: $neutral-4;
+        margin-bottom: 12px;
+    }
+}
+
+.tabContainer {
+    width: 100%;
+    padding-top: 32px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+    border-top: 1px solid $neutral-3;
+
+    & > *:not(:last-child) {
+        margin-right: 24px;
+    }
+}
+
+.signature {
+    @include caption-2;
+
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: $neutral-4;
+    margin-top: 16px;
+
+    :is(a) {
+        color: $primary-1;
+    }
+}
