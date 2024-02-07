@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriberController;
 
@@ -25,6 +26,8 @@ Route::get('/test-mail/{template?}', function ($template = null) {
 })->where('any', '.*')->middleware("dev-env");
 
 Route::get('/unsubscribe/{email}', [SubscriberController::class, 'unsubscribe'])->name('unsubscribe')->middleware('signed');
+
+Route::get('/email/verify/{id}/{hash}', [VerifyController::class, 'verify'])->name('verification.verify');
 
 Route::get('{any}', function () {
     return view('index');

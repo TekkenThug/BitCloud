@@ -15,6 +15,14 @@ class LoginController extends Controller
         $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
+            if (!Auth::user()->hasVerifiedEmail()) {
+                Auth::logout();
+
+                return response()->json([
+                    'message' => 'Please, verify email address'
+                ], Response::HTTP_UNAUTHORIZED);
+            }
+
             $request->session()->regenerate();
 
             return response()->json([

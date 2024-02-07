@@ -24,6 +24,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('articles', ArticleController::class);
 
     Route::get('users/me', [UserController::class, 'me']);
+
+    Route::post('logout', [LoginController::class, 'logout']);
 });
 
 Route::post('users/register', [UserController::class, 'register']);
@@ -32,4 +34,3 @@ Route::post('subscribers', [SubscriberController::class, 'post']);
 Route::delete('subscribers', [SubscriberController::class, 'destroy']);
 
 Route::post('login', [LoginController::class, 'login']);
-Route::post('logout', [LoginController::class, 'logout']);
