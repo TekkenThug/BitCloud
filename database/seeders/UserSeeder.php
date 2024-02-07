@@ -17,9 +17,9 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
-            'email' => 'admin@gmail.com',
+            'email' => env('TEST_USER_EMAIL'),
             'email_verified_at' => now(),
-            'password' => Hash::make('password'),
+            'password' => Hash::make(env('TEST_USER_PASSWORD')),
             'remember_token' => Str::random(10),
         ]);
     }
