@@ -1,25 +1,34 @@
 .AuthSign {
 	flex-grow: 1;
-}
+    overflow-y: auto;
+    padding-bottom: 80px;
 
-.top {
-	@include button-2;
+    @include respond($laptop) {
+        display: flex;
+        flex-direction: column;
+    }
 
-	display: flex;
-	justify-content: flex-end;
-	padding: 80px;
-
-	a {
-		color: $primary-1;
-		margin-left: 8px;
-	}
+    @include respond($mobile) {
+        padding: 32px;
+    }
 }
 
 .main {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding-top: 48px;
+    max-width: 380px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include respond($laptop) {
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    @include respond($mobile) {
+        margin-top: 60px;
+    }
 }
 
 .title {
@@ -27,58 +36,21 @@
 
 	font-weight: 700;
 	margin-bottom: 32px;
+    text-align: center;
+
+    @include respond($mobile) {
+        @include headline-4;
+    }
 }
 
-.addressConfirm {
-	padding-bottom: 32px;
-	text-align: center;
+.form {
+    width: 100%;
 
-	& > span {
-		@include caption-2;
-
-		display: inline-block;
-		color: $neutral-4;
-		margin-bottom: 12px;
-	}
-}
-
-.formContent {
-	border-top: 1px solid $neutral-3;
-	padding-top: 32px;
-}
-
-.tabContainer {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 32px;
-
-	& > *:not(:last-child) {
-		margin-right: 24px;
-	}
+    .submitButton {
+        width: 100%;
+    }
 }
 
 .inputField {
 	margin-bottom: 32px;
-
-	:global(.UiInputSimple__nativeInput:not(:focus)) {
-		border-color: $neutral-4;
-	}
-}
-
-.signature {
-	@include caption-2;
-
-	display: flex;
-	justify-content: space-between;
-	font-weight: 600;
-	color: $neutral-4;
-	margin-top: 16px;
-
-	:is(a) {
-		color: $primary-1;
-	}
-}
-
-.submitButton {
-	width: 100%;
 }
