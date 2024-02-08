@@ -9,11 +9,14 @@ import elementTwo from "@/assets/images/market/header/element-2.png";
 import elementThree from "@/assets/images/market/header/element-3.png";
 import elementFour from "@/assets/images/market/header/element-4.png";
 import elementFive from "@/assets/images/market/header/element-5.png";
+import classNames from "classnames";
 
 const MarketHeader = () => {
     const text = "Today’s Cryptocurrency prices";
     const caption = "The global crypto market cap is";
     const cryptoMarketCup = "$1.86T";
+
+    const widgetClasses = classNames(styles.widget, "container");
 
     return (
         <section className={ styles.MarketHeader }>
@@ -71,7 +74,7 @@ const MarketHeader = () => {
                 </div>
             </div>
 
-            <div className={ `${styles.widget} container` }>
+            <div className={ widgetClasses }>
                 <MarketWidget />
             </div>
         </section>

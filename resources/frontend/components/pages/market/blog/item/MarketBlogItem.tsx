@@ -5,6 +5,7 @@ import UiLabel, { LabelColor } from "@/components/ui/label/UiLabel.tsx";
 import styles from "./MarketBlogItem.module.scss";
 
 import defaultCover from "@/assets/images/common/video-cover.png";
+import classNames from "classnames";
 
 export interface BlogItem {
     cover?: string,
@@ -28,8 +29,11 @@ const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
         cover,
         className
     }) => {
+
+    const classes = classNames(styles.MarketBlogItem, className);
+
     return (
-        <li className={ `${styles.MarketBlogItem} ${className}` }>
+        <li className={ classes }>
             <div className={ styles.cover }>
                 <img src={ cover ?? defaultCover } alt="Video preview" />
             </div>

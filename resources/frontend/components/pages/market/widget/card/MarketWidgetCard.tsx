@@ -1,4 +1,5 @@
 import { FC } from "react";
+import classNames from "classnames";
 
 import { quote } from "@/data/mocks";
 
@@ -26,8 +27,10 @@ const MarketWidgetCard: FC<MarketWidgetCardProps> = (
         className = ""
     }
 ) => {
+    const classes = classNames(styles.MarketWidgetCard, className);
+
     return (
-        <div className={ `${styles.MarketWidgetCard} ${className}` }>
+        <div className={ classes }>
             <div className={ styles.content }>
                 <Logo className={ styles.currency } />
 

@@ -67,9 +67,9 @@ const MarketBlog = () => {
                         className={ styles.loadingButton }
                         color="dark"
                         clickHandler={ loadMoreArticles }
-                        disabled={ loading }
+                        isLoading={ loading }
                     >
-                        <Loading className={ `${styles.loadingButtonIcon} ${loading && "spin-animation"}` }/> Load more
+                        <Loading className={ styles.loadingButtonIcon }/> Load more
                     </UiButton>
                 }
             </div>

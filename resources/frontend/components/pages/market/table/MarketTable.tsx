@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import classNames from "classnames";
 
 import { getTrendingCurrencies } from "@/services/api/contexts/currency";
 import { QuotatedCurrency } from "@/services/api/contexts/currency/types";
@@ -71,6 +72,8 @@ const MarketTable = () => {
         });
     }, [data, sort, descending]);
 
+    const cellClasses = classNames(styles.tableHeaderCell, styles.tableHeaderCell_cell_number);
+
     return (
         <section className={ styles.MarketTable }>
             <div className="container">
@@ -78,7 +81,7 @@ const MarketTable = () => {
                     <div>
                         <div className={ styles.tableHeader }>
                             <div
-                                className={ `${styles.tableHeaderCell} ${styles.tableHeaderCell_cell_number}` }
+                                className={ cellClasses }
                                 onClick={ () => sortByField("number") }
                             >
                                 # <Arrows className={ styles.tableHeaderCellArrow } />
