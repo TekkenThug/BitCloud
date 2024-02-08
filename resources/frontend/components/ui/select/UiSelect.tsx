@@ -3,10 +3,6 @@ import classNames from "classnames";
 
 import "./UiSelect.scss";
 
-// interface Props extends ComponentProps<typeof Select> {
-//     className?: string,
-// }
-
 const UiSelect = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>(
     props: Props<Option, IsMulti, Group>
 ) => {
