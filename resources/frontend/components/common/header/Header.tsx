@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import classNames from "classnames";
 
 import { RootState } from "@/store";
 import { isAuthSelector } from "@/store/auth/selectors.ts";
@@ -20,6 +21,17 @@ const Header = () => {
 
     const isAuth = useSelector((state: RootState) => isAuthSelector(state));
 
+    const lightningButtonClasses = classNames(styles.button, styles.button_shape_square, styles.lightning);
+    const bellButtonClasses = classNames(
+        styles.button,
+        styles.button_shape_square,
+        styles.bell,
+        {
+            [styles.bell_active]: hasNotifications
+        });
+    const walletButtonClasses = classNames(styles.button, styles.walletButton);
+    const avatarClasses = classNames(styles.button, styles.avatar);
+
     return (
         <header className={ styles.Header }>
             <div className="container">
@@ -34,18 +46,12 @@ const Header = () => {
 
                     { isAuth ?
                         <div className={ styles.right }>
-                            <button
-                                className={ `${styles.button} ${styles.button_shape_square} ${styles.lightning}` }
-                            >
+                            <button className={ lightningButtonClasses }>
                                 <Lightning />
                             </button>
 
                             <button
-                                className={
-                                    `${styles.button} ` +
-                                    `${styles.button_shape_square} ` +
-                                    `${styles.bell} ` +
-                                    `${hasNotifications ? styles.bell_active : ""}` }
+                                className={ bellButtonClasses }
                             >
                                 <Bell />
                             </button>
@@ -53,14 +59,12 @@ const Header = () => {
                             <UiButton
                                 color="dark"
                                 clickHandler={ goToWallet }
-                                className={ `${styles.button} ${styles.walletButton}` }
+                                className={ walletButtonClasses }
                             >
                                 Wallet
                             </UiButton>
 
-                            <div
-                                className={ `${styles.button} ${styles.avatar}` }
-                            >
+                            <div className={ avatarClasses }>
                                 {
                                     userAvatar &&
                                     <img

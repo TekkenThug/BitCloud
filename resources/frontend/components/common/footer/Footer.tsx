@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { animated,useSpring } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
+import classNames from "classnames";
 
 import { subscribeToNewsletter } from "@/services/api/contexts/subscribe";
 import { ErrorMessage } from "@/services/api/types";
@@ -70,6 +71,10 @@ const Footer = () => {
         }
     ];
 
+    const arrowClasses = classNames(styles.navArrowIcon, { [styles.navArrowIcon_rotated]: isVisible });
+    const linkListClasses = classNames(styles.navList, styles.navList_desktop);
+    const linkListMobileClasses = classNames(styles.navList, styles.navList_mobile);
+
     return (
         <footer className={ styles.Footer }>
             <div className="container">
@@ -88,13 +93,13 @@ const Footer = () => {
                         >
 							Navigation
                             <ArrowDownSimple
-                                className={ `${styles.navArrowIcon} ${isVisible ? styles.navArrowIcon_rotated : ""}` }
+                                className={ arrowClasses }
                             />
                         </button>
 
                         <ul
                             ref={ list }
-                            className={ `${styles.navList} ${styles.navList_desktop}` }
+                            className={ linkListClasses }
                         >
                             {
                                 links.map(item => (
@@ -110,7 +115,7 @@ const Footer = () => {
 
                         <animated.ul
                             style={ slideDownAnimation }
-                            className={ `${styles.navList} ${styles.navList_mobile}` }
+                            className={ linkListMobileClasses }
                         >
                             {
                                 links.map(item => (
@@ -168,7 +173,7 @@ const Footer = () => {
             <div className={ styles.bottom }>
                 <div className="container">
                     <p className={ styles.copyright }>
-						Copyright © 2023 Vadim Ignatov Inc. All rights reserved
+						Copyright © 2024 Vadim Ignatov Inc. All rights reserved
                     </p>
                 </div>
             </div>

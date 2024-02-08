@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Logo.module.scss";
 
 import Logotype from "@/assets/icons/common/logo.svg";
+import classNames from "classnames";
 
 interface Props {
     isLink?: boolean;
@@ -16,7 +17,7 @@ const Logo: FC<Props> = (
         className = ""
     },
 ) => {
-    const classes = [`${styles.Logo}`, className].filter(name => name).join(" ");
+    const classes = classNames(className, styles.Logo);
     const content = <>
         <img
             className={ styles.image }
