@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import styles from "./Logo.module.scss";
 
 import Logotype from "@/assets/icons/common/logo.svg";
-import classNames from "classnames";
 
 interface Props {
     isLink?: boolean;
