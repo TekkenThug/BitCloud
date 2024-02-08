@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 import MarketWidget from "@/components/pages/market/widget/MarketWidget.tsx";
 
 import styles from "./MarketHeader.module.scss";
@@ -9,7 +11,6 @@ import elementTwo from "@/assets/images/market/header/element-2.png";
 import elementThree from "@/assets/images/market/header/element-3.png";
 import elementFour from "@/assets/images/market/header/element-4.png";
 import elementFive from "@/assets/images/market/header/element-5.png";
-import classNames from "classnames";
 
 const MarketHeader = () => {
     const text = "Today’s Cryptocurrency prices";

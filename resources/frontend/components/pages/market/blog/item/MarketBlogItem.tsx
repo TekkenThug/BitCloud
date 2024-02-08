@@ -1,11 +1,11 @@
 import React from "react";
+import classNames from "classnames";
 
 import UiLabel, { LabelColor } from "@/components/ui/label/UiLabel.tsx";
 
 import styles from "./MarketBlogItem.module.scss";
 
 import defaultCover from "@/assets/images/common/video-cover.png";
-import classNames from "classnames";
 
 export interface BlogItem {
     cover?: string,
