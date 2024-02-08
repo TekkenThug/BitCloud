@@ -1,18 +1,24 @@
 ## Project structure
 ```bash
 ├─assets
-│   ├─icons     // SVG icons, separated by usage context
-│   ├─images    // Static images
-│   └─styles    // SCSS styles, included variables, mixins, typography and etc.
+│   ├─icons         // SVG icons, separated by usage context
+│   ├─images        // Static images
+│   └─styles        // SCSS styles, included variables, mixins, typography and etc.
 ├─components
-│   ├─common    // Commonly used images
-│   ├─layouts   // Page layouts
-│   ├─pages     // Page views, use it in React Router
-│   └─ui        // UI Components
-├─hooks         // Self-write hooks
-├─services      // Services for business logic (API calls and etc.)
-├─stores        // Redux store
-└─utils         // Different util functions
+│   ├─common        // Commonly used images
+│   ├─layouts       // Page layouts
+│   ├─pages         // Page views, use with React Router
+│   └─ui            // UI Components
+├─data              // Mocks, RegExps variables and etc
+├─hooks             // Self-write hooks
+├─router            // React router config
+├─services          
+│   ├─api           // API calls
+│   └─validations   // Validation rules (using Zod.js)
+├─store             // Redux store
+│   ├─[reducerName] // Reducers
+│   └─index.ts      // Common store file
+└─utils             // Different util functions
 ```
 
 ## Import order
