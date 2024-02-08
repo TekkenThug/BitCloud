@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 
-import { RootState } from "@/stores/main";
+import { RootState } from "@/store";
+import { isAuthSelector } from "@/store/auth/selectors.ts";
 
 import Logo from "@/components/common/logo/Logo";
 import UiButton from "@/components/ui/button/UiButton";
@@ -13,10 +14,11 @@ import Bell from "@/assets/icons/ui/bell.svg?react";
 
 const Header = () => {
     const goToWallet = () => { };
+    // TODO: make avatar
     const userAvatar = "";
     const hasNotifications = true;
 
-    const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+    const isAuth = useSelector((state: RootState) => isAuthSelector(state));
 
     return (
         <header className={ styles.Header }>
