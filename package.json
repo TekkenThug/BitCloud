@@ -4,7 +4,8 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+        "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+        "typecheck": "tsc --noEmit --composite false"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.3.4",
