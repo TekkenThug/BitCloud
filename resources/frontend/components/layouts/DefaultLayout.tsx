@@ -1,9 +1,9 @@
-import React from "react";
+import { FC, ReactNode } from "react";
 
 import Footer from "@/components/common/footer/Footer.tsx";
 import Header from "@/components/common/header/Header.tsx";
 
-const DefaultLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const DefaultLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <>
             <Header />
