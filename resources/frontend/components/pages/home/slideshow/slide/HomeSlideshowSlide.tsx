@@ -1,4 +1,5 @@
 import { FC } from "react";
+import classNames from "classnames";
 
 import UiButton from "@/components/ui/button/UiButton.tsx";
 
@@ -25,8 +26,10 @@ const HomeSlideshowSlide: FC<Props> = (
         className = "",
     }
 ) => {
+    const classes = classNames(styles.HomeSlideshowSlide, className);
+
     return (
-        <div className={ `${styles.HomeSlideshowSlide} ${className}` }>
+        <div className={ classes }>
             <div className={ styles.content }>
                 <p className={ styles.category }>
                     {category}

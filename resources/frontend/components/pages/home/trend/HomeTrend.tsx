@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 import useTabs from "@/hooks/useTabs";
 import { formatPercent, formatPrice } from "@/utils/numbers";
 import { quote } from "@/data/mocks";
@@ -44,6 +46,16 @@ const HomeTrend = () => {
             quote,
         },
     ];
+
+    const percentClasses = (row: typeof tableData extends Array<infer R> ? R : never) => {
+        return classNames(
+            styles.tableRowCell,
+            styles.tableRowCellPercentage,
+            {
+                [styles["tableRowCellPercentage--negative"]]: row.percentage < 0
+            }
+        );
+    };
 
     return (
         <section className={ styles.HomeTrend }>
@@ -92,13 +104,7 @@ const HomeTrend = () => {
                                     ${formatPrice(row.price)}
                                 </div>
 
-                                <div
-                                    className={
-                                        `${styles.tableRowCell}
-                                        ${styles.tableRowCellPercentage}
-                                        ${row.percentage < 0 ? styles["tableRowCellPercentage--negative"] : ""}`
-                                    }
-                                >
+                                <div className={ percentClasses(row) }>
                                     {formatPercent(row.percentage)}
                                 </div>
 

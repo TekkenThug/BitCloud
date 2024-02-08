@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import classNames from "classnames";
 
 import { cryptoOptions } from "@/data/mocks.ts";
 
@@ -33,8 +34,10 @@ const HomeSectionHeader: FC<Props> = (
         setActiveNav
     ] = useState<SelectOptionType>(cryptoOptions[0]);
 
+    const classes = classNames(styles.HomeSectionHeader, { [styles["HomeSectionHeader--is-market"]]: isMarket });
+
     return (
-        <div className={ `${styles.HomeSectionHeader} ${isMarket ? styles["HomeSectionHeader--is-market"] : ""}` }>
+        <div className={ classes }>
             <div className={ styles.content }>
                 <h2 className={ styles.title }>
                     {title}

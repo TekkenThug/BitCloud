@@ -1,4 +1,5 @@
 import { FC } from "react";
+import classNames from "classnames";
 
 import UiButton from "@/components/ui/button/UiButton";
 
@@ -23,8 +24,10 @@ const HomeNewsItem: FC<Props> = (
         isBig = false,
     }
 ) => {
+    const classes = classNames(styles.HomeNewsItem, { [styles["HomeNewsItem--big"]]: isBig });
+
     return (
-        <div className={ `${styles.HomeNewsItem} ${isBig ? styles["HomeNewsItem--big"] : ""}` }>
+        <div className={ classes }>
             <div className={ styles.content }>
                 <div className={ styles.contentText }>
                     <h3 className={ styles.title }>

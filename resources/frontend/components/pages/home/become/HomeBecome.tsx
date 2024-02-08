@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import classNames from "classnames";
 import Swiper from "swiper";
 
 import { BREAKPOINTS } from "@/data/styles.ts";
@@ -49,6 +50,8 @@ const HomeBecome = () => {
         });
     }, []);
 
+    const sliderClasses = classNames("swiper", styles.cardListSlider);
+
     return (
         <section className={ styles.HomeBecome }>
             <div className="container">
@@ -66,7 +69,7 @@ const HomeBecome = () => {
                     ))}
                 </ul>
 
-                <div ref={ slider } className={ `${styles.cardListSlider} swiper` }>
+                <div ref={ slider } className={ sliderClasses }>
                     <div className="swiper-wrapper">
                         {cards.map((card, key) => (
                             <div className="swiper-slide" key={ key }>

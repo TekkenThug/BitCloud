@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import classNames from "classnames";
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 
@@ -67,6 +68,8 @@ const HomeSlideshow = () => {
         }
     ];
 
+    const sliderClasses = classNames("swiper", styles.slider);
+
     return (
         <section className={ styles.HomeSlideshow }>
             <div className="container">
@@ -87,7 +90,7 @@ const HomeSlideshow = () => {
                         <ArrowLeft />
                     </button>
 
-                    <div ref={ slider } className={ `${styles.slider} swiper` }>
+                    <div ref={ slider } className={ sliderClasses }>
                         <div className="swiper-wrapper">
                             {
                                 slides.map((slide, index) => (

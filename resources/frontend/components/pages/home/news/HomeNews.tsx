@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef } from "react";
+import classNames from "classnames";
 import Swiper from "swiper";
 import { Grid, Navigation } from "swiper/modules";
 
@@ -117,6 +118,8 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
         });
     }, []);
 
+    const sliderClasses = classNames("swiper", styles.newsListSlider);
+
     return (
         <section className={ styles.HomeNews } id={ id }>
             <div className="container">
@@ -136,7 +139,7 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
                     )}
                 </ul>
 
-                <div ref={ slider } className={ `${styles.newsListSlider} swiper` }>
+                <div ref={ slider } className={ sliderClasses }>
                     <div className="swiper-wrapper">
                         {news.map((item, index) =>
                             <div key={ index } className="swiper-slide">
