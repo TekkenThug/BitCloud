@@ -3,6 +3,7 @@ import classNames from "classnames";
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 
+import { homeSlides } from "@/data/mocks.ts";
 import { BREAKPOINTS } from "@/data/styles.ts";
 
 import Logo from "@/components/common/logo/Logo.tsx";
@@ -44,29 +45,6 @@ const HomeSlideshow = () => {
         });
     }, []);
 
-    const slides = [
-        {
-            category: "crypto news",
-            title: "Be Part of our Global Community",
-            description: "Let’s stay in touch. Join our communities to keep up with the BitCloud team and our traders from across the world.",
-            link: "/",
-            linkText: "Join now",
-        },
-        {
-            category: "crypto news",
-            title: "Be Part of our Global Community",
-            description: "Let’s stay in touch. Join our communities to keep up with the BitCloud team and our traders from across the world.",
-            link: "/",
-            linkText: "Join now",
-        },
-        {
-            category: "crypto news",
-            title: "Be Part of our Global Community",
-            description: "Let’s stay in touch. Join our communities to keep up with the BitCloud team and our traders from across the world.",
-            link: "/",
-            linkText: "Join now",
-        }
-    ];
 
     const sliderClasses = classNames("swiper", styles.slider);
 
@@ -93,7 +71,7 @@ const HomeSlideshow = () => {
                     <div ref={ slider } className={ sliderClasses }>
                         <div className="swiper-wrapper">
                             {
-                                slides.map((slide, index) => (
+                                homeSlides.map((slide, index) => (
                                     <HomeSlideshowSlide className="swiper-slide" { ...slide } key={ index } />
                                 ))
                             }

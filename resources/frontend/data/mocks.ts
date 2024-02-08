@@ -1,3 +1,7 @@
+import Become1 from "@/assets/images/common/become-1.png";
+import Become2 from "@/assets/images/common/become-2.png";
+import Become3 from "@/assets/images/common/become-3.png";
+
 export const quote = [
     {
         x: "2023-12-30",
@@ -25,3 +29,58 @@ export const cryptoOptions = [
     { value: "NFT", label: "NFT" },
     { value: "POW", label: "POW" },
 ];
+
+export const becomeCards = [
+    {
+        image: Become1,
+        title: "Buy & Sell Crypto",
+        description: `
+        We realize ideas from simple to complex,
+        everything becomes easy to use and reach the most potential customers.`
+    },
+    {
+        image: Become2,
+        title: "Trade Assets",
+        description: `
+        We realize ideas from simple to complex,
+        everything becomes easy to use and reach the most potential customers.`
+    },
+    {
+        image: Become3,
+        title: "Earn Rewards for Trading",
+        description: `
+        We realize ideas from simple to complex,
+        everything becomes easy to use and reach the most potential customers.`
+    }
+];
+
+export const homeSlides = [
+    {
+        category: "crypto news",
+        title: "Be Part of our Global Community",
+        description: `
+        Let’s stay in touch.
+        Join our communities to keep up with the BitCloud team and our traders from across the world.`,
+        link: "/",
+        linkText: "Join now",
+    },
+    {
+        category: "crypto news",
+        title: "Be Part of our Global Community",
+        description: `
+        Let’s stay in touch.
+        Join our communities to keep up with the BitCloud team and our traders from across the world.`,
+        link: "/",
+        linkText: "Join now",
+    },
+    {
+        category: "crypto news",
+        title: "Be Part of our Global Community",
+        description: `
+        Let’s stay in touch.
+        Join our communities to keep up with the BitCloud team and our traders from across the world.`,
+        link: "/",
+        linkText: "Join now",
+    }
+];
+
