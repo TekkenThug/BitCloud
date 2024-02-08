@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { Slide, ToastContainer, ToastOptions } from "react-toastify";
 
-import { setUser } from "@/stores/auth.ts";
-import { RootState } from "@/stores/main";
+import { RootState } from "@/store";
+import { setUser } from "@/store/auth";
+import { isAuthSelector } from "@/store/auth/selectors";
 
 import createRouter from "@/router";
 import { ApiError } from "@/services/api";
@@ -28,7 +29,7 @@ const toastOptions: ToastOptions = {
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+    const isAuth = useSelector((state: RootState) => isAuthSelector(state));
     const dispatch = useDispatch();
 
     const router = createRouter(isAuth);

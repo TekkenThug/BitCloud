@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import { RootState } from "@/stores/main";
+import { RootState } from "@/store";
+import { isAuthSelector } from "@/store/auth/selectors.ts";
 
 import AuthBackground from "./background/AuthBackground.tsx";
 import AuthSign from "./sign/AuthSign.tsx";
@@ -12,7 +13,7 @@ import styles from "./AuthPage.module.scss";
 type Mode = null | "signin" | "signup";
 
 const AuthPage = () => {
-    const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+    const isAuth = useSelector((state: RootState) => isAuthSelector(state));
 
     const navigate = useNavigate();
 
