@@ -1,10 +1,10 @@
 import { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import UiLoader from "@/components/ui/loader/UiLoader.tsx";
 
 import "./UiButton.scss";
-import classNames from "classnames";
 
 interface Props {
     disabled?: boolean;
