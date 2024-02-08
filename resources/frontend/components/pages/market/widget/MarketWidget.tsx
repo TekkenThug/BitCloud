@@ -18,6 +18,11 @@ const MarketWidget = () => {
         activeNav,
         setActiveNav
     ] = useState<SelectOptionType>(cryptoOptions[0]);
+    const selectHandler = (item: SelectOptionType | null) => {
+        if (!item) return;
+
+        setActiveNav(item);
+    };
 
     const handleClickButton = (value: string) => {
         const newValue = cryptoOptions.find(item => item.value === value);
@@ -68,11 +73,11 @@ const MarketWidget = () => {
                     Wallet
                 </UiButton>
 
-                <UiSelect
+                <UiSelect<SelectOptionType>
                     className={ styles.select }
                     value={ activeNav }
                     options={ cryptoOptions }
-                    onChange={ setActiveNav }
+                    onChange={ selectHandler }
                 />
             </div>
         </div>

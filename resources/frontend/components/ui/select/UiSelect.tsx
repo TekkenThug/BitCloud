@@ -1,16 +1,17 @@
-import { ComponentProps, FC } from "react";
-import Select from "react-select";
+import Select, { GroupBase, Props } from "react-select";
 import classNames from "classnames";
 
 import "./UiSelect.scss";
 
-interface Props extends ComponentProps<typeof Select> {
-	className?: string,
-	onChange: () => void,
-}
+// interface Props extends ComponentProps<typeof Select> {
+//     className?: string,
+// }
 
-const UiSelect: FC<Props> = (props) => {
+const UiSelect = <Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>(
+    props: Props<Option, IsMulti, Group>
+) => {
     const classes = classNames("UiSelect", props.className);
+
     return (
         <Select
             { ...props }

@@ -33,6 +33,11 @@ const HomeSectionHeader: FC<Props> = (
         activeNav,
         setActiveNav
     ] = useState<SelectOptionType>(cryptoOptions[0]);
+    const selectHandler = (item: SelectOptionType | null) => {
+        if (!item) return;
+
+        setActiveNav(item);
+    };
 
     const classes = classNames(styles.HomeSectionHeader, { [styles["HomeSectionHeader--is-market"]]: isMarket });
 
@@ -60,7 +65,7 @@ const HomeSectionHeader: FC<Props> = (
                         className={ styles.select }
                         value={ activeNav }
                         options={ cryptoOptions }
-                        onChange={ setActiveNav }
+                        onChange={ selectHandler }
                     />
                 }
             </div>
