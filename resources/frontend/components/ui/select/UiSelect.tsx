@@ -1,18 +1,20 @@
-import React from "react";
+import { ComponentProps, FC } from "react";
 import Select from "react-select";
+import classNames from "classnames";
 
 import "./UiSelect.scss";
 
-interface UiSelectProps {
+interface Props extends ComponentProps<typeof Select> {
 	className?: string,
 	onChange: () => void,
 }
 
-const UiSelect: React.FC<React.ComponentProps<typeof Select> & UiSelectProps> = (props) => {
+const UiSelect: FC<Props> = (props) => {
+    const classes = classNames("UiSelect", props.className);
     return (
         <Select
             { ...props }
-            className={ `UiSelect ${props.className ?? ""}` }
+            className={ classes }
             classNamePrefix="UiSelect"
         />
     );

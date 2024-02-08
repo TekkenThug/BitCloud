@@ -1,4 +1,5 @@
 import { FC } from "react";
+import classNames from "classnames";
 
 import "./UiLoader.scss";
 
@@ -17,12 +18,13 @@ const UiLoader: FC<Props> = ({
     size = "md",
     color = "white"
 }) => {
-    const classes = ["spin-animation", `UiLoader_size-${size}`, `UiLoader_color-${color}`].join(" ");
+    const wrapperClasses = classNames("UiLoader__wrapper", { "UiLoader__wrapper_covered": covered });
+    const classes = classNames("spin-animation", `UiLoader_size-${size}`, `UiLoader_color-${color}`);
 
     return (
         <div
             style={ { height: height ? `${height}px` : "unset" } }
-            className={ `UiLoader__wrapper ${covered ? "UiLoader__wrapper_covered" : ""}` }
+            className={ wrapperClasses }
         >
             <Loading
                 className={ classes }

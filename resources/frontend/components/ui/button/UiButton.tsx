@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import UiLoader from "@/components/ui/loader/UiLoader.tsx";
 
 import "./UiButton.scss";
+import classNames from "classnames";
 
 interface Props {
     disabled?: boolean;
     tag?: "button" | "a" | "router-link";
-    color: "dark" | "blue";
+    color?: "dark" | "blue";
     size?: "medium" | "large";
     href?: string;
     className?: string;
@@ -22,7 +23,7 @@ const UiButton: FC<Props> = (
         disabled = false,
         tag = "button",
         href = "",
-        color,
+        color = "dark",
         size = "medium",
         className = "",
         children,
@@ -36,12 +37,7 @@ const UiButton: FC<Props> = (
         }
     };
 
-    const classes = [
-        "UiButton",
-        color ? `UiButton--color-${color}` : "",
-        size ? `UiButton--size-${size}` : "",
-        className ? `${className}` : "",
-    ].filter(item => Boolean(item)).join(" ");
+    const classes = classNames("UiButton", `UiButton--color-${color}`, `UiButton--size-${size}`, className);
 
     const content = isLoading ? <UiLoader height={ 16 } size="sm" />: children;
 

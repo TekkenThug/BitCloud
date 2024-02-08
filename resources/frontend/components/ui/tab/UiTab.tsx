@@ -1,14 +1,17 @@
-import React from "react";
+import { FC } from "react";
+import classNames from "classnames";
 
 import "./UiTab.scss";
 
-const UiTab: React.FC<{
-	text: string,
-	isActive: boolean,
-	changeHandler: (value: string) => void,
-	className?: string
-	theme?: "dark" | "light",
-}> = (
+interface Props {
+    text: string,
+    isActive: boolean,
+    changeHandler: (value: string) => void,
+    className?: string
+    theme?: "dark" | "light",
+}
+
+const UiTab: FC<Props> = (
     {
         text,
         isActive = false,
@@ -16,9 +19,11 @@ const UiTab: React.FC<{
         className = "",
         theme = "dark"
     }) => {
+    const classes = classNames("UiTab", className, `UiTab_theme_${theme}`, { "UiTab_active": isActive });
+
     return (
         <button
-            className={ `${className} UiTab ${isActive ? "UiTab_active" : ""} UiTab_theme_${theme}` }
+            className={ classes }
             onClick={ () => changeHandler(text) }
         >
             { text }

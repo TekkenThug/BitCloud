@@ -1,4 +1,5 @@
 import { FC, FormEvent,useState } from "react";
+import classNames from "classnames";
 
 import "./UiInputConfirm.scss";
 
@@ -37,15 +38,16 @@ const UiInputConfirm: FC<UiInputProps> = (
         setValue(event.currentTarget.value);
     };
 
-    const classes = [
+    const classes = classNames(
         "UiInputConfirm",
-        isLoading ? "UiInputConfirm_loading" : "",
-        isSuccess ? "UiInputConfirm_success" : "",
-        isError ? "UiInputConfirm_error" : "",
-    ];
+        {
+            "UiInputConfirm_loading": isLoading,
+            "UiInputConfirm_success": isSuccess,
+            "UiInputConfirm_error": isError
+        });
 
     return (
-        <div className={ classes.join(" ") }>
+        <div className={ classes }>
             <input
                 className="UiInputConfirm__nativeInput"
                 type={ type }

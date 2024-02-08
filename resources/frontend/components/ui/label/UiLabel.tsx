@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 
 import "./UiLabel.scss";
 
@@ -10,8 +11,10 @@ interface Props {
 }
 
 const UiLabel: React.FC<Props> = ({ title, color }) => {
+    const classes = classNames("UiLabel", `UiLabel_${color}`);
+
     return (
-        <div className={ `UiLabel UiLabel_${color}` }>
+        <div className={ classes }>
             { title }
         </div>
     );
