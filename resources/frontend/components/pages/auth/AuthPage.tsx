@@ -32,10 +32,10 @@ const AuthPage = () => {
     }, [searchParams]);
 
     return (
-        <div className={ styles.AuthPage }>
+        <div className={styles.AuthPage}>
             <AuthBackground />
 
-            { mode && <AuthSign mode={ mode } /> }
+            {mode && <AuthSign mode={mode} />}
         </div>
     );
 };

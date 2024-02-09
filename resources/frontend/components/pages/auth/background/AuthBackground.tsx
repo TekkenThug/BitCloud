@@ -8,15 +8,17 @@ import Background from "@/assets/images/auth/background.png";
 const AuthBackground = () => {
     return (
         <div
-            style={ {
-                backgroundImage: `url(${Background})`
-            } }
-            className={ styles.AuthBackground }
+            style={{
+                backgroundImage: `url(${Background})`,
+            }}
+            className={styles.AuthBackground}
         >
-            <div className={ styles.wrapper }>
-                <Link to="/" className={ styles.mainLink }>
-                    <Logo className={ styles.logo } />
-
+            <div className={styles.wrapper}>
+                <Link
+                    to="/"
+                    className={styles.mainLink}
+                >
+                    <Logo className={styles.logo} />
                     BitCloud
                 </Link>
             </div>

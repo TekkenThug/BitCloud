@@ -53,15 +53,15 @@ const App = () => {
         }
     };
 
-    useEffect( () => {
+    useEffect(() => {
         fetchInitialAppData();
     }, []);
 
     return (
         <div className="app">
-            { isLoading ? <PageLoader /> : <RouterProvider router={ router } /> }
+            {isLoading ? <PageLoader /> : <RouterProvider router={router} />}
 
-            <ToastContainer { ...toastOptions } />
+            <ToastContainer {...toastOptions} />
         </div>
     );
 };

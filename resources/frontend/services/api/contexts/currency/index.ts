@@ -1,8 +1,5 @@
 import { api } from "@/services/api";
-import {
-    chartsAdapter,
-    numbersAdapter,
-} from "@/services/api/contexts/currency/adapters.ts";
+import { chartsAdapter, numbersAdapter } from "@/services/api/contexts/currency/adapters.ts";
 
 import { Currency } from "./types";
 

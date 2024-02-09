@@ -8,9 +8,7 @@ const DefaultLayout: FC<{ children: ReactNode }> = ({ children }) => {
         <>
             <Header />
 
-            <main className="main">
-                { children }
-            </main>
+            <main className="main">{children}</main>
 
             <Footer />
         </>

@@ -9,58 +9,61 @@ const HomeWork = () => {
     const steps = [
         {
             title: "Download",
-            description: "Stacks is a production-ready library of stackable content blocks built in React Native.",
+            description:
+                "Stacks is a production-ready library of stackable content blocks built in React Native.",
             image: image1,
         },
         {
             title: "Connect wallet",
-            description: "Stacks is a production-ready library of stackable content blocks built in React Native.",
+            description:
+                "Stacks is a production-ready library of stackable content blocks built in React Native.",
             image: image2,
         },
         {
             title: "Start trading",
-            description: "Stacks is a production-ready library of stackable content blocks built in React Native.",
+            description:
+                "Stacks is a production-ready library of stackable content blocks built in React Native.",
             image: image3,
         },
         {
             title: "Earn money",
-            description: "Stacks is a production-ready library of stackable content blocks built in React Native.",
+            description:
+                "Stacks is a production-ready library of stackable content blocks built in React Native.",
             image: image4,
-        }
+        },
     ];
 
     return (
-        <section className={ styles.HomeWork }>
+        <section className={styles.HomeWork}>
             <div className="container">
-                <div className={ styles.header }>
-                    <h2 className={ styles.title }>
-                        How it work
-                    </h2>
+                <div className={styles.header}>
+                    <h2 className={styles.title}>How it work</h2>
 
-                    <p className={ styles.subtitle }>
-                        Stacks is a production-ready library of stackable
-                        content blocks built in React Native.
+                    <p className={styles.subtitle}>
+                        Stacks is a production-ready library of stackable content blocks built in
+                        React Native.
                     </p>
                 </div>
 
-                <ul className={ styles.list }>
+                <ul className={styles.list}>
                     {steps.map((step, index) => (
-                        <li key={ index } className={ styles.item }>
-                            <div className={ styles.itemImageWrapper }>
-                                <img className={ styles.itemImage } src={ step.image } alt="Work step image" />
+                        <li
+                            key={index}
+                            className={styles.item}
+                        >
+                            <div className={styles.itemImageWrapper}>
+                                <img
+                                    className={styles.itemImage}
+                                    src={step.image}
+                                    alt="Work step image"
+                                />
                             </div>
 
-                            <span className={ styles.itemStep }>
-                                Step {index + 1}
-                            </span>
+                            <span className={styles.itemStep}>Step {index + 1}</span>
 
-                            <h4 className={ styles.itemTitle }>
-                                {step.title}
-                            </h4>
+                            <h4 className={styles.itemTitle}>{step.title}</h4>
 
-                            <p className={ styles.itemDescription }>
-                                {step.description}
-                            </p>
+                            <p className={styles.itemDescription}>{step.description}</p>
                         </li>
                     ))}
                 </ul>

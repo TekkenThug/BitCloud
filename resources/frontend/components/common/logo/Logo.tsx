@@ -11,31 +11,28 @@ interface Props {
     className?: string;
 }
 
-const Logo: FC<Props> = (
-    {
-        isLink = false,
-        className = ""
-    },
-) => {
+const Logo: FC<Props> = ({ isLink = false, className = "" }) => {
     const classes = classNames(className, styles.Logo);
-    const content = <>
-        <img
-            className={ styles.image }
-            src={ Logotype }
-            alt="Logo"
-        />
+    const content = (
+        <>
+            <img
+                className={styles.image}
+                src={Logotype}
+                alt="Logo"
+            />
+            BitCloud
+        </>
+    );
 
-        BitCloud
-    </>;
-
-    return (
-        isLink ?
-            <Link to="/" className={ classes }>
-                { content }
-            </Link> :
-            <div className={ classes }>
-                { content }
-            </div>
+    return isLink ? (
+        <Link
+            to="/"
+            className={classes}
+        >
+            {content}
+        </Link>
+    ) : (
+        <div className={classes}>{content}</div>
     );
 };
 

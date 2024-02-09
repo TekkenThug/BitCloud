@@ -1,8 +1,5 @@
 import { api, ApiError } from "@/services/api";
-import {
-    RegisterCredentials,
-    User,
-} from "@/services/api/contexts/user/types.ts";
+import { RegisterCredentials, User } from "@/services/api/contexts/user/types.ts";
 import { WithMessage } from "@/services/api/types.ts";
 
 export const getCurrentUser = async () => {
@@ -17,10 +14,7 @@ export const registerUser = async (credentials: RegisterCredentials) => {
     const REQUEST_URL = "/users/register";
 
     try {
-        const { data } = await api.post<WithMessage<never>>(
-            REQUEST_URL,
-            credentials,
-        );
+        const { data } = await api.post<WithMessage<never>>(REQUEST_URL, credentials);
 
         return data;
     } catch (e) {

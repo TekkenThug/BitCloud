@@ -14,79 +14,87 @@ import ArrowDown from "@/assets/icons/ui/arrow-down-simple.svg?react";
 import Bell from "@/assets/icons/ui/bell.svg?react";
 
 const Header = () => {
-    const goToWallet = () => { };
+    const goToWallet = () => {};
     // TODO: make avatar
     const userAvatar = "";
     const hasNotifications = true;
 
     const isAuth = useSelector((state: RootState) => isAuthSelector(state));
 
-    const lightningButtonClasses = classNames(styles.button, styles.button_shape_square, styles.lightning);
-    const bellButtonClasses = classNames(
+    const lightningButtonClasses = classNames(
         styles.button,
         styles.button_shape_square,
-        styles.bell,
-        {
-            [styles.bell_active]: hasNotifications
-        });
+        styles.lightning,
+    );
+    const bellButtonClasses = classNames(styles.button, styles.button_shape_square, styles.bell, {
+        [styles.bell_active]: hasNotifications,
+    });
     const walletButtonClasses = classNames(styles.button, styles.walletButton);
     const avatarClasses = classNames(styles.button, styles.avatar);
 
     return (
-        <header className={ styles.Header }>
+        <header className={styles.Header}>
             <div className="container">
-                <div className={ styles.wrapper }>
-                    <div className={ styles.left }>
-                        <Logo isLink className={ styles.mainLink } />
+                <div className={styles.wrapper}>
+                    <div className={styles.left}>
+                        <Logo
+                            isLink
+                            className={styles.mainLink}
+                        />
 
-                        <div className={ styles.dropDownTrigger }>
-                            Exchange <ArrowDown className={ styles.dropDownArrow } />
+                        <div className={styles.dropDownTrigger}>
+                            Exchange <ArrowDown className={styles.dropDownArrow} />
                         </div>
                     </div>
 
-                    { isAuth ?
-                        <div className={ styles.right }>
-                            <button className={ lightningButtonClasses }>
+                    {isAuth ? (
+                        <div className={styles.right}>
+                            <button className={lightningButtonClasses}>
                                 <Lightning />
                             </button>
 
-                            <button
-                                className={ bellButtonClasses }
-                            >
+                            <button className={bellButtonClasses}>
                                 <Bell />
                             </button>
 
                             <UiButton
                                 color="dark"
-                                clickHandler={ goToWallet }
-                                className={ walletButtonClasses }
+                                clickHandler={goToWallet}
+                                className={walletButtonClasses}
                             >
                                 Wallet
                             </UiButton>
 
-                            <div className={ avatarClasses }>
-                                {
-                                    userAvatar &&
+                            <div className={avatarClasses}>
+                                {userAvatar && (
                                     <img
-                                        src={ userAvatar }
+                                        src={userAvatar}
                                         alt="Avatar"
                                     />
-                                }
+                                )}
                             </div>
                         </div>
-                        :
-                        <div className={ styles.right }>
-                            <div className={ styles.buttons }>
-                                <UiButton color="blue" tag="router-link" href="/auth?mode=signup">
+                    ) : (
+                        <div className={styles.right}>
+                            <div className={styles.buttons}>
+                                <UiButton
+                                    color="blue"
+                                    tag="router-link"
+                                    href="/auth?mode=signup"
+                                >
                                     Sign up
                                 </UiButton>
 
-                                <UiButton color="dark" tag="router-link" href="/auth?mode=signin">
+                                <UiButton
+                                    color="dark"
+                                    tag="router-link"
+                                    href="/auth?mode=signin"
+                                >
                                     Login
                                 </UiButton>
                             </div>
                         </div>
-                    }
+                    )}
                 </div>
             </div>
         </header>

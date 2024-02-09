@@ -20,62 +20,63 @@ const MarketHeader = () => {
     const widgetClasses = classNames(styles.widget, "container");
 
     return (
-        <section className={ styles.MarketHeader }>
+        <section className={styles.MarketHeader}>
             <div className="container">
-                <div className={ styles.wrapper }>
-                    <div className={ styles.content }>
-                        <h1 className={ styles.title }>
-                            { text }
-                        </h1>
+                <div className={styles.wrapper}>
+                    <div className={styles.content}>
+                        <h1 className={styles.title}>{text}</h1>
 
-                        <p className={ styles.caption }>
-                            { caption } <b>{ cryptoMarketCup }</b>
+                        <p className={styles.caption}>
+                            {caption} <b>{cryptoMarketCup}</b>
                         </p>
                     </div>
 
-                    <div className={ styles.imagePlaceholder }>
-                        <img src={ image } alt="Market Placeholder" />
+                    <div className={styles.imagePlaceholder}>
+                        <img
+                            src={image}
+                            alt="Market Placeholder"
+                        />
 
                         <img
-                            className={ `${styles.imageDecorator} ${styles.cursor}` }
-                            src={ cursor }
+                            className={`${styles.imageDecorator} ${styles.cursor}`}
+                            src={cursor}
                             alt="Cursor"
                         />
 
                         <img
-                            className={ `${styles.imageDecorator} ${styles.elementOne}` }
-                            src={ elementOne }
+                            className={`${styles.imageDecorator} ${styles.elementOne}`}
+                            src={elementOne}
                             alt="Element one"
                         />
 
                         <img
-                            className={ `${styles.imageDecorator} ${styles.elementTwo}` }
-                            src={ elementTwo }
+                            className={`${styles.imageDecorator} ${styles.elementTwo}`}
+                            src={elementTwo}
                             alt="Element two"
                         />
 
                         <img
-                            className={ `${styles.imageDecorator} ${styles.elementThree}` }
-                            src={ elementThree }
+                            className={`${styles.imageDecorator} ${styles.elementThree}`}
+                            src={elementThree}
                             alt="Element three"
                         />
 
                         <img
-                            className={ `${styles.imageDecorator} ${styles.elementFour}` }
-                            src={ elementFour }
+                            className={`${styles.imageDecorator} ${styles.elementFour}`}
+                            src={elementFour}
                             alt="Element four"
                         />
 
                         <img
-                            className={ `${styles.imageDecorator} ${styles.elementFive}` }
-                            src={ elementFive }
+                            className={`${styles.imageDecorator} ${styles.elementFive}`}
+                            src={elementFive}
                             alt="Element five"
                         />
                     </div>
                 </div>
             </div>
 
-            <div className={ widgetClasses }>
+            <div className={widgetClasses}>
                 <MarketWidget />
             </div>
         </section>

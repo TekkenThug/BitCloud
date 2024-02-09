@@ -7,15 +7,17 @@ import LockIcon from "@/assets/icons/ui/lock.svg?react";
 const [protocol, host] = import.meta.env.VITE_APP_URL.split("://");
 
 interface Props {
-    address?: string
+    address?: string;
 }
 
 const Address: FC<Props> = ({ address = "/auth" }) => {
     return (
-        <div className={ styles.Address }>
-            <LockIcon className={ styles.icon } />
+        <div className={styles.Address}>
+            <LockIcon className={styles.icon} />
 
-            <span className={ styles.green }>{ protocol }://</span>{ host }{ address }
+            <span className={styles.green}>{protocol}://</span>
+            {host}
+            {address}
         </div>
     );
 };

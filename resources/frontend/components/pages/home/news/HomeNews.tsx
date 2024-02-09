@@ -17,9 +17,7 @@ import ArrowLeft from "@/assets/icons/ui/arrow-left.svg?react";
 import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
 
 const HomeNews: FC<{ id: string }> = ({ id }) => {
-    const { tabs, activeTab, setTab } = useTabs([
-        "All", "Bitcoin", "Blockchain", "Tutorial"
-    ]);
+    const { tabs, activeTab, setTab } = useTabs(["All", "Bitcoin", "Blockchain", "Tutorial"]);
 
     const news = [
         {
@@ -81,7 +79,7 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
             description: "Good things come in 3s. Get 3x Leveraged tokens now.",
             date: "Jun 1, 2021",
             image: "https://cdn.britannica.com/83/189283-131-4BB2C246/Banknotes-world.jpg",
-        }
+        },
     ];
 
     const slider = useRef(null);
@@ -105,7 +103,7 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
                     slidesPerView: 1,
                     grid: {
                         rows: 2,
-                        fill: "row"
+                        fill: "row",
                     },
                 },
                 [BREAKPOINTS.MOBILE]: {
@@ -114,46 +112,61 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
                 [BREAKPOINTS.LAPTOP]: {
                     enabled: false,
                 },
-            }
+            },
         });
     }, []);
 
     const sliderClasses = classNames("swiper", styles.newsListSlider);
 
     return (
-        <section className={ styles.HomeNews } id={ id }>
+        <section
+            className={styles.HomeNews}
+            id={id}
+        >
             <div className="container">
                 <HomeSectionHeader
-                    tabs={ tabs }
-                    activeTab={ activeTab }
-                    onChange={ setTab }
+                    tabs={tabs}
+                    activeTab={activeTab}
+                    onChange={setTab}
                     title="Learn crypto"
                     link="/"
                 />
 
-                <ul className={ styles.newsList }>
-                    {news.map((item, index) =>
-                        <li key={ index }>
-                            <HomeNewsItem { ...item } isBig={ index === 0 } />
+                <ul className={styles.newsList}>
+                    {news.map((item, index) => (
+                        <li key={index}>
+                            <HomeNewsItem
+                                {...item}
+                                isBig={index === 0}
+                            />
                         </li>
-                    )}
+                    ))}
                 </ul>
 
-                <div ref={ slider } className={ sliderClasses }>
+                <div
+                    ref={slider}
+                    className={sliderClasses}
+                >
                     <div className="swiper-wrapper">
-                        {news.map((item, index) =>
-                            <div key={ index } className="swiper-slide">
-                                <HomeNewsItem { ...item } isBig={ index === 0 } />
+                        {news.map((item, index) => (
+                            <div
+                                key={index}
+                                className="swiper-slide"
+                            >
+                                <HomeNewsItem
+                                    {...item}
+                                    isBig={index === 0}
+                                />
                             </div>
-                        )}
+                        ))}
                     </div>
 
-                    <div className={ styles.navButtonContainer }>
-                        <button className={ styles.navButton }>
+                    <div className={styles.navButtonContainer}>
+                        <button className={styles.navButton}>
                             <ArrowLeft />
                         </button>
 
-                        <button className={ styles.navButton }>
+                        <button className={styles.navButton}>
                             <ArrowRight />
                         </button>
                     </div>
@@ -163,7 +176,7 @@ const HomeNews: FC<{ id: string }> = ({ id }) => {
                     color="dark"
                     tag="a"
                     href="/"
-                    className={ styles.viewMoreButton }
+                    className={styles.viewMoreButton}
                 >
                     View more
                 </UiButton>

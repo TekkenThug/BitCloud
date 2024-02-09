@@ -10,10 +10,7 @@ export const loginForm = z.object({
 export const registerForm = z
     .object({
         email: z.string().min(1, "Email is required").email(),
-        password: z
-            .string()
-            .min(1, "Password is required")
-            .regex(PASSWORD_REGEXP, "Password must"),
+        password: z.string().min(1, "Password is required").regex(PASSWORD_REGEXP, "Password must"),
         confirmPassword: z.string().min(1, "Password is required"),
         agreement: z.literal(true),
     })

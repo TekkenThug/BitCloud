@@ -23,7 +23,7 @@ const AuthSignUp = () => {
         handleSubmit,
         setError,
         register,
-        formState: { errors, isValid }
+        formState: { errors, isValid },
     } = useForm<RegisterCredentials>({ resolver: zodResolver(registerForm) });
 
     const submit = async (data: RegisterCredentials) => {
@@ -40,12 +40,10 @@ const AuthSignUp = () => {
 
             if (error.errors) {
                 for (const key in error.errors) {
-                    setError(
-                        key as keyof RegisterCredentials,
-                        {
-                            type: "manual",
-                            message: error.errors[key as keyof RegisterCredentials][0]
-                        });
+                    setError(key as keyof RegisterCredentials, {
+                        type: "manual",
+                        message: error.errors[key as keyof RegisterCredentials][0],
+                    });
                 }
             } else {
                 toast((e as ErrorMessage).message, { type: "error" });
@@ -57,74 +55,73 @@ const AuthSignUp = () => {
 
     return (
         <>
-            <div className={ styles.alternate }>
-                <p className={ styles.alternateTitle }>Use Your OpenID to Sign up</p>
+            <div className={styles.alternate}>
+                <p className={styles.alternateTitle}>Use Your OpenID to Sign up</p>
 
-                <div className={ styles.alternateButtons }>
-                    <UiButton color="blue">
-                        Google
-                    </UiButton>
+                <div className={styles.alternateButtons}>
+                    <UiButton color="blue">Google</UiButton>
 
-                    <UiButton color="blue">
-                        Apple
-                    </UiButton>
+                    <UiButton color="blue">Apple</UiButton>
                 </div>
             </div>
 
-            <p className={ styles.continueTitle }>
-                Or continue with email
-            </p>
+            <p className={styles.continueTitle}>Or continue with email</p>
 
-            <form onSubmit={ handleSubmit(submit) } className={ commonStyles.form }>
-                <div className={ commonStyles.inputField }>
+            <form
+                onSubmit={handleSubmit(submit)}
+                className={commonStyles.form}
+            >
+                <div className={commonStyles.inputField}>
                     <UiInputSimple
                         label="Email"
                         placeholder="Email address"
-                        error={ errors.email?.message }
-                        { ...register("email") }
+                        error={errors.email?.message}
+                        {...register("email")}
                     />
                 </div>
 
-                <div className={ commonStyles.inputField }>
+                <div className={commonStyles.inputField}>
                     <UiInputSimple
                         label="password"
                         placeholder="Password"
                         type="password"
                         hasShowPassword
-                        error={ errors.password?.message }
-                        { ...register("password") }
+                        error={errors.password?.message}
+                        {...register("password")}
                     />
                 </div>
 
-                <div className={ commonStyles.inputField }>
+                <div className={commonStyles.inputField}>
                     <UiInputSimple
                         label="confirm password"
                         placeholder="Password"
                         type="password"
                         hasShowPassword
-                        error={ errors.confirmPassword?.message }
-                        { ...register("confirmPassword") }
+                        error={errors.confirmPassword?.message}
+                        {...register("confirmPassword")}
                     />
                 </div>
 
-                <div className={ commonStyles.inputField }>
+                <div className={commonStyles.inputField}>
                     <UiCheckbox
-                        error={ Boolean(errors.agreement?.message) }
-                        { ...register("agreement") }
+                        error={Boolean(errors.agreement?.message)}
+                        {...register("agreement")}
                     >
-                        <p className={ styles.checkboxText }>
-                            By signing up I agree that I’m 18 years of age or older,
-                            to the <a href="#">User Agreements, Privacy Policy, Cookie Policy, E-Sign Consent.</a>
+                        <p className={styles.checkboxText}>
+                            By signing up I agree that I’m 18 years of age or older, to the{" "}
+                            <a href="#">
+                                User Agreements, Privacy Policy, Cookie Policy, E-Sign Consent.
+                            </a>
                         </p>
                     </UiCheckbox>
                 </div>
 
                 <UiButton
                     color="blue"
-                    disabled={ !isValid }
-                    className={ commonStyles.submitButton }
+                    disabled={!isValid}
+                    className={commonStyles.submitButton}
                     size="large"
-                    isLoading={ isLoading }
+                    isLoading={isLoading}
                 >
                     Sign up
                 </UiButton>

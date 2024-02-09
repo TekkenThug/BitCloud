@@ -39,7 +39,7 @@ const Footer = () => {
     const slideDownAnimation = useSpring({
         to: {
             height: isVisible ? listHeight + 20 : 0,
-            paddingTop: isVisible ? 20 : 0
+            paddingTop: isVisible ? 20 : 0,
         },
     });
     useEffect(() => {
@@ -51,91 +51,86 @@ const Footer = () => {
     const links = [
         {
             title: "About",
-            link: "/"
+            link: "/",
         },
         {
             title: "Projects",
-            link: "/"
+            link: "/",
         },
         {
             title: "What We Do",
-            link: "/"
+            link: "/",
         },
         {
             title: "Press",
-            link: "/"
+            link: "/",
         },
         {
             title: "Jobs",
-            link: "/"
-        }
+            link: "/",
+        },
     ];
 
-    const arrowClasses = classNames(styles.navArrowIcon, { [styles.navArrowIcon_rotated]: isVisible });
+    const arrowClasses = classNames(styles.navArrowIcon, {
+        [styles.navArrowIcon_rotated]: isVisible,
+    });
     const linkListClasses = classNames(styles.navList, styles.navList_desktop);
     const linkListMobileClasses = classNames(styles.navList, styles.navList_mobile);
 
     return (
-        <footer className={ styles.Footer }>
+        <footer className={styles.Footer}>
             <div className="container">
-                <div className={ styles.top }>
-                    <div className={ styles.col }>
+                <div className={styles.top}>
+                    <div className={styles.col}>
                         <a
                             href="/"
-                            className={ styles.siteLink }
+                            className={styles.siteLink}
                         >
-                            <Logo className={ styles.logo } /> <span className={ styles.siteName }>BitCloud</span>
+                            <Logo className={styles.logo} />{" "}
+                            <span className={styles.siteName}>BitCloud</span>
                         </a>
 
                         <button
-                            className={ styles.navToggle }
-                            onClick={ () => toggleVisibility(!isVisible) }
+                            className={styles.navToggle}
+                            onClick={() => toggleVisibility(!isVisible)}
                         >
-							Navigation
-                            <ArrowDownSimple
-                                className={ arrowClasses }
-                            />
+                            Navigation
+                            <ArrowDownSimple className={arrowClasses} />
                         </button>
 
                         <ul
-                            ref={ list }
-                            className={ linkListClasses }
+                            ref={list}
+                            className={linkListClasses}
                         >
-                            {
-                                links.map(item => (
-                                    <li
-                                        key={ item.title }
-                                        className={ styles.navItem }
-                                    >
-                                        <a href={ item.link }>{item.title}</a>
-                                    </li>
-                                ))
-                            }
+                            {links.map((item) => (
+                                <li
+                                    key={item.title}
+                                    className={styles.navItem}
+                                >
+                                    <a href={item.link}>{item.title}</a>
+                                </li>
+                            ))}
                         </ul>
 
                         <animated.ul
-                            style={ slideDownAnimation }
-                            className={ linkListMobileClasses }
+                            style={slideDownAnimation}
+                            className={linkListMobileClasses}
                         >
-                            {
-                                links.map(item => (
-                                    <li
-                                        key={ item.title }
-                                        className={ styles.navItem }
-                                    >
-                                        <a href={ item.link }>{item.title}</a>
-                                    </li>
-                                ))
-                            }
+                            {links.map((item) => (
+                                <li
+                                    key={item.title}
+                                    className={styles.navItem}
+                                >
+                                    <a href={item.link}>{item.title}</a>
+                                </li>
+                            ))}
                         </animated.ul>
                     </div>
 
-                    <div className={ styles.col }>
-                        <h5 className={ styles.colHeading }>
-							Contacts
-                        </h5>
+                    <div className={styles.col}>
+                        <h5 className={styles.colHeading}>Contacts</h5>
 
-                        <p className={ styles.contactList }>
+                        <p className={styles.contactList}>
                             <span>43252 Borer Mountains</span>
 
                             <span>Zackerychester</span>
@@ -146,34 +141,32 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className={ styles.col }>
-                        <h5 className={ styles.colHeading }>
-							Newsletter
-                        </h5>
+                    <div className={styles.col}>
+                        <h5 className={styles.colHeading}>Newsletter</h5>
 
-                        <div className={ styles.subscribe }>
-                            <p className={ styles.subscribeText }>
-								Subscribe our newsletter to get more free design course and resource
+                        <div className={styles.subscribe}>
+                            <p className={styles.subscribeText}>
+                                Subscribe our newsletter to get more free design course and resource
                             </p>
 
                             <UiInputConfirm
                                 placeholder="E-mail"
-                                submitHandle={ subscribe }
-                                inputHandle={ () => setError("") }
-                                isLoading={ loading }
-                                isSuccess={ success }
-                                isError={ Boolean(error) }
-                                errorText={ error }
+                                submitHandle={subscribe}
+                                inputHandle={() => setError("")}
+                                isLoading={loading}
+                                isSuccess={success}
+                                isError={Boolean(error)}
+                                errorText={error}
                             />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className={ styles.bottom }>
+            <div className={styles.bottom}>
                 <div className="container">
-                    <p className={ styles.copyright }>
-						Copyright © 2024 Vadim Ignatov Inc. All rights reserved
+                    <p className={styles.copyright}>
+                        Copyright © 2024 Vadim Ignatov Inc. All rights reserved
                     </p>
                 </div>
             </div>

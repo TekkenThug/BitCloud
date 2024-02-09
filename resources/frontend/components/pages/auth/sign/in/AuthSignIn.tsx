@@ -32,7 +32,7 @@ const AuthSignIn = () => {
         handleSubmit,
         setError,
         register,
-        formState: { errors, isValid }
+        formState: { errors, isValid },
     } = useForm<AuthCredentials>({ resolver: zodResolver(loginForm) });
 
     const signIn = async (credentials: AuthCredentials) => {
@@ -47,12 +47,10 @@ const AuthSignIn = () => {
 
             if (error.errors) {
                 for (const key in error.errors) {
-                    setError(
-                        key as keyof AuthCredentials,
-                        {
-                            type: "manual",
-                            message: error.errors[key as keyof AuthCredentials][0]
-                        });
+                    setError(key as keyof AuthCredentials, {
+                        type: "manual",
+                        message: error.errors[key as keyof AuthCredentials][0],
+                    });
                 }
             } else {
                 toast((e as ErrorMessage).message, { type: "error" });
@@ -64,50 +62,50 @@ const AuthSignIn = () => {
 
     return (
         <>
-            <div className={ styles.addressConfirm }>
+            <div className={styles.addressConfirm}>
                 <span>Please ensure you are visiting the correct url.</span>
 
                 <Address />
             </div>
 
-            <div className={ styles.tabContainer }>
+            <div className={styles.tabContainer}>
                 <UiTab
                     text="Email"
-                    isActive={ activeTab === "email" }
-                    changeHandler={ () => setTab("email") }
+                    isActive={activeTab === "email"}
+                    changeHandler={() => setTab("email")}
                 />
 
                 <UiTab
                     text="Mobile"
-                    isActive={ activeTab === "mobile" }
-                    changeHandler={ () => setTab("mobile") }
+                    isActive={activeTab === "mobile"}
+                    changeHandler={() => setTab("mobile")}
                 />
             </div>
 
             <form
-                className={ commonStyles.form }
-                onSubmit={ handleSubmit(signIn) }
+                className={commonStyles.form}
+                onSubmit={handleSubmit(signIn)}
             >
-                <div className={ commonStyles.inputField }>
+                <div className={commonStyles.inputField}>
                     <UiInputSimple
                         label="Email"
                         placeholder="Email address"
-                        error={ errors.email?.message }
-                        { ...register("email") }
+                        error={errors.email?.message}
+                        {...register("email")}
                     />
                 </div>
 
-                <div className={ commonStyles.inputField }>
+                <div className={commonStyles.inputField}>
                     <UiInputSimple
                         label="password"
                         placeholder="Password"
                         type="password"
                         hasShowPassword
-                        error={ errors.password?.message }
-                        { ...register("password") }
+                        error={errors.password?.message}
+                        {...register("password")}
                     />
 
-                    <div className={ styles.signature }>
+                    <div className={styles.signature}>
                         <span>Scan to login</span> <Link to="/">Forgot password?</Link>
                     </div>
                 </div>
@@ -115,9 +113,9 @@ const AuthSignIn = () => {
                 <UiButton
                     color="blue"
                     size="large"
-                    className={ commonStyles.submitButton }
-                    disabled={ !isValid }
-                    isLoading={ isLoading }
+                    className={commonStyles.submitButton}
+                    disabled={!isValid}
+                    isLoading={isLoading}
                 >
                     Login
                 </UiButton>

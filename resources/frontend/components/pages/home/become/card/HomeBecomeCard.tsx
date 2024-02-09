@@ -8,29 +8,19 @@ interface Props {
     description: string;
 }
 
-const HomeBecomeCard: FC<Props> = (
-    {
-        image,
-        title,
-        description
-    }
-) => {
+const HomeBecomeCard: FC<Props> = ({ image, title, description }) => {
     return (
-        <li className={ styles.HomeBecomeCard }>
+        <li className={styles.HomeBecomeCard}>
             <img
-                className={ styles.image }
-                src={ image }
+                className={styles.image}
+                src={image}
                 alt="Become image"
             />
 
             <div>
-                <h4 className={ styles.title }>
-                    {title}
-                </h4>
+                <h4 className={styles.title}>{title}</h4>
 
-                <p className={ styles.description }>
-                    {description}
-                </p>
+                <p className={styles.description}>{description}</p>
             </div>
         </li>
     );

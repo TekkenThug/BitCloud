@@ -8,62 +8,58 @@ import styles from "./MarketBlogItem.module.scss";
 import defaultCover from "@/assets/images/common/video-cover.png";
 
 export interface BlogItem {
-    cover?: string,
-    title: string,
-    author: string,
-    date: string,
-    tag?: string
+    cover?: string;
+    title: string;
+    author: string;
+    date: string;
+    tag?: string;
 }
 
 const COLORS: { [key: string]: LabelColor } = {
     Featured: "red",
-    New: "blue"
+    New: "blue",
 };
 
-const MarketBlogItem: React.FC<BlogItem & { className: string }> = (
-    {
-        title,
-        author,
-        tag,
-        date,
-        cover,
-        className
-    }) => {
-
+const MarketBlogItem: React.FC<BlogItem & { className: string }> = ({
+    title,
+    author,
+    tag,
+    date,
+    cover,
+    className,
+}) => {
     const classes = classNames(styles.MarketBlogItem, className);
 
     return (
-        <li className={ classes }>
-            <div className={ styles.cover }>
-                <img src={ cover ?? defaultCover } alt="Video preview" />
+        <li className={classes}>
+            <div className={styles.cover}>
+                <img
+                    src={cover ?? defaultCover}
+                    alt="Video preview"
+                />
             </div>
 
-            <div className={ styles.middle }>
-                {
-                    tag &&
-                    <div className={ styles.tagList }>
+            <div className={styles.middle}>
+                {tag && (
+                    <div className={styles.tagList}>
                         <UiLabel
-                            title={ tag }
-                            color={ COLORS[tag] }
+                            title={tag}
+                            color={COLORS[tag]}
                         />
                     </div>
-                }
+                )}
 
-                <h4 className={ styles.title }>
-                    {title}
-                </h4>
+                <h4 className={styles.title}>{title}</h4>
             </div>
 
-            <div className={ styles.bottom }>
-                <div className={ styles.bottomAuthor }>
-                    <div className={ styles.bottomAuthorAvatar }></div>
+            <div className={styles.bottom}>
+                <div className={styles.bottomAuthor}>
+                    <div className={styles.bottomAuthorAvatar}></div>
 
                     <span>{author}</span>
                 </div>
 
-                <div>
-                    {date}
-                </div>
+                <div>{date}</div>
             </div>
         </li>
     );

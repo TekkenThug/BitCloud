@@ -1,4 +1,5 @@
 ## Project structure
+
 ```bash
 ├─assets
 │   ├─icons         // SVG icons, separated by usage context
@@ -12,7 +13,7 @@
 ├─data              // Mocks, RegExps variables and etc
 ├─hooks             // Self-write hooks
 ├─router            // React router config
-├─services          
+├─services
 │   ├─api           // API calls
 │   └─validations   // Validation rules (using Zod.js)
 ├─store             // Redux store
@@ -43,7 +44,7 @@ import Product from "@/types/product";
 import UiButton from "@/components/ui/button";
 
 // Components (near, use relative path). Included tsx extension is required!
-import Component from './components/Component.tsx';
+import Component from "./components/Component.tsx";
 
 // Styles
 import styles from "@/styles.module.scss";

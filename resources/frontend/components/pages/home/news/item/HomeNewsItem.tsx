@@ -15,36 +15,22 @@ interface Props {
     isBig?: boolean;
 }
 
-const HomeNewsItem: FC<Props> = (
-    {
-        title,
-        description,
-        date,
-        image,
-        isBig = false,
-    }
-) => {
+const HomeNewsItem: FC<Props> = ({ title, description, date, image, isBig = false }) => {
     const classes = classNames(styles.HomeNewsItem, { [styles["HomeNewsItem--big"]]: isBig });
 
     return (
-        <div className={ classes }>
-            <div className={ styles.content }>
-                <div className={ styles.contentText }>
-                    <h3 className={ styles.title }>
-                        {title}
-                    </h3>
+        <div className={classes}>
+            <div className={styles.content}>
+                <div className={styles.contentText}>
+                    <h3 className={styles.title}>{title}</h3>
 
-                    <p className={ styles.description }>
-                        {description}
-                    </p>
+                    <p className={styles.description}>{description}</p>
                 </div>
 
-                <time className={ styles.date }>
-                    {date}
-                </time>
+                <time className={styles.date}>{date}</time>
 
                 <UiButton
-                    className={ styles.buttonMore }
+                    className={styles.buttonMore}
                     color="dark"
                     size="large"
                 >
@@ -53,8 +39,8 @@ const HomeNewsItem: FC<Props> = (
             </div>
 
             <img
-                className={ styles.image }
-                src={ image }
+                className={styles.image}
+                src={image}
                 alt="Article image"
             />
         </div>

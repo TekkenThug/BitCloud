@@ -41,44 +41,44 @@ const HomeSlideshow = () => {
                 [BREAKPOINTS.MOBILE]: {
                     enabled: true,
                 },
-            }
+            },
         });
     }, []);
-
 
     const sliderClasses = classNames("swiper", styles.slider);
 
     return (
-        <section className={ styles.HomeSlideshow }>
+        <section className={styles.HomeSlideshow}>
             <div className="container">
-                <div className={ styles.header }>
+                <div className={styles.header}>
                     <Logo />
 
-                    <h2 className={ styles.title }>
-                        Stay in the know on crypto with BitCloud
-                    </h2>
+                    <h2 className={styles.title}>Stay in the know on crypto with BitCloud</h2>
 
-                    <p className={ styles.subtitle }>
-                        A creative agency that lead and inspire
-                    </p>
+                    <p className={styles.subtitle}>A creative agency that lead and inspire</p>
                 </div>
 
-                <div className={ styles.sliderWrapper }>
-                    <button className={ styles.navButton }>
+                <div className={styles.sliderWrapper}>
+                    <button className={styles.navButton}>
                         <ArrowLeft />
                     </button>
 
-                    <div ref={ slider } className={ sliderClasses }>
+                    <div
+                        ref={slider}
+                        className={sliderClasses}
+                    >
                         <div className="swiper-wrapper">
-                            {
-                                homeSlides.map((slide, index) => (
-                                    <HomeSlideshowSlide className="swiper-slide" { ...slide } key={ index } />
-                                ))
-                            }
+                            {homeSlides.map((slide, index) => (
+                                <HomeSlideshowSlide
+                                    className="swiper-slide"
+                                    {...slide}
+                                    key={index}
+                                />
+                            ))}
                         </div>
                     </div>
 
-                    <button className={ styles.navButton }>
+                    <button className={styles.navButton}>
                         <ArrowRight />
                     </button>
                 </div>

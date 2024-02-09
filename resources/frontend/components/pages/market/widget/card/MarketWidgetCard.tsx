@@ -11,50 +11,42 @@ import styles from "./MarketWidgetCard.module.scss";
 import Logo from "@/assets/icons/currency/bitcoin.svg?react";
 
 interface MarketWidgetCardProps {
-	name: string;
-	percentage: number;
-	value: string;
-	secondValue: string;
-	className?: string;
+    name: string;
+    percentage: number;
+    value: string;
+    secondValue: string;
+    className?: string;
 }
 
-const MarketWidgetCard: FC<MarketWidgetCardProps> = (
-    {
-        name,
-        percentage,
-        value,
-        secondValue,
-        className = ""
-    }
-) => {
+const MarketWidgetCard: FC<MarketWidgetCardProps> = ({
+    name,
+    percentage,
+    value,
+    secondValue,
+    className = "",
+}) => {
     const classes = classNames(styles.MarketWidgetCard, className);
 
     return (
-        <div className={ classes }>
-            <div className={ styles.content }>
-                <Logo className={ styles.currency } />
+        <div className={classes}>
+            <div className={styles.content}>
+                <Logo className={styles.currency} />
 
                 <div>
-                    <div className={ styles.info }>
-                        <div className={ styles.name }>
-                            { name }
-                        </div>
+                    <div className={styles.info}>
+                        <div className={styles.name}>{name}</div>
 
-                        <UiPercentageTag percentage={ percentage } />
+                        <UiPercentageTag percentage={percentage} />
                     </div>
 
-                    <div className={ styles.value }>
-                        { value }
-                    </div>
+                    <div className={styles.value}>{value}</div>
 
-                    <div className={ styles.secondValue }>
-                        { secondValue }
-                    </div>
+                    <div className={styles.secondValue}>{secondValue}</div>
                 </div>
             </div>
 
-            <div className={ styles.chart }>
-                <ChartSmall data={ quote } />
+            <div className={styles.chart}>
+                <ChartSmall data={quote} />
             </div>
         </div>
     );

@@ -14,36 +14,25 @@ interface Props {
     pricePerDay: number;
 }
 
-const HomeHeaderCard: FC<Props> = (
-    {
-        shortName,
-        percentage,
-        pricePerDay,
-        pricePerWeek,
-    }
-) => {
+const HomeHeaderCard: FC<Props> = ({ shortName, percentage, pricePerDay, pricePerWeek }) => {
     return (
-        <div className={ styles.HomeHeaderCard }>
+        <div className={styles.HomeHeaderCard}>
             <img
-                className={ styles.icon }
+                className={styles.icon}
                 src="/storage/images/currency-icons/BTC.svg"
                 alt="Currency icon"
             />
 
-            <div className={ styles.content }>
-                <div className={ styles.top }>
-                    <span className={ styles.shortName }>{shortName}</span>
+            <div className={styles.content}>
+                <div className={styles.top}>
+                    <span className={styles.shortName}>{shortName}</span>
 
-                    <UiPercentageTag percentage={ percentage } />
+                    <UiPercentageTag percentage={percentage} />
                 </div>
 
-                <strong className={ styles.price }>
-                    {formatPrice(pricePerDay)}
-                </strong>
+                <strong className={styles.price}>{formatPrice(pricePerDay)}</strong>
 
-                <span className={ styles.pricePerWeek }>
-                    {formatPrice(pricePerWeek)}
-                </span>
+                <span className={styles.pricePerWeek}>{formatPrice(pricePerWeek)}</span>
             </div>
         </div>
     );
