@@ -1,178 +1,178 @@
 :root {
-	--header-height: 80px;
+    --header-height: 80px;
 
-	@include respond($mobile) {
-		--header-height: 112px;
-	}
+    @include respond($mobile) {
+        --header-height: 112px;
+    }
 }
 
 .Header {
-	position: fixed;
-	z-index: $z-header;
-	width: 100%;
-	top: 0;
-	left: 0;
-	padding: 20px 0;
-	background-color: $neutral-1;
-	border-bottom: 1px solid $neutral-3;
+    position: fixed;
+    z-index: $z-header;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    background-color: $neutral-1;
+    border-bottom: 1px solid $neutral-3;
 
-	@include respond($mobile) {
-		padding: 48px 0 24px;
-	}
+    @include respond($mobile) {
+        padding: 48px 0 24px;
+    }
 }
 
 .wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .left {
-	display: flex;
+    display: flex;
 }
 
 .mainLink {
-	position: relative;
-	margin-right: 40px;
-	padding: 4px 0;
+    position: relative;
+    margin-right: 40px;
+    padding: 4px 0;
 
-	@include respond($mobile) {
-		margin-right: 26px;
-	}
+    @include respond($mobile) {
+        margin-right: 26px;
+    }
 
-	&:after {
-		position: absolute;
-		content: "";
-		width: 1px;
-		height: 40px;
-		background-color: $neutral-3;
-		right: -41px;
-		top: 0;
-		pointer-events: none;
+    &:after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 40px;
+        background-color: $neutral-3;
+        right: -41px;
+        top: 0;
+        pointer-events: none;
 
-		@include respond($mobile) {
-			display: none;
-		}
-	}
+        @include respond($mobile) {
+            display: none;
+        }
+    }
 }
 
 .dropDownTrigger {
-	@include button-2;
+    @include button-2;
 
-	display: flex;
-	align-items: center;
-	padding: 12px 0;
-	color: $neutral-4;
-	font-weight: 700;
-	cursor: pointer;
-	margin-left: 40px;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    color: $neutral-4;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 40px;
 
-	@include respond($mobile) {
-		display: none;
-	}
+    @include respond($mobile) {
+        display: none;
+    }
 }
 
 .dropDownArrow {
-	width: 16px;
-	height: 16px;
-	flex-shrink: 0;
-	margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-left: 4px;
 }
 
 .right {
-	display: flex;
+    display: flex;
 
-	@include respond($mobile) {
-		align-items: center;
-	}
+    @include respond($mobile) {
+        align-items: center;
+    }
 
-	& > * {
-		flex-shrink: 0;
-	}
+    & > * {
+        flex-shrink: 0;
+    }
 }
 
 .button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-	&:not(:last-child) {
-		margin-right: 24px;
+    &:not(:last-child) {
+        margin-right: 24px;
 
-		@include respond($mobile) {
-			margin-right: 20px;
-		}
-	}
+        @include respond($mobile) {
+            margin-right: 20px;
+        }
+    }
 
-	&_shape_square {
-		width: 40px;
-		height: 40px;
-		color: $neutral-4;
+    &_shape_square {
+        width: 40px;
+        height: 40px;
+        color: $neutral-4;
 
-		& > svg {
-			width: 24px;
-			height: 24px;
-		}
-	}
+        & > svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
 }
 
 .bell {
-	position: relative;
+    position: relative;
 
-	&:after {
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 12px;
-		height: 12px;
-		background-color: $primary-4;
-		border-radius: 50%;
-		transition: all $transition;
-		opacity: 0;
-		visibility: hidden;
-	}
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        background-color: $primary-4;
+        border-radius: 50%;
+        transition: all $transition;
+        opacity: 0;
+        visibility: hidden;
+    }
 
-	&_active {
-		&:after {
-			opacity: 1;
-			visibility: visible;
-		}
-	}
+    &_active {
+        &:after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
 }
 
 .lightning {
-	@include respond($mobile) {
-		display: none;
-	}
+    @include respond($mobile) {
+        display: none;
+    }
 }
 
 .walletButton {
-	border-color: $neutral-3;
+    border-color: $neutral-3;
 
-	@include respond($mobile) {
-		display: none;
-	}
+    @include respond($mobile) {
+        display: none;
+    }
 }
 
 .avatar {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background-color: $primary-4;
-	overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $primary-4;
+    overflow: hidden;
 
-	@include respond($mobile) {
-		width: 32px;
-		height: 32px;
-	}
+    @include respond($mobile) {
+        width: 32px;
+        height: 32px;
+    }
 
-	& > img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-	}
+    & > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 }
 
 .buttons {

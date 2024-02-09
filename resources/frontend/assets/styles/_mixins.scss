@@ -1,9 +1,9 @@
 @mixin hover {
-	@media (hover: hover) {
-		&:hover {
-			@content;
-		}
-	}
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
 }
 
 @mixin respond($breakpoint, $is-min: false) {

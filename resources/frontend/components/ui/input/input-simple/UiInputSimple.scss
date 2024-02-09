@@ -1,8 +1,8 @@
 .UiInputSimple {
-	&__label {
-		display: flex;
-		flex-direction: column;
-	}
+    &__label {
+        display: flex;
+        flex-direction: column;
+    }
 
     &__labelText {
         @include hairline-2;
@@ -16,38 +16,38 @@
         position: relative;
     }
 
-	&__nativeInput {
-		@include caption;
+    &__nativeInput {
+        @include caption;
 
         width: 100%;
         display: block;
-		font-weight: 500;
-		border-radius: 12px;
-		border: 2px solid $neutral-6;
-		padding: 10px 14px;
-		transition: all $transition;
+        font-weight: 500;
+        border-radius: 12px;
+        border: 2px solid $neutral-6;
+        padding: 10px 14px;
+        transition: all $transition;
 
-		@include hover {
-			&:not(:focus) {
-				border-color: $neutral-4;
-			}
-		}
+        @include hover {
+            &:not(:focus) {
+                border-color: $neutral-4;
+            }
+        }
 
-		&::placeholder {
-			color: $neutral-4;
-			font-weight: 500;
-			transition: all $transition;
-			opacity: 1;
-		}
+        &::placeholder {
+            color: $neutral-4;
+            font-weight: 500;
+            transition: all $transition;
+            opacity: 1;
+        }
 
-		&:focus {
-			border-color: $primary-1;
+        &:focus {
+            border-color: $primary-1;
 
-			&::placeholder {
-				color: $neutral-5;
-			}
-		}
-	}
+            &::placeholder {
+                color: $neutral-5;
+            }
+        }
+    }
 
     &__showPasswordButton {
         position: absolute;
@@ -73,7 +73,7 @@
 
             &::placeholder {
                 color: $primary-3;
-                opacity: .5;
+                opacity: 0.5;
             }
         }
     }

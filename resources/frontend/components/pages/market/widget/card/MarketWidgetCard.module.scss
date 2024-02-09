@@ -1,51 +1,51 @@
 .MarketWidgetCard {
-	display: flex;
-	align-items: flex-start;
-	padding: 24px;
-	user-select: none;
+    display: flex;
+    align-items: flex-start;
+    padding: 24px;
+    user-select: none;
 }
 
 .content {
-	display: flex;
-	align-items: flex-start;
+    display: flex;
+    align-items: flex-start;
 }
 
 .currency {
-	width: 40px;
-	height: 40px;
-	margin-right: 16px;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
 }
 
 .info {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .name {
-	@include caption-2;
+    @include caption-2;
 
-	margin-right: 12px;
-	color: $neutral-4;
-	font-weight: 600;
+    margin-right: 12px;
+    color: $neutral-4;
+    font-weight: 600;
 }
 
 .value {
-	@include body-1;
+    @include body-1;
 
-	margin: 4px 0;
-	font-weight: 600;
+    margin: 4px 0;
+    font-weight: 600;
 }
 
 .secondValue {
-	@include caption;
+    @include caption;
 }
 
 .chart {
-	width: 100px;
-	height: 32px;
-	margin-left: 16px;
+    width: 100px;
+    height: 32px;
+    margin-left: 16px;
 
-	@include respond($laptop) {
-		display: none;
-	}
+    @include respond($laptop) {
+        display: none;
+    }
 }

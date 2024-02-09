@@ -1,73 +1,73 @@
 .MarketWidget {
-	background-color: #18191D;
-	border: 1px solid $neutral-2;
-	border-radius: 24px;
+    background-color: #18191d;
+    border: 1px solid $neutral-2;
+    border-radius: 24px;
 }
 
 .top {
-	display: flex;
-	border-bottom: 1px solid $neutral-2;
+    display: flex;
+    border-bottom: 1px solid $neutral-2;
 
-	& > * {
-		flex-shrink: 0;
-	}
+    & > * {
+        flex-shrink: 0;
+    }
 
-	@include respond($laptop) {
-		overflow: auto;
+    @include respond($laptop) {
+        overflow: auto;
 
-		&::-webkit-scrollbar {
-			display: none;
-		}
-	}
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }
 
 .cryptoCard {
-	&:not(:last-child) {
-		margin-right: 28px;
+    &:not(:last-child) {
+        margin-right: 28px;
 
-		@include respond($laptop) {
-			margin-right: 78px;
-		}
+        @include respond($laptop) {
+            margin-right: 78px;
+        }
 
-		@include respond($mobile) {
-			margin-right: 0;
-		}
-	}
+        @include respond($mobile) {
+            margin-right: 0;
+        }
+    }
 }
 
 .bottom {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 22px 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 46px;
 
-	@include respond($laptop) {
-		padding: 34px 32px;
-	}
+    @include respond($laptop) {
+        padding: 34px 32px;
+    }
 }
 
 .tabList {
-	@include respond($mobile) {
-		display: none;
-	}
+    @include respond($mobile) {
+        display: none;
+    }
 }
 
 .walletButton {
-	@include respond($mobile) {
-		display: none;
-	}
+    @include respond($mobile) {
+        display: none;
+    }
 }
 
 .select {
-	display: none;
+    display: none;
 
-	@include respond($mobile) {
-		display: block;
-	}
+    @include respond($mobile) {
+        display: block;
+    }
 }
 
 .navItem {
-	&:not(:last-child) {
-		margin-right: 12px;
-	}
+    &:not(:last-child) {
+        margin-right: 12px;
+    }
 }

@@ -7,7 +7,9 @@ const REQUEST_URL = "/subscribers";
 
 export const subscribeToNewsletter = async (email: string) => {
     try {
-        const { data } = await api.post<WithMessage<Subscriber>>(REQUEST_URL, { email });
+        const { data } = await api.post<WithMessage<Subscriber>>(REQUEST_URL, {
+            email,
+        });
         return data;
     } catch (e) {
         const err = e as ApiError;

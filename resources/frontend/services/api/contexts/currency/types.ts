@@ -13,5 +13,5 @@ export interface Currency {
 }
 
 export interface QuotatedCurrency extends Omit<Currency, "quote"> {
-    quote: { x: string; y: number; }[];
+    quote: { x: string; y: number }[];
 }

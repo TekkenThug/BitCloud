@@ -12,10 +12,13 @@ import { WithMessage } from "@/services/api/types.ts";
 export const login = async (credentials: AuthCredentials) => {
     // await getCSRFProtection();
 
-    const REQUEST_URL= "/login";
+    const REQUEST_URL = "/login";
 
     try {
-        const { data } = await api.post<WithMessage<User>>(REQUEST_URL, credentials);
+        const { data } = await api.post<WithMessage<User>>(
+            REQUEST_URL,
+            credentials,
+        );
 
         return data;
     } catch (e) {

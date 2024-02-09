@@ -1,72 +1,72 @@
 .MarketBlog {
-	padding: 136px 0;
+    padding: 136px 0;
 
-	@include respond($laptop) {
-		padding: 112px 0;
-	}
+    @include respond($laptop) {
+        padding: 112px 0;
+    }
 
-	@include respond($mobile) {
-		padding: 64px 0;
-	}
+    @include respond($mobile) {
+        padding: 64px 0;
+    }
 }
 
 .content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 80px;
 
-	@include respond($laptop) {
-		margin-bottom: 48px;
-	}
+    @include respond($laptop) {
+        margin-bottom: 48px;
+    }
 }
 
 .title {
-	@include headline-2;
+    @include headline-2;
 
-	@include respond($mobile) {
-		@include headline-3;
-	}
+    @include respond($mobile) {
+        @include headline-3;
+    }
 }
 
 .subtitle {
-	@include body-2;
+    @include body-2;
 
-	color: $neutral-5;
-	margin-top: 20px;
-	max-width: 400px;
+    color: $neutral-5;
+    margin-top: 20px;
+    max-width: 400px;
 }
 
 .blogList {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 48px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px 32px;
 
-	@include respond($mobile) {
-		flex-direction: column;
-		gap: 32px;
-	}
+    @include respond($mobile) {
+        flex-direction: column;
+        gap: 32px;
+    }
 }
 
 .blogItem {
-	width: calc((100% - 64px) / 3);
+    width: calc((100% - 64px) / 3);
 
-	@include respond($mobile) {
-		width: 100%;
-	}
+    @include respond($mobile) {
+        width: 100%;
+    }
 }
 
 .loadingButton {
-	margin: 80px auto 0;
+    margin: 80px auto 0;
 
-	@include respond($laptop) {
-		margin-top: 48px;
-	}
+    @include respond($laptop) {
+        margin-top: 48px;
+    }
 }
 
 .loadingButtonIcon {
-	width: 16px;
-	height: 16px;
-	margin-right: 12px;
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
 }

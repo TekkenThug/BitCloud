@@ -1,113 +1,113 @@
 .UiInputConfirm {
-	position: relative;
+    position: relative;
 
-	&_loading {
-		pointer-events: none;
-	}
+    &_loading {
+        pointer-events: none;
+    }
 
-	&_error {
-		.UiInputConfirm__nativeInput {
-			border-color: $primary-3;
+    &_error {
+        .UiInputConfirm__nativeInput {
+            border-color: $primary-3;
 
-			@include hover {
-				border-color: $primary-3;
-			}
+            @include hover {
+                border-color: $primary-3;
+            }
 
-			&:focus {
-				border-color: $primary-3;
-			}
-		}
+            &:focus {
+                border-color: $primary-3;
+            }
+        }
 
-		.UiInputConfirm__extra-button {
-			cursor: not-allowed;
-			background-color: $neutral-5;
-		}
+        .UiInputConfirm__extra-button {
+            cursor: not-allowed;
+            background-color: $neutral-5;
+        }
 
-		.UiInputConfirm__icon {
-			color: $neutral-4;
-		}
-	}
+        .UiInputConfirm__icon {
+            color: $neutral-4;
+        }
+    }
 
-	&_success {
-		pointer-events: none;
+    &_success {
+        pointer-events: none;
 
-		.UiInputConfirm__nativeInput {
-			border-color: $primary-4;
-		}
+        .UiInputConfirm__nativeInput {
+            border-color: $primary-4;
+        }
 
-		.UiInputConfirm__extra-button {
-			background-color: $primary-4;
-		}
-	}
+        .UiInputConfirm__extra-button {
+            background-color: $primary-4;
+        }
+    }
 
-	&__nativeInput {
-		@include caption;
+    &__nativeInput {
+        @include caption;
 
-		display: block;
-		width: 100%;
-		border-radius: 90px;
-		border: 2px solid $neutral-3;
-		transition: all $transition;
-		padding: 10px 50px 10px 15px;
-		color: $neutral-8;
+        display: block;
+        width: 100%;
+        border-radius: 90px;
+        border: 2px solid $neutral-3;
+        transition: all $transition;
+        padding: 10px 50px 10px 15px;
+        color: $neutral-8;
 
-		&::placeholder {
-			color: $neutral-4;
-			font-weight: 400;
-			transition: all $transition;
-			opacity: 1;
-		}
+        &::placeholder {
+            color: $neutral-4;
+            font-weight: 400;
+            transition: all $transition;
+            opacity: 1;
+        }
 
-		@include hover {
-			border-color: $neutral-2;
+        @include hover {
+            border-color: $neutral-2;
 
-			&:not(:focus) {
-				&::placeholder {
-					opacity: 1;
-					color: $neutral-8;
-				}
-			}
-		}
+            &:not(:focus) {
+                &::placeholder {
+                    opacity: 1;
+                    color: $neutral-8;
+                }
+            }
+        }
 
-		&:focus {
-			border-color: $primary-1;
-		}
-	}
+        &:focus {
+            border-color: $primary-1;
+        }
+    }
 
-	&__extra-button {
-		position: absolute;
-		top: 8px;
-		right: 8px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		background-color: $primary-1;
-	}
+    &__extra-button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: $primary-1;
+    }
 
-	&__icon {
-		width: 24px;
-		height: 24px;
-		color: $neutral-8;
-		flex-shrink: 0;
-	}
+    &__icon {
+        width: 24px;
+        height: 24px;
+        color: $neutral-8;
+        flex-shrink: 0;
+    }
 
-	&__error {
-		@include caption-2;
+    &__error {
+        @include caption-2;
 
-		background-color: $neutral-8;
-		border-radius: 100px;
-		padding: 5px 16px;
-		color: $primary-3;
-		font-weight: 700;
-		margin-top: 4px;
-		max-width: 250px;
+        background-color: $neutral-8;
+        border-radius: 100px;
+        padding: 5px 16px;
+        color: $primary-3;
+        font-weight: 700;
+        margin-top: 4px;
+        max-width: 250px;
         width: max-content;
 
-		@include respond($mobile) {
-			max-width: unset;
-		}
-	}
+        @include respond($mobile) {
+            max-width: unset;
+        }
+    }
 }

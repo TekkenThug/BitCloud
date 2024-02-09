@@ -7,7 +7,7 @@ const useTabs = (tabs: string[], activeTab?: string) => {
     return {
         tabs: _tabs,
         activeTab: _activeTab,
-        setTab: _setActiveTab
+        setTab: _setActiveTab,
     };
 };
 

@@ -1,197 +1,197 @@
 .MarketTableRow {
-	display: flex;
-	align-items: center;
-	padding: 16px;
-	border-radius: 8px;
-	transition: all $transition;
-	cursor: pointer;
-	user-select: none;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 8px;
+    transition: all $transition;
+    cursor: pointer;
+    user-select: none;
 
-	@include hover {
-		background-color: $neutral-2;
+    @include hover {
+        background-color: $neutral-2;
 
-		.buyButton {
-			opacity: 1;
-			visibility: visible;
-		}
+        .buyButton {
+            opacity: 1;
+            visibility: visible;
+        }
 
-		.chart {
-			opacity: 0;
-			visibility: hidden;
-		}
-	}
+        .chart {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
 
-	@include respond($mobile) {
-		flex-wrap: wrap;
-		padding-bottom: 24px;
-		border-bottom: 1px solid $neutral-2;
-		border-radius: unset;
-	}
+    @include respond($mobile) {
+        flex-wrap: wrap;
+        padding-bottom: 24px;
+        border-bottom: 1px solid $neutral-2;
+        border-radius: unset;
+    }
 }
 
 .cell {
-	@include caption;
+    @include caption;
 
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 
-	@include respond($mobile) {
-		justify-content: space-between;
-	}
+    @include respond($mobile) {
+        justify-content: space-between;
+    }
 
-	&:not(:last-child) {
-		margin-right: 42px;
+    &:not(:last-child) {
+        margin-right: 42px;
 
-		@include respond($mobile) {
-			margin-right: 0;
-			margin-bottom: 4px;
-		}
-	}
+        @include respond($mobile) {
+            margin-right: 0;
+            margin-bottom: 4px;
+        }
+    }
 
-	&:nth-child(1) {
-		@include caption-2;
+    &:nth-child(1) {
+        @include caption-2;
 
-		width: 48px;
-		font-weight: 700;
-		color: $neutral-4;
+        width: 48px;
+        font-weight: 700;
+        color: $neutral-4;
 
-		@include respond($mobile) {
-			display: none;
-		}
-	}
+        @include respond($mobile) {
+            display: none;
+        }
+    }
 
-	&:nth-child(2) {
-		width: 160px;
-		font-weight: 500;
+    &:nth-child(2) {
+        width: 160px;
+        font-weight: 500;
 
-		.shortName {
-			color: $neutral-4;
-			font-weight: 400;
-			margin-left: 4px;
-		}
+        .shortName {
+            color: $neutral-4;
+            font-weight: 400;
+            margin-left: 4px;
+        }
 
-		@include respond($mobile) {
-			width: 100%;
-			margin-bottom: 16px;
-		}
-	}
+        @include respond($mobile) {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
 
-	&:nth-child(3) {
-		font-weight: 500;
-		width: 80px;
+    &:nth-child(3) {
+        font-weight: 500;
+        width: 80px;
 
-		@include respond($mobile) {
-			width: 100%;
-		}
-	}
+        @include respond($mobile) {
+            width: 100%;
+        }
+    }
 
-	&:nth-child(5) {
-		font-weight: 500;
-	}
+    &:nth-child(5) {
+        font-weight: 500;
+    }
 
-	&:nth-child(4),
-	&:nth-child(5) {
-		width: 64px;
+    &:nth-child(4),
+    &:nth-child(5) {
+        width: 64px;
 
-		@include respond($mobile) {
-			width: 100%;
-		}
-	}
+        @include respond($mobile) {
+            width: 100%;
+        }
+    }
 
-	&:nth-child(4) {
-		@include respond($laptop) {
-			margin-left: auto;
-		}
-	}
+    &:nth-child(4) {
+        @include respond($laptop) {
+            margin-left: auto;
+        }
+    }
 
-	&:nth-child(6),
-	&:nth-child(7) {
-		width: 140px;
-		font-weight: 500;
+    &:nth-child(6),
+    &:nth-child(7) {
+        width: 140px;
+        font-weight: 500;
 
-		@include respond($mobile) {
-			width: 100%;
-			margin-bottom: 0;
-		}
-	}
+        @include respond($mobile) {
+            width: 100%;
+            margin-bottom: 0;
+        }
+    }
 
-	&:nth-child(8) {
-		width: 96px;
-		height: 32px;
-	}
+    &:nth-child(8) {
+        width: 96px;
+        height: 32px;
+    }
 
-	&:nth-last-child(-n + 2) {
-		@include respond($laptop) {
-			display: none;
-		}
-	}
+    &:nth-last-child(-n + 2) {
+        @include respond($laptop) {
+            display: none;
+        }
+    }
 
-	&:nth-child(n + 3) {
-		justify-content: flex-end;
+    &:nth-child(n + 3) {
+        justify-content: flex-end;
 
-		@include respond($mobile) {
-			justify-content: space-between;
-		}
-	}
+        @include respond($mobile) {
+            justify-content: space-between;
+        }
+    }
 
-	&_positive {
-		color: $primary-4;
-	}
+    &_positive {
+        color: $primary-4;
+    }
 
-	&_negative {
-		color: $primary-3;
-	}
+    &_negative {
+        color: $primary-3;
+    }
 }
 
 .cellCurrencyIcon {
-	width: 32px;
-	height: 32px;
-	margin-right: 12px;
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
 
-	@include respond($mobile) {
-		margin-right: auto;
-	}
+    @include respond($mobile) {
+        margin-right: auto;
+    }
 }
 
 .cellStar {
-	width: 16px;
-	height: 16px;
-	margin-right: 10px;
-	flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    flex-shrink: 0;
 }
 
 .cellPrefix {
-	display: none;
+    display: none;
 
-	@include respond($mobile) {
-		@include caption;
+    @include respond($mobile) {
+        @include caption;
 
-		font-weight: 600;
-		color: $neutral-4;
-		display: block;
-	}
+        font-weight: 600;
+        color: $neutral-4;
+        display: block;
+    }
 }
 
 .buyButton {
-	position: absolute;
-	padding-left: 35px;
-	padding-right: 35px;
-	transition: all $transition;
-	opacity: 0;
-	visibility: hidden;
+    position: absolute;
+    padding-left: 35px;
+    padding-right: 35px;
+    transition: all $transition;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .chart {
-	transition: all $transition;
+    transition: all $transition;
 }
 
 .fullName {
-	max-width: 75px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+    max-width: 75px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
-	@include respond($mobile) {
-		max-width: unset;
-	}
+    @include respond($mobile) {
+        max-width: unset;
+    }
 }

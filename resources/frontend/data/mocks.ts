@@ -5,20 +5,20 @@ import Become3 from "@/assets/images/common/become-3.png";
 export const quote = [
     {
         x: "2023-12-30",
-        y: 13448
+        y: 13448,
     },
     {
         x: "2023-12-31",
-        y: 37451
+        y: 37451,
     },
     {
         x: "2024-01-01",
-        y: 39736
+        y: 39736,
     },
     {
         x: "2024-01-02",
-        y: 45570.6887703269
-    }
+        y: 45570.6887703269,
+    },
 ];
 
 export const cryptoOptions = [
@@ -36,22 +36,22 @@ export const becomeCards = [
         title: "Buy & Sell Crypto",
         description: `
         We realize ideas from simple to complex,
-        everything becomes easy to use and reach the most potential customers.`
+        everything becomes easy to use and reach the most potential customers.`,
     },
     {
         image: Become2,
         title: "Trade Assets",
         description: `
         We realize ideas from simple to complex,
-        everything becomes easy to use and reach the most potential customers.`
+        everything becomes easy to use and reach the most potential customers.`,
     },
     {
         image: Become3,
         title: "Earn Rewards for Trading",
         description: `
         We realize ideas from simple to complex,
-        everything becomes easy to use and reach the most potential customers.`
-    }
+        everything becomes easy to use and reach the most potential customers.`,
+    },
 ];
 
 export const homeSlides = [
@@ -81,6 +81,5 @@ export const homeSlides = [
         Join our communities to keep up with the BitCloud team and our traders from across the world.`,
         link: "/",
         linkText: "Join now",
-    }
+    },
 ];
-
