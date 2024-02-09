@@ -59,7 +59,9 @@
     },
     "lint-staged": {
         "*.(js|ts|jsx|tsx)": [
-            "npm run lint"
-        ]
+            "npm run lint",
+            "npm run typecheck"
+        ],
+        "*": "prettier --write ."
     }
 }
