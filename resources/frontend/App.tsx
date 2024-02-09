@@ -36,7 +36,7 @@ const App = () => {
 
     const fetchInitialAppData = async () => {
         try {
-            const user = await getCurrentUser();
+            const { data: user } = await getCurrentUser();
 
             dispatch(setUser(user));
         } catch (e) {

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import classNames from "classnames";
 
 import { RootState } from "@/store";
-import { isAuthSelector } from "@/store/auth/selectors.ts";
+import { isAuthSelector, userSelector } from "@/store/auth/selectors.ts";
 
 import Logo from "@/components/common/logo/Logo";
 import UiButton from "@/components/ui/button/UiButton";
@@ -15,11 +15,10 @@ import Bell from "@/assets/icons/ui/bell.svg?react";
 
 const Header = () => {
     const goToWallet = () => {};
-    // TODO: make avatar
-    const userAvatar = "";
-    const hasNotifications = true;
-
     const isAuth = useSelector((state: RootState) => isAuthSelector(state));
+    const user = useSelector((state: RootState) => userSelector(state));
+
+    const hasNotifications = true;
 
     const lightningButtonClasses = classNames(
         styles.button,
@@ -66,9 +65,9 @@ const Header = () => {
                             </UiButton>
 
                             <div className={avatarClasses}>
-                                {userAvatar && (
+                                {user?.avatar && (
                                     <img
-                                        src={userAvatar}
+                                        src={user.avatar}
                                         alt="Avatar"
                                     />
                                 )}

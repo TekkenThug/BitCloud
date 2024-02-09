@@ -3,8 +3,10 @@ interface PaginationLinks {
     lastPage: number;
 }
 
-export type WithPagination<T> = { data: T; pagination: PaginationLinks };
-export type WithMessage<T> = { data: T; message: string };
+export type APIResponse<T> = { data: T };
+export type WithPagination<T> = { pagination: PaginationLinks } & APIResponse<T>;
+export type WithMessage<T = never> = { message: string } & APIResponse<T>;
+
 export interface ErrorMessage<T = string> {
     message: string;
     errors: {

@@ -10,4 +10,5 @@ export interface User {
     email: string;
     firstName: string | null;
     lastName: string | null;
+    avatar: string | null;
 }
