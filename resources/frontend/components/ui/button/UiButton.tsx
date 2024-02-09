@@ -13,7 +13,7 @@ interface Props {
     size?: "medium" | "large";
     href?: string;
     className?: string;
-    clickHandler?: () => void; // TODO: replace
+    clickHandler?: () => void;
     children: ReactNode;
     isLoading?: boolean;
 }

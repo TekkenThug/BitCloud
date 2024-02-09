@@ -18,7 +18,6 @@ interface UiInputProps {
     errorText?: string;
 }
 
-// TODO: make validation and incorrect state
 const UiInputConfirm: FC<UiInputProps> = ({
     type = "text",
     placeholder = "",
