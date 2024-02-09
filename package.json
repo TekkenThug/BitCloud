@@ -5,7 +5,7 @@
         "dev": "vite",
         "build": "vite build",
         "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
-        "typecheck": "tsc --noEmit --composite false",
+        "typecheck": "bash -c tsc -p tsconfig.json --noEmit",
         "prepare": "husky"
     },
     "dependencies": {
@@ -58,10 +58,8 @@
         "vite": "^4.4.5"
     },
     "lint-staged": {
-        "*.(js|ts|jsx|tsx)": [
-            "npm run lint",
-            "npm run typecheck"
-        ],
+        "*.(js|ts|jsx|tsx)": "npm run lint",
+        "*.(ts|tsx)": "npm run typecheck",
         "*": "prettier --write ."
     }
 }
