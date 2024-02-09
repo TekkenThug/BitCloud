@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { animated, useSpring } from "@react-spring/web";
+import { useRef, useState } from "react";
+import { animated } from "@react-spring/web";
 import classNames from "classnames";
 
+import useDropdownMenu from "@/hooks/useDropdownMenu.ts";
 import { subscribeToNewsletter } from "@/services/api/contexts/subscribe";
 import { ErrorMessage } from "@/services/api/types";
 
@@ -32,21 +33,10 @@ const Footer = () => {
         }
     };
 
-    // TODO: make hook
     const list = useRef<HTMLUListElement>(null);
-    const [isVisible, toggleVisibility] = useState(false);
-    const [listHeight, setListHeight] = useState(0);
-    const slideDownAnimation = useSpring({
-        to: {
-            height: isVisible ? listHeight + 20 : 0,
-            paddingTop: isVisible ? 20 : 0,
-        },
+    const { isVisible, toggleVisibility, slideDownAnimation } = useDropdownMenu(list, {
+        paddingTop: [20, 0],
     });
-    useEffect(() => {
-        if (list && list.current) {
-            setListHeight(list.current.offsetHeight);
-        }
-    }, []);
 
     const links = [
         {
