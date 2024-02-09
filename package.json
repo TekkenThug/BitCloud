@@ -5,7 +5,8 @@
         "dev": "vite",
         "build": "vite build",
         "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
-        "typecheck": "tsc --noEmit --composite false"
+        "typecheck": "tsc --noEmit --composite false",
+        "prepare": "husky"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.3.4",
@@ -34,6 +35,8 @@
         "zod": "^3.22.4"
     },
     "devDependencies": {
+        "@commitlint/cli": "^18.6.0",
+        "@commitlint/config-conventional": "^18.6.0",
         "@stylistic/eslint-plugin-js": "^1.5.1",
         "@types/humps": "^2.0.6",
         "@types/react": "^18.2.15",
@@ -47,8 +50,13 @@
         "eslint-plugin-react-refresh": "^0.4.3",
         "eslint-plugin-simple-import-sort": "^10.0.0",
         "humps": "^2.0.1",
+        "husky": "^9.0.10",
         "laravel-vite-plugin": "^0.8.0",
+        "lint-staged": "^15.2.2",
         "typescript": "^5.0.2",
         "vite": "^4.4.5"
+    },
+    "lint-staged": {
+        "*.(js|ts|jsx|tsx)": ["npm run lint", "npm run typecheck"]
     }
 }
