@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 use App\Services\CurrencyService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
@@ -17,12 +17,9 @@ class CurrencyController extends Controller
 
     /**
      * Get trends
-     *
-     * @param Request $request
-     *
-     * @return JsonResponse
      */
-    public function get(Request $request): JsonResponse {
+    public function get(Request $request): JsonResponse
+    {
         return response()->json(['data' => $this->currencyService->getLatestTrends($request->query('limit', 100))]);
     }
 }

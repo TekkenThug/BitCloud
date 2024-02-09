@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SubscriberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Route::get('/test-mail/{template?}', function ($template = null) {
     }
 
     return view("mails.$template");
-})->where('any', '.*')->middleware("dev-env");
+})->where('any', '.*')->middleware('dev-env');
 
 Route::get('/unsubscribe/{email}', [SubscriberController::class, 'unsubscribe'])->name('unsubscribe')->middleware('signed');
 

@@ -10,7 +10,8 @@ use Illuminate\Queue\SerializesModels;
 
 class ConfirmEmail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -39,7 +40,7 @@ class ConfirmEmail extends Mailable
             view: 'mails.confirm.email',
             with: [
                 'email' => $this->email,
-                'link' => $this->link
+                'link' => $this->link,
             ]
         );
     }

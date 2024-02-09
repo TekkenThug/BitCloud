@@ -15,7 +15,7 @@ class AcceptDevEnv
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ('local' !== app()->environment()) {
+        if (app()->environment() !== 'local') {
             abort(403, 'You are not authorized to access this');
         }
 

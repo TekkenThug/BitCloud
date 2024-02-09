@@ -15,7 +15,7 @@ class ArticleResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'author' => $this->user->first_name . " " . $this->user->last_name,
+            'author' => $this->user->first_name.' '.$this->user->last_name,
             'id' => $this->id,
             'date' => $this->created_at,
             'tag' => $this->articleTag->label,

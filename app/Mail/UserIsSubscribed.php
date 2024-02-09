@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\URL;
 
 class UserIsSubscribed extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -41,7 +42,7 @@ class UserIsSubscribed extends Mailable
             view: 'mails.subscribe.new',
             with: [
                 'email' => $this->subscriber->email,
-                'unsubscribeLink' => URL::signedRoute('unsubscribe', ['email' => $this->subscriber->email])
+                'unsubscribeLink' => URL::signedRoute('unsubscribe', ['email' => $this->subscriber->email]),
             ]
         );
     }

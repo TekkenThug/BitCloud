@@ -11,8 +11,6 @@ class ArticleTag extends Model
 
     /**
      * Relation with articles
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function articles(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

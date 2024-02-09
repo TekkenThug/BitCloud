@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubscriberRequest;
 use App\Http\Requests\UnsubscribeRequest;
 use App\Services\SubscriberService;
-use App\Http\Requests\SubscriberRequest;
 
 class SubscriberController extends Controller
 {
@@ -14,7 +14,7 @@ class SubscriberController extends Controller
 
         return response()->json([
             'data' => $subscriberService->subscribeToNewsletter($validated['email']),
-            'message' => 'You successfully subscribed to newsletter'
+            'message' => 'You successfully subscribed to newsletter',
         ]);
     }
 
@@ -25,11 +25,11 @@ class SubscriberController extends Controller
             $subscriberService->unsubscribeFromNewsletter($validated['email']);
 
             return response()->json([
-                'message' => 'You successfully unsubscribed from newsletter'
+                'message' => 'You successfully unsubscribed from newsletter',
             ]);
         } catch (\Exception $e) {
             return response()->json([
-                'message' => $e->getMessage()
+                'message' => $e->getMessage(),
             ]);
         }
     }

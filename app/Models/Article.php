@@ -11,8 +11,6 @@ class Article extends Model
 
     /**
      * Relation with user
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -21,8 +19,6 @@ class Article extends Model
 
     /**
      * Relation with article tags
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function articleTag(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

@@ -5,7 +5,8 @@ namespace App\Services;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
-class CurrencyService {
+class CurrencyService
+{
     /**
      * Currency for comparing with all cryptocurrencies
      *
@@ -16,20 +17,19 @@ class CurrencyService {
     /**
      * Get latest trends
      *
-     * @param int $limit - limit of currencies
-     *
+     * @param  int  $limit  - limit of currencies
      * @return array|array[]
      */
     public function getLatestTrends(int $limit = 100)
     {
-        $response = Http::currency()->get("/v1/cryptocurrency/listings/latest", [
-            'limit' => $limit
+        $response = Http::currency()->get('/v1/cryptocurrency/listings/latest', [
+            'limit' => $limit,
         ]);
 
         return array_map(function ($item) {
             $imageUrl = Storage::disk('local')->exists("public/images/currency-icons/{$item['symbol']}.svg") ?
                 Storage::url("public/images/currency-icons/{$item['symbol']}.svg") :
-                Storage::url("public/images/currency-icons/default.svg");
+                Storage::url('public/images/currency-icons/default.svg');
 
             return [
                 'id' => $item['id'],
@@ -45,22 +45,22 @@ class CurrencyService {
                 // FAKE DATA
                 'quote' => [
                     [
-                        'date' => date("Y-m-d", strtotime("-3 day")),
+                        'date' => date('Y-m-d', strtotime('-3 day')),
                         'value' => rand(1, $item['quote'][$this->comparedCurrency]['price']),
                     ],
                     [
-                        'date' => date("Y-m-d", strtotime("-2 day")),
+                        'date' => date('Y-m-d', strtotime('-2 day')),
                         'value' => rand(1, $item['quote'][$this->comparedCurrency]['price']),
                     ],
                     [
-                        'date' => date("Y-m-d", strtotime("-1 day")),
+                        'date' => date('Y-m-d', strtotime('-1 day')),
                         'value' => rand(1, $item['quote'][$this->comparedCurrency]['price']),
                     ],
                     [
                         'date' => date('Y-m-d'),
                         'value' => $item['quote'][$this->comparedCurrency]['price'],
-                    ]
-                ]
+                    ],
+                ],
             ];
         }, $response->json()['data']);
     }

@@ -26,7 +26,7 @@ class RegisterRequest extends FormRequest
             'email' => 'required|unique:users|email',
             'password' => ['required', Password::defaults()],
             'confirmPassword' => 'required|same:password',
-            'agreement' => 'accepted'
+            'agreement' => 'accepted',
         ];
     }
 }

@@ -11,7 +11,7 @@ class UserController extends Controller
     public function me(Request $request): \Illuminate\Http\JsonResponse
     {
         return response()->json([
-            'data' => $request->user()
+            'data' => $request->user(),
         ]);
     }
 
@@ -22,7 +22,7 @@ class UserController extends Controller
         $userService->registerNewUser($validated);
 
         return response()->json([
-            'message' => 'User registration successfully! Please, confirm your email'
+            'message' => 'User registration successfully! Please, confirm your email',
         ]);
     }
 }

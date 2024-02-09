@@ -19,7 +19,7 @@ class LoginController extends Controller
                 Auth::logout();
 
                 return response()->json([
-                    'message' => 'Please, verify email address'
+                    'message' => 'Please, verify email address',
                 ], Response::HTTP_UNAUTHORIZED);
             }
 
@@ -27,12 +27,12 @@ class LoginController extends Controller
 
             return response()->json([
                 'data' => new UserResource(Auth::user()),
-                'message' => 'Successfully login'
+                'message' => 'Successfully login',
             ]);
         }
 
         return response()->json([
-            'message' => 'Incorrect credentials'
+            'message' => 'Incorrect credentials',
         ], Response::HTTP_UNAUTHORIZED);
     }
 
@@ -44,7 +44,7 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return response()->json([
-            'message' => 'Successfully logout'
+            'message' => 'Successfully logout',
         ]);
     }
 }

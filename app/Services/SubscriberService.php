@@ -6,11 +6,12 @@ use App\Jobs\SubscriberJoinJob;
 use App\Models\Subscriber;
 use Exception;
 
-class SubscriberService {
+class SubscriberService
+{
     public function subscribeToNewsletter(string $email)
     {
         $subscriber = Subscriber::create([
-            'email' => $email
+            'email' => $email,
         ]);
 
         SubscriberJoinJob::dispatch($subscriber);
