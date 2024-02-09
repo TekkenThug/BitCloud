@@ -18,9 +18,9 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                additionalData: "@use './resources/frontend/assets/styles/exported' as *;"
-            }
-        }
+                additionalData: "@use './resources/frontend/assets/styles/exported' as *;",
+            },
+        },
     },
     resolve: {
         alias: {
@@ -28,4 +28,3 @@ export default defineConfig({
         },
     },
 });
-
