@@ -1,9 +1,10 @@
 import { FC, FormEvent, useState } from "react";
 import classNames from "classnames";
 
-import "./UiInputConfirm.scss";
+import UiLoader from "@/components/ui/loader/UiLoader.tsx";
 
-import Loading from "@/assets/icons/controls/loading.svg?react";
+import styles from "./UiInputConfirm.module.scss";
+
 import ArrowRight from "@/assets/icons/ui/arrow-right.svg?react";
 import Check from "@/assets/icons/ui/check.svg?react";
 
@@ -35,16 +36,16 @@ const UiInputConfirm: FC<UiInputProps> = ({
         setValue(event.currentTarget.value);
     };
 
-    const classes = classNames("UiInputConfirm", {
-        UiInputConfirm_loading: isLoading,
-        UiInputConfirm_success: isSuccess,
-        UiInputConfirm_error: isError,
+    const classes = classNames(styles.UiInputConfirm, {
+        [styles.loading]: isLoading,
+        [styles.success]: isSuccess,
+        [styles.error]: isError,
     });
 
     return (
         <div className={classes}>
             <input
-                className="UiInputConfirm__nativeInput"
+                className={styles.nativeInput}
                 type={type}
                 value={value}
                 placeholder={placeholder}
@@ -53,19 +54,22 @@ const UiInputConfirm: FC<UiInputProps> = ({
 
             <button
                 disabled={!value || isError}
-                className="UiInputConfirm__extra-button"
+                className={styles.extraButton}
                 onClick={() => submitHandle(value)}
             >
                 {isLoading ? (
-                    <Loading className="UiInputConfirm__icon spin-animation" />
+                    <UiLoader
+                        color="white"
+                        className={styles.icon}
+                    />
                 ) : isSuccess ? (
-                    <Check className="UiInputConfirm__icon" />
+                    <Check className={styles.icon} />
                 ) : (
-                    <ArrowRight className="UiInputConfirm__icon" />
+                    <ArrowRight className={styles.icon} />
                 )}
             </button>
 
-            {isError && Boolean(errorText) && <p className="UiInputConfirm__error">{errorText}</p>}
+            {isError && Boolean(errorText) && <p className={styles.errorField}>{errorText}</p>}
         </div>
     );
 };
