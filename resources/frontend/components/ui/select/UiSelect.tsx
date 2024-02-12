@@ -1,7 +1,7 @@
 import Select, { GroupBase, Props } from "react-select";
 import classNames from "classnames";
 
-import "./UiSelect.scss";
+import styles from "./UiSelect.module.scss";
 
 const UiSelect = <
     Option,
@@ -10,7 +10,7 @@ const UiSelect = <
 >(
     props: Props<Option, IsMulti, Group>,
 ) => {
-    const classes = classNames("UiSelect", props.className);
+    const classes = classNames(styles.UiSelect, props.className);
 
     return (
         <Select
