@@ -4,12 +4,12 @@ import classNames from "classnames";
 
 import UiLoader from "@/components/ui/loader/UiLoader.tsx";
 
-import "./UiButton.scss";
+import styles from "./UiButton.module.scss";
 
 interface Props {
     disabled?: boolean;
     tag?: "button" | "a" | "router-link";
-    color?: "dark" | "blue";
+    color?: "dark" | "blue" | "light";
     size?: "medium" | "large";
     href?: string;
     className?: string;
@@ -26,7 +26,7 @@ const UiButton: FC<Props> = ({
     size = "medium",
     className = "",
     children,
-    clickHandler,
+    clickHandler = () => {},
     isLoading = false,
 }) => {
     const handleClick = () => {
@@ -35,12 +35,7 @@ const UiButton: FC<Props> = ({
         }
     };
 
-    const classes = classNames(
-        "UiButton",
-        `UiButton--color-${color}`,
-        `UiButton--size-${size}`,
-        className,
-    );
+    const classes = classNames(styles.UiButton, styles[color], styles[size], className);
 
     const content = isLoading ? (
         <UiLoader
