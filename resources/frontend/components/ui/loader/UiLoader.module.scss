@@ -1,0 +1,30 @@
+.covered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.sm {
+    width: 16px;
+    height: 16px;
+}
+
+.md {
+    width: 32px;
+    height: 32px;
+}
+
+.l {
+    width: 50px;
+    height: 50px;
+}
+
+.white {
+    color: $neutral-8;
+}
+
+.dark {
+    color: $neutral-2;
+}

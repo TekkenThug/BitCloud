@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-import "./UiLoader.scss";
+import styles from "./UiLoader.module.scss";
 
 import Loading from "@/assets/icons/controls/loading.svg?react";
 
@@ -9,24 +9,31 @@ interface Props {
     covered?: boolean;
     height?: number;
     size?: "sm" | "md" | "l";
-    color?: "white";
+    color?: "white" | "dark";
+    className?: string;
 }
 
-const UiLoader: FC<Props> = ({ covered = false, height, size = "md", color = "white" }) => {
-    const wrapperClasses = classNames("UiLoader__wrapper", { UiLoader__wrapper_covered: covered });
-    const classes = classNames(
-        "spin-animation",
-        `UiLoader_size-${size}`,
-        `UiLoader_color-${color}`,
-    );
+const UiLoader: FC<Props> = ({
+    covered = false,
+    height,
+    size = "md",
+    color = "white",
+    className = "",
+}) => {
+    const wrapperClasses = classNames({ [styles.covered]: covered });
+    const classes = classNames("spin-animation", styles[size], styles[color], className);
 
-    return (
+    const spinner = <Loading className={classes} />;
+
+    return covered ? (
         <div
             style={{ height: height ? `${height}px` : "unset" }}
             className={wrapperClasses}
         >
-            <Loading className={classes} />
+            {spinner}
         </div>
+    ) : (
+        spinner
     );
 };
 
