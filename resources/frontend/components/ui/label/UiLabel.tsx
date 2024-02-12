@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import "./UiLabel.scss";
+import styles from "./UiLabel.module.scss";
 
 export type LabelColor = "black" | "green" | "red" | "blue" | "purple";
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const UiLabel: React.FC<Props> = ({ title, color }) => {
-    const classes = classNames("UiLabel", `UiLabel_${color}`);
+    const classes = classNames(styles.UiLabel, styles[color]);
 
     return <div className={classes}>{title}</div>;
 };

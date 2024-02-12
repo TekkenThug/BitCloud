@@ -1,0 +1,32 @@
+.UiLabel {
+    @include hairline-2;
+
+    padding: 8px;
+    border-radius: 4px;
+    color: $neutral-8;
+}
+
+.red {
+    composes: UiLabel;
+    background-color: $primary-3;
+}
+
+.green {
+    composes: UiLabel;
+    background-color: $primary-4;
+}
+
+.blue {
+    composes: UiLabel;
+    background-color: $primary-1;
+}
+
+.purple {
+    composes: UiLabel;
+    background-color: $primary-2;
+}
+
+.black {
+    composes: UiLabel;
+    background-color: $neutral-2;
+}
