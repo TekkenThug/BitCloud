@@ -1,11 +1,12 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-import "./UiTab.scss";
+import styles from "./UiTab.module.scss";
 
 interface Props {
     text: string;
     isActive: boolean;
+    isDisabled?: boolean;
     changeHandler: (value: string) => void;
     className?: string;
     theme?: "dark" | "light";
@@ -13,13 +14,15 @@ interface Props {
 
 const UiTab: FC<Props> = ({
     text,
-    isActive = false,
-    changeHandler,
+    isActive,
+    isDisabled = false,
+    changeHandler = () => {},
     className = "",
     theme = "dark",
 }) => {
-    const classes = classNames("UiTab", className, `UiTab_theme_${theme}`, {
-        UiTab_active: isActive,
+    const classes = classNames(styles.UiTab, styles[theme], className, {
+        [styles.active]: isActive,
+        [styles.disabled]: isDisabled,
     });
 
     return (

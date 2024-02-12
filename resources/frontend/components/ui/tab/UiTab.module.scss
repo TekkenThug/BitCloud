@@ -1,0 +1,52 @@
+.UiTab {
+    @include button-2;
+
+    padding: 6px 12px;
+    border-radius: 100px;
+    transition: all $transition;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+}
+
+.light {
+    composes: UiTab;
+    color: $neutral-4;
+
+    &:not(.active):not(.disabled) {
+        @include hover {
+            color: $neutral-8;
+        }
+    }
+
+    &.active {
+        background-color: $neutral-6;
+        color: $neutral-2;
+    }
+
+    &.disabled {
+        color: $neutral-3;
+    }
+}
+
+.dark {
+    composes: UiTab;
+    color: $neutral-4;
+
+    &:not(.active):not(.disabled) {
+        @include hover {
+            color: $neutral-2;
+        }
+    }
+
+    &.active {
+        background-color: $neutral-3;
+        color: $neutral-8;
+    }
+
+    &.disabled {
+        color: $neutral-5;
+    }
+}
