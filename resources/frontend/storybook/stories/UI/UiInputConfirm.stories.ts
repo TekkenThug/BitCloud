@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import UiInputConfirm from "@/components/ui/input/input-confirm/UiInputConfirm.tsx";
 
-import "@/assets/styles/global.scss";
-
 const meta: Meta<typeof UiInputConfirm> = {
     title: "BitCloud/UI/Input confirm",
     component: UiInputConfirm,
