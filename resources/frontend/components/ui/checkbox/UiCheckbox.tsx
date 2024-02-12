@@ -2,7 +2,7 @@ import { forwardRef, ReactNode } from "react";
 import { UseFormRegister } from "react-hook-form";
 import classNames from "classnames";
 
-import "./UiCheckbox.scss";
+import styles from "./UiCheckbox.module.scss";
 
 import Check from "@/assets/icons/ui/check.svg?react";
 
@@ -13,20 +13,20 @@ interface Props {
 
 const UiCheckbox = forwardRef<HTMLInputElement, Props & ReturnType<UseFormRegister<never>>>(
     ({ children = null, error = false, onChange, onBlur, name }, ref) => {
-        const classes = classNames("UiCheckbox", { "UiCheckbox--error": error });
+        const classes = classNames(styles.UiCheckbox, { [styles.error]: error });
 
         return (
             <label className={classes}>
                 <input
                     ref={ref}
                     type="checkbox"
-                    className="UiCheckbox__checkbox"
+                    className={styles.checkbox}
                     onChange={onChange}
                     onBlur={onBlur}
                     name={name}
                 />
 
-                <span className="UiCheckbox__fakeCheckbox">
+                <span className={styles.fakeCheckbox}>
                     <Check />
                 </span>
 
