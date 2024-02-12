@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-import "./UiPercentageTag.scss";
+import styles from "./UiPercentageTag.module.scss";
 
 interface Props {
     percentage: number;
@@ -9,7 +9,7 @@ interface Props {
 
 const UiPercentageTag: FC<Props> = ({ percentage }) => {
     const processedPercentage = `${percentage < 0 ? "" : "+"}${percentage}%`;
-    const classes = classNames("UiPercentageTag", { "UiPercentageTag--negative": percentage < 0 });
+    const classes = classNames(styles.UiPercentageTag, { [styles.negative]: percentage < 0 });
 
     return <div className={classes}>{processedPercentage}</div>;
 };
