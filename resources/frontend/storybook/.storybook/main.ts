@@ -7,7 +7,6 @@ const config: StorybookConfig = {
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "@storybook/addon-onboarding",
         "@storybook/addon-interactions",
     ],
     core: {
@@ -18,6 +17,7 @@ const config: StorybookConfig = {
             },
         },
     },
+    staticDirs: ["./public"],
     async viteFinal(config) {
         return mergeConfig(config, {
             resolve: {
