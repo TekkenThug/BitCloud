@@ -1,13 +1,7 @@
 @import "normalize.css";
+@import "reset";
 
 * {
-    box-sizing: border-box;
-
-    &::after,
-    &::before {
-        box-sizing: inherit;
-    }
-
     &::-webkit-scrollbar {
         width: 5px;
     }
@@ -18,55 +12,14 @@
     }
 }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     @include body-2;
 
     min-height: 100vh;
-    color: $neutral-8;
     background-color: $neutral-1;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
-}
-
-button {
-    outline: none;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    color: $neutral-8;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-ul,
-li {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
+button,
 input {
-    background-color: transparent;
-    outline: none;
-    border: none;
     color: $neutral-8;
 }
