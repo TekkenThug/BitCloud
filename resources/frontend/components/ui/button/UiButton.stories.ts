@@ -8,7 +8,6 @@ const meta: Meta<typeof UiButton> = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
 };
 
 export default meta;

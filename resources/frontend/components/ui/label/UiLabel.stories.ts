@@ -8,7 +8,6 @@ const meta: Meta<typeof UiLabel> = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
 };
 
 export default meta;

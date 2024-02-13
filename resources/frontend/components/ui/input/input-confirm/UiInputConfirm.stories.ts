@@ -8,7 +8,6 @@ const meta: Meta<typeof UiInputConfirm> = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
 };
 
 export default meta;
