@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 import classNames from "classnames";
 
-import "./UiInputSimple.scss";
+import styles from "./UiInputSimple.module.scss";
 
 import Eye from "@/assets/icons/ui/eye.svg?react";
 
@@ -32,17 +32,17 @@ const UiInputSimple = forwardRef<HTMLInputElement, Props & ReturnType<UseFormReg
     ) => {
         const [showPassword, setShowPassword] = useState(false);
         const inputClasses = classNames(className, {
-            "UiInputSimple--error": error,
+            [styles.error]: error,
         });
 
         const inputField = (
             <>
-                <div className="UiInputSimple__inputWrapper">
+                <div className={styles.inputWrapper}>
                     <input
                         ref={ref}
                         onBlur={onBlur}
                         name={name}
-                        className="UiInputSimple__nativeInput"
+                        className={styles.nativeInput}
                         type={type === "password" ? (showPassword ? "text" : "password") : type}
                         placeholder={placeholder}
                         onChange={onChange}
@@ -51,7 +51,7 @@ const UiInputSimple = forwardRef<HTMLInputElement, Props & ReturnType<UseFormReg
                     {hasShowPassword && (
                         <button
                             type="button"
-                            className="UiInputSimple__showPasswordButton"
+                            className={styles.showPasswordButton}
                             onClick={() => setShowPassword(!showPassword)}
                         >
                             <Eye />
@@ -59,12 +59,12 @@ const UiInputSimple = forwardRef<HTMLInputElement, Props & ReturnType<UseFormReg
                     )}
                 </div>
 
-                <span className="UiInputSimple__error">{error}</span>
+                <span className={styles.errorField}>{error}</span>
             </>
         );
         const inputFieldWithLabel = (
-            <label className="UiInputSimple__label">
-                <span className="UiInputSimple__labelText">{label}</span>
+            <label className={styles.label}>
+                <span className={styles.labelText}>{label}</span>
 
                 {inputField}
             </label>
