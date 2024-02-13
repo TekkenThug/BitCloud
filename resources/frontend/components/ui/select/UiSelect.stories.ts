@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UiSelect from "@/components/ui/select/UiSelect.tsx";
 
 const meta: Meta<typeof UiSelect> = {
-    title: "BitCloud/UI/Select",
+    title: "Components/UI/Select",
     component: UiSelect,
     parameters: {
         layout: "centered",

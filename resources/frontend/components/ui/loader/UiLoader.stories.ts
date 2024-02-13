@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UiLoader from "@/components/ui/loader/UiLoader.tsx";
 
 const meta: Meta<typeof UiLoader> = {
-    title: "BitCloud/UI/Loader",
+    title: "Components/UI/Loader",
     component: UiLoader,
     parameters: {
         layout: "centered",

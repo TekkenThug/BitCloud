@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UiLabel from "@/components/ui/label/UiLabel.tsx";
 
 const meta: Meta<typeof UiLabel> = {
-    title: "BitCloud/UI/Label",
+    title: "Components/UI/Label",
     component: UiLabel,
     parameters: {
         layout: "centered",

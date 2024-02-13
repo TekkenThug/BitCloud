@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UiButton from "@/components/ui/button/UiButton.tsx";
 
 const meta: Meta<typeof UiButton> = {
-    title: "BitCloud/UI/Button",
+    title: "Components/UI/Button",
     component: UiButton,
     parameters: {
         layout: "centered",
