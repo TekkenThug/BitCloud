@@ -69,12 +69,16 @@
         "prettier": "3.2.5",
         "storybook": "^7.6.14",
         "stylelint": "^16.2.1",
+        "stylelint-config-css-modules": "^4.4.0",
+        "stylelint-config-standard-scss": "^13.0.0",
+        "stylelint-prettier": "^5.0.0",
         "typescript": "^5.0.2",
         "vite": "^4.4.5"
     },
     "lint-staged": {
         "*.(js|ts|jsx|tsx)": "npm run lint",
         "*.(ts|tsx)": "npm run typecheck",
+        "*.(scss|sass)": "stylelint --fix",
         "*": "prettier --write ."
     }
 }

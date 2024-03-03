@@ -1,0 +1,15 @@
+{
+    "extends": ["stylelint-config-standard-scss", "stylelint-config-css-modules"],
+    "plugins": ["stylelint-prettier"],
+    "rules": {
+        "prettier/prettier": true,
+        "selector-class-pattern": "^[a-zA-Z]",
+        "no-descending-specificity": [false, {}],
+        "value-keyword-case": [
+            "lower",
+            {
+                "ignoreProperties": ["composes"]
+            }
+        ]
+    }
+}
