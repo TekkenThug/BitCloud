@@ -33,14 +33,14 @@
     border-color: $primary-1;
 
     @include hover {
-        background-color: darken($primary-1, 5%);
-        border-color: darken($primary-1, 5%);
+        background-color: #185aff;
+        border-color: #185aff;
     }
 
     &:disabled {
         opacity: 0.5;
-        background-color: darken($primary-1, 5%);
-        border-color: darken($primary-1, 5%);
+        background-color: #185aff;
+        border-color: #185aff;
     }
 }
 

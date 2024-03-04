@@ -7,44 +7,6 @@
     pointer-events: none;
 }
 
-.error {
-    composes: UiInputConfirm;
-
-    .nativeInput {
-        border-color: $primary-3;
-
-        @include hover {
-            border-color: $primary-3;
-        }
-
-        &:focus {
-            border-color: $primary-3;
-        }
-    }
-
-    .extraButton {
-        cursor: not-allowed;
-        background-color: $neutral-5;
-    }
-
-    .icon {
-        color: $neutral-4;
-    }
-}
-
-.success {
-    composes: UiInputConfirm;
-    pointer-events: none;
-
-    .nativeInput {
-        border-color: $primary-4;
-    }
-
-    .extraButton {
-        background-color: $primary-4;
-    }
-}
-
 .nativeInput {
     @include caption;
 
@@ -97,6 +59,44 @@
     height: 24px;
     color: $neutral-8;
     flex-shrink: 0;
+}
+
+.success {
+    composes: UiInputConfirm;
+    pointer-events: none;
+
+    .nativeInput {
+        border-color: $primary-4;
+    }
+
+    .extraButton {
+        background-color: $primary-4;
+    }
+}
+
+.error {
+    composes: UiInputConfirm;
+
+    .nativeInput {
+        border-color: $primary-3;
+
+        @include hover {
+            border-color: $primary-3;
+        }
+
+        &:focus {
+            border-color: $primary-3;
+        }
+    }
+
+    .extraButton {
+        cursor: not-allowed;
+        background-color: $neutral-5;
+    }
+
+    .icon {
+        color: $neutral-4;
+    }
 }
 
 .errorField {

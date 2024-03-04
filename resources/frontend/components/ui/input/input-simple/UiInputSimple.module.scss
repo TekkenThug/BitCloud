@@ -5,6 +5,7 @@
 
 .labelText {
     @include hairline-2;
+
     flex-direction: column;
     font-weight: 700;
     color: $neutral-5;

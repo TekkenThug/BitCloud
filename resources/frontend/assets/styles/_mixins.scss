@@ -7,7 +7,7 @@
 }
 
 @mixin respond($breakpoint, $is-min: false) {
-    @if ($is-min) {
+    @if $is-min {
         @media screen and (min-width: $breakpoint + 1) {
             @content;
         }

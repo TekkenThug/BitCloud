@@ -20,6 +20,13 @@
     }
 }
 
+.tableHeaderCellArrow {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    flex-shrink: 0;
+}
+
 .tableHeaderCell {
     display: flex;
     align-items: center;
@@ -79,13 +86,6 @@
             margin-left: 8px;
         }
     }
-}
-
-.tableHeaderCellArrow {
-    width: 16px;
-    height: 16px;
-    margin-left: 4px;
-    flex-shrink: 0;
 }
 
 .tableHeaderCellIcon {

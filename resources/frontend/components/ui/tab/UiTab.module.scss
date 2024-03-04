@@ -15,7 +15,7 @@
     composes: UiTab;
     color: $neutral-4;
 
-    &:not(.active):not(.disabled) {
+    &:not(.active, .disabled) {
         @include hover {
             color: $neutral-8;
         }
@@ -35,7 +35,7 @@
     composes: UiTab;
     color: $neutral-4;
 
-    &:not(.active):not(.disabled) {
+    &:not(.active, .disabled) {
         @include hover {
             color: $neutral-2;
         }
