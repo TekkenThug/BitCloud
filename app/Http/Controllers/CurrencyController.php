@@ -6,6 +6,9 @@ use App\Services\CurrencyService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Currencies
+ */
 class CurrencyController extends Controller
 {
     private CurrencyService $currencyService;
@@ -16,7 +19,9 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Get trends
+     * Get currencies
+     *
+     * @authenticated
      */
     public function get(Request $request): JsonResponse
     {

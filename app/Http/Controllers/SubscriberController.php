@@ -6,8 +6,14 @@ use App\Http\Requests\SubscriberRequest;
 use App\Http\Requests\UnsubscribeRequest;
 use App\Services\SubscriberService;
 
+/**
+ * @group Subscribing
+ */
 class SubscriberController extends Controller
 {
+    /**
+     * Subscribe to newsletter
+     */
     public function post(SubscriberService $subscriberService, SubscriberRequest $request)
     {
         $validated = $request->validated();
@@ -18,6 +24,9 @@ class SubscriberController extends Controller
         ]);
     }
 
+    /**
+     * Unsubscribe from newsletter
+     */
     public function destroy(SubscriberService $subscriberService, UnsubscribeRequest $request)
     {
         $validated = $request->validated();
