@@ -18,3 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 /resourses/**/.DS_Store
+/.scribe
+/public/docs
