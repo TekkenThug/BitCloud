@@ -4,7 +4,7 @@
     "rules": {
         "prettier/prettier": true,
         "selector-class-pattern": "^[a-zA-Z]",
-        "no-descending-specificity": [false, {}],
+        "no-descending-specificity": null,
         "value-keyword-case": [
             "lower",
             {
