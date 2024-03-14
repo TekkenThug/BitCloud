@@ -1,0 +1,393 @@
+openapi: 3.0.3
+info:
+  title: "BitCloud - API documentation"
+  description: ""
+  version: 1.0.0
+servers:
+  - url: "http://localhost"
+paths:
+  /api/articles:
+    get:
+      summary: "Get articles"
+      operationId: getArticles
+      description: ""
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The numbers of articles to return
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Article"
+                  pagination:
+                    $ref: "#/components/schemas/Pagination"
+      tags:
+        - Articles
+  /api/logout:
+    post:
+      summary: "Logout from application"
+      operationId: logoutFromApplication
+      description: ""
+      parameters: []
+      responses: {}
+      tags:
+        - Authentication
+  /api/login:
+    post:
+      summary: "Login in application"
+      operationId: loginInApplication
+      description: ""
+      parameters: []
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - message
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
+                  message:
+                    type: string
+                    example: "Successfully login"
+        401:
+          description: "Incorrect credentials"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+      tags:
+        - Authentication
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: "User email"
+                  example: vaughn84@example.org
+                password:
+                  type: string
+                  description: "User password"
+                  example: "fgDO'$e!A$aWj%iJ9Wyi"
+      security: []
+  /api/currencies:
+    get:
+      summary: "Get currencies"
+      operationId: getCurrencies
+      description: ""
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The numbers of currencies to return
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Currency"
+
+        401:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Currency
+  /api/subscribers:
+    post:
+      summary: "Subscribe to newsletter"
+      operationId: subscribeToNewsletter
+      description: ""
+      parameters: []
+      responses: {}
+      tags:
+        - Subscribing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: "Must be a valid email address. Must be at least 6 characters. Must not be greater than 64 characters."
+                  example: white.felix@example.net
+              required:
+                - email
+      security: []
+    delete:
+      summary: "Unsubscribe from newsletter"
+      operationId: unsubscribeFromNewsletter
+      description: ""
+      parameters: []
+      responses: {}
+      tags:
+        - Subscribing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: "Must be a valid email address."
+                  example: zgislason@example.org
+              required:
+                - email
+      security: []
+  /api/users/me:
+    get:
+      summary: "Get current authenticated user"
+      operationId: getCurrentAuthenticatedUser
+      description: ""
+      parameters: []
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        401:
+          description: ""
+      tags:
+        - User
+  /api/users/register:
+    post:
+      summary: "Register new user"
+      operationId: registerUser
+      description: ""
+      parameters: []
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                required:
+                  - message
+                type: object
+                properties:
+                  message:
+                    type: string
+        422:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterCredentials"
+
+tags:
+  - name: Articles
+    description: ""
+  - name: Authentication
+    description: ""
+  - name: Currency
+    description: ""
+  - name: Subscribing
+    description: ""
+  - name: User
+    description: ""
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - email
+        - first_name
+        - last_name
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        avatar:
+          type: string
+    Article:
+      type: object
+      required:
+        - id
+        - title
+        - author
+        - date
+        - cover_url
+        - tag
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        author:
+          type: string
+        date:
+          type: string
+          format: date-time
+        cover_url:
+          type: string
+          format: uri
+        tag:
+          type: string
+    ErrorMessage:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          example:
+            email: ["Required", "Must be email"]
+            password: ["Required"]
+    RegisterCredentials:
+      type: object
+      properties:
+        email:
+          type: string
+          description: "Must be a valid email address."
+          example: aracely.luettgen@example.com
+        password:
+          type: string
+          description: "User password"
+          example: minus
+        confirmPassword:
+          type: string
+          description: "The value and <code>password</code> must match."
+          example: sapiente
+        agreement:
+          type: boolean
+          description: "Must be accepted."
+          example: true
+      required:
+        - email
+        - password
+        - confirmPassword
+        - agreement
+    Currency:
+      type: object
+      required:
+        - id
+        - marketCap
+        - name
+        - percentageForDay
+        - percentageForWeek
+        - price
+        - volume
+        - shortName
+        - quote
+      properties:
+        icon:
+          type: string
+          format: uri
+        id:
+          type: integer
+        marketCap:
+          type: number
+          format: double
+        name:
+          type: string
+        percentageForDay:
+          type: number
+          format: double
+        percentageForWeek:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        volume:
+          type: number
+          format: double
+        shortName:
+          type: string
+        quote:
+          type: array
+          items:
+            type: object
+            required:
+              - date
+              - value
+            properties:
+              date:
+                type: string
+                format: date
+              value:
+                type: number
+                format: double
+    Pagination:
+      type: object
+      required:
+        - total
+        - last_page
+      properties:
+        total:
+          type: integer
+          description: "Total items count"
+        last_page:
+          type: integer
+          description: "Number of last page"
