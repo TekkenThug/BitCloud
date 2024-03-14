@@ -6,9 +6,6 @@ use App\Http\Requests\SubscriberRequest;
 use App\Http\Requests\UnsubscribeRequest;
 use App\Services\SubscriberService;
 
-/**
- * @group Subscribing
- */
 class SubscriberController extends Controller
 {
     /**
