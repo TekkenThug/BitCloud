@@ -2,13 +2,15 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
-        "typecheck": "bash -c tsc -p tsconfig.json --noEmit",
+        "api:generate": "sta --path ./api/openapi.yaml --output ./resources/frontend/services/api --axios --unwrap-response-data --modular",
+        "bundler:dev": "vite",
+        "bundler:build": "vite build",
         "prepare": "husky",
-        "storybook": "storybook dev -p 6006 --config-dir ./resources/frontend/storybook/.storybook",
-        "build-storybook": "storybook build"
+        "lint:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+        "lint:stylelint": "stylelint \"**/*.scss\" --fix\n",
+        "lint:typecheck": "bash -c tsc -p tsconfig.json --noEmit",
+        "sb:dev": "storybook dev -p 6006 --config-dir ./resources/frontend/storybook/.storybook",
+        "sb:build": "storybook build"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.3.4",
@@ -72,13 +74,14 @@
         "stylelint-config-css-modules": "^4.4.0",
         "stylelint-config-standard-scss": "^13.0.0",
         "stylelint-prettier": "^5.0.0",
+        "swagger-typescript-api": "^13.0.3",
         "typescript": "^5.0.2",
         "vite": "^4.4.5"
     },
     "lint-staged": {
-        "*.(js|ts|jsx|tsx)": "npm run lint",
-        "*.(ts|tsx)": "npm run typecheck",
-        "*.(scss|sass)": "stylelint --fix",
+        "*.(js|ts|jsx|tsx)": "npm run lint:eslint",
+        "*.(ts|tsx)": "npm run lint:typecheck",
+        "*.(scss|sass)": "npm run lint:stylelint",
         "*": "prettier --write ."
     }
 }
