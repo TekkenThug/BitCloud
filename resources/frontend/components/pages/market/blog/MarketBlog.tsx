@@ -3,6 +3,7 @@ import { useRequest } from "ahooks";
 
 import { Api } from "@/services/api";
 import { Article } from "@/services/api/data-contracts.ts";
+import { toHumanizeDate } from "@/utils/dates.ts";
 
 import UiButton from "@/components/ui/button/UiButton";
 
@@ -47,7 +48,7 @@ const MarketBlog = () => {
                                 className={styles.blogItem}
                                 title={item.title}
                                 author={item.author}
-                                date={item.date}
+                                date={toHumanizeDate(item.date)}
                                 cover={item.cover_url}
                                 tag={item.tag}
                             />
