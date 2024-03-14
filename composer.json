@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "Bitcloud",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "The imaginary stock exchange of crypto",
     "keywords": [
         "laravel",
         "framework"
