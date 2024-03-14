@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRequest } from "ahooks";
 
-import { getArticlesForMarketPage } from "@/services/api/contexts/article";
-import { Article } from "@/services/api/contexts/article/types";
+import { Api } from "@/services/api";
+import { Article } from "@/services/api/data-contracts.ts";
 
 import UiButton from "@/components/ui/button/UiButton";
 
@@ -19,13 +19,13 @@ const MarketBlog = () => {
 
     const [page, setPage] = useState(1);
     const [articles, setArticles] = useState<Article[]>([]);
-    const { data, loading } = useRequest(() => getArticlesForMarketPage(page), {
+    const { data, loading } = useRequest(() => Api.getArticles({ page, limit: 3 }), {
         refreshDeps: [page],
-        onSuccess: (data) => setArticles((old) => [...old, ...data.articles]),
+        onSuccess: ({ data }) => setArticles((old) => [...old, ...data]),
     });
 
     const loadMoreArticles = () => {
-        if (!data || data.pagination.lastPage === page) return;
+        if (!data || data.pagination?.last_page === page) return;
 
         setPage((page) => page + 1);
     };
@@ -48,14 +48,14 @@ const MarketBlog = () => {
                                 title={item.title}
                                 author={item.author}
                                 date={item.date}
-                                cover={item.coverUrl}
+                                cover={item.cover_url}
                                 tag={item.tag}
                             />
                         ))}
                     </ul>
                 )}
 
-                {data?.pagination.lastPage !== page && (
+                {data?.pagination?.last_page !== page && (
                     <UiButton
                         className={styles.loadingButton}
                         color="dark"

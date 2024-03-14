@@ -3,8 +3,8 @@ import { animated } from "@react-spring/web";
 import classNames from "classnames";
 
 import useDropdownMenu from "@/hooks/useDropdownMenu.ts";
-import { subscribeToNewsletter } from "@/services/api/contexts/subscribe";
-import { ErrorMessage } from "@/services/api/types";
+import { Api, ApiError } from "@/services/api";
+import { ErrorMessage } from "@/services/api/data-contracts.ts";
 
 import UiInputConfirm from "@/components/ui/input/input-confirm/UiInputConfirm";
 
@@ -23,11 +23,15 @@ const Footer = () => {
         setError("");
 
         try {
-            await subscribeToNewsletter(email);
+            await Api.subscribeToNewsletter({ email });
 
             setSuccess(true);
         } catch (e) {
-            setError((e as ErrorMessage).message);
+            const error = (e as ApiError<ErrorMessage>).response?.data;
+
+            if (!error) return;
+
+            setError(error.message);
         } finally {
             setLoading(false);
         }

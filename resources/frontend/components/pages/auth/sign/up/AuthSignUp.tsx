@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { registerUser } from "@/services/api/contexts/user";
-import { RegisterCredentials } from "@/services/api/contexts/user/types.ts";
-import { ErrorMessage } from "@/services/api/types.ts";
+import { Api, ApiError } from "@/services/api";
+import { ErrorMessage, RegisterCredentials } from "@/services/api/data-contracts.ts";
 import { registerForm } from "@/services/validations/schemas/auth.ts";
 
 import UiButton from "@/components/ui/button/UiButton.tsx";
@@ -30,13 +29,15 @@ const AuthSignUp = () => {
         try {
             setIsLoading(true);
 
-            const { message } = await registerUser(data);
+            const { message } = await Api.registerUser(data);
 
             toast(message, { type: "success" });
 
             navigate("/auth?mode=signin");
         } catch (e) {
-            const error = e as ErrorMessage<RegisterCredentials>;
+            const error = (e as ApiError<ErrorMessage>).response?.data;
+
+            if (!error) return;
 
             if (error.errors) {
                 for (const key in error.errors) {
@@ -46,7 +47,7 @@ const AuthSignUp = () => {
                     });
                 }
             } else {
-                toast((e as ErrorMessage).message, { type: "error" });
+                toast(error.message, { type: "error" });
             }
         } finally {
             setIsLoading(false);

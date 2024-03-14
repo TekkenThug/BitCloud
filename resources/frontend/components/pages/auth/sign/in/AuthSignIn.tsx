@@ -8,9 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { setUser } from "@/store/auth";
 
 import useTabs from "@/hooks/useTabs.ts";
-import { login } from "@/services/api/contexts/auth";
-import { AuthCredentials } from "@/services/api/contexts/auth/types.ts";
-import { ErrorMessage } from "@/services/api/types.ts";
+import { Api, ApiError } from "@/services/api";
+import { ErrorMessage } from "@/services/api/data-contracts.ts";
 import { loginForm } from "@/services/validations/schemas/auth.ts";
 
 import Address from "@/components/common/address/Address.tsx";
@@ -20,6 +19,8 @@ import UiTab from "@/components/ui/tab/UiTab.tsx";
 
 import commonStyles from "../AuthSign.module.scss";
 import styles from "./AuthSignIn.module.scss";
+
+type AuthCredentials = { email: string; password: string };
 
 const AuthSignIn = () => {
     const { activeTab, setTab } = useTabs(["mobile", "email"], "email");
@@ -38,12 +39,14 @@ const AuthSignIn = () => {
     const signIn = async (credentials: AuthCredentials) => {
         try {
             setIsLoading(true);
-            const { data: user } = await login(credentials);
+            const { data: user } = await Api.loginInApplication(credentials);
             dispatch(setUser(user));
 
             navigate("/market");
         } catch (e) {
-            const error = e as ErrorMessage<AuthCredentials>;
+            const error = (e as ApiError<ErrorMessage>).response?.data;
+
+            if (!error) return;
 
             if (error.errors) {
                 for (const key in error.errors) {
@@ -53,7 +56,7 @@ const AuthSignIn = () => {
                     });
                 }
             } else {
-                toast((e as ErrorMessage).message, { type: "error" });
+                toast(error.message, { type: "error" });
             }
         } finally {
             setIsLoading(false);

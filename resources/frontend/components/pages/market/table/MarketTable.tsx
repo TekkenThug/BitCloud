@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useRequest } from "ahooks";
 import classNames from "classnames";
 
-import { getTrendingCurrencies } from "@/services/api/contexts/currency";
-import { QuotatedCurrency } from "@/services/api/contexts/currency/types";
+import { QuotatedCurrency } from "@/types";
+
+import { Api } from "@/services/api";
+import { Currency } from "@/services/api/data-contracts.ts";
 
 import UiLoader from "@/components/ui/loader/UiLoader";
 
@@ -15,23 +17,31 @@ import ChartBar from "@/assets/icons/finance/chart-bar.svg?react";
 import Coin from "@/assets/icons/finance/coin.svg?react";
 import Arrows from "@/assets/icons/ui/arrow-two.svg?react";
 
-const MarketTable = () => {
-    const [enabled, setEnabled] = useState(true);
-    useEffect(() => {
-        setEnabled(false);
-    }, []);
+type SortKeys = Exclude<keyof QuotatedCurrency, "icon">;
 
-    const { data, isLoading } = useQuery({
-        queryKey: ["marketCurrencies"],
-        enabled: enabled,
-        queryFn: () => getTrendingCurrencies(10),
+const MarketTable = () => {
+    const currencyAdapter = (arr: Currency[]): QuotatedCurrency[] => {
+        return arr.map((item, index) => {
+            return {
+                ...item,
+                number: index + 1,
+                quote: item.quote.map((innerItem) => ({
+                    x: innerItem.date,
+                    y: innerItem.value,
+                })),
+            };
+        });
+    };
+
+    const { loading } = useRequest(() => Api.getCurrencies({ limit: 10 }), {
+        onSuccess: ({ data }) => setSortData(currencyAdapter(data)),
     });
     const [sortData, setSortData] = useState<QuotatedCurrency[]>([]);
 
-    const [sort, setSort] = useState<keyof QuotatedCurrency>("number");
+    const [sort, setSort] = useState<SortKeys>("number");
     const [descending, setDescending] = useState(false);
 
-    const sortByField = (field: keyof QuotatedCurrency) => {
+    const sortByField = (field: SortKeys) => {
         if (field === sort) {
             setDescending((prev) => !prev);
         } else {
@@ -41,10 +51,6 @@ const MarketTable = () => {
     };
 
     useEffect(() => {
-        if (!sortData.length && data) {
-            setSortData(data);
-        }
-
         setSortData((prevCurrencies) => {
             return [...prevCurrencies].sort((a, b) => {
                 if (descending) {
@@ -70,14 +76,14 @@ const MarketTable = () => {
                 }
             });
         });
-    }, [data, sort, descending]);
+    }, [sort, descending]);
 
     const cellClasses = classNames(styles.tableHeaderCell, styles.tableHeaderCell_cell_number);
 
     return (
         <section className={styles.MarketTable}>
             <div className="container">
-                {isLoading ? (
+                {loading ? (
                     <UiLoader
                         covered
                         height={200}

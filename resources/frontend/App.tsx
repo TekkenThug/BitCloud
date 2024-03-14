@@ -8,8 +8,7 @@ import { setUser } from "@/store/auth";
 import { isAuthSelector } from "@/store/auth/selectors";
 
 import createRouter from "@/router";
-import { ApiError } from "@/services/api";
-import { getCurrentUser } from "@/services/api/contexts/user";
+import { Api, ApiError } from "@/services/api";
 import HTTP_CODE from "@/data/httpCode";
 
 import PageLoader from "@/components/common/page-loader/PageLoader.tsx";
@@ -36,7 +35,7 @@ const App = () => {
 
     const fetchInitialAppData = async () => {
         try {
-            const { data: user } = await getCurrentUser();
+            const user = await Api.getCurrentAuthenticatedUser();
 
             dispatch(setUser(user));
         } catch (e) {

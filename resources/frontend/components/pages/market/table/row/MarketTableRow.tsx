@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { QuotatedCurrency } from "@/services/api/contexts/currency/types";
+import { QuotatedCurrency } from "@/types";
 
 import ChartSmall from "@/components/common/charts/ChartSmall";
 import UiButton from "@/components/ui/button/UiButton";
