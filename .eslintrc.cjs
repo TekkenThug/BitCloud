@@ -21,6 +21,7 @@ module.exports = {
             {
                 groups: [
                     ["^react", "^@?\\w"],
+                    ["^@/types.*"],
                     ["^@/store.*"],
                     [
                         "^@/router.*",
