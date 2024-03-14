@@ -8,31 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @group Authentication
- */
 class LoginController extends Controller
 {
     /**
      * Login in application
-     *
-     * @param LoginRequest $request
-     *
-     * @bodyParam email string User email
-     * @bodyParam password string User password
-     *
-     * @response {
-     *     "data": {
-     *         "id": 1,
-     *         "email": "test@gmail.com",
-     *         "first_name": "Sam",
-     *         "last_name": "Jenkins",
-     *         "avatar": "https://avatarlink.jpeg"
-     *     },
-     *     "message": "Successfully login"
-     * }
-     *
-     * @return \Illuminate\Http\JsonResponse
      */
     public function login(LoginRequest $request): \Illuminate\Http\JsonResponse
     {
@@ -62,16 +41,6 @@ class LoginController extends Controller
 
     /**
      * Logout from application
-     *
-     * @param Request $request
-     *
-     * @authenticated
-     *
-     * @response {
-     *     "message": "Successfully logout"
-     * }
-     *
-     * @return \Illuminate\Http\JsonResponse
      */
     public function logout(Request $request): \Illuminate\Http\JsonResponse
     {
