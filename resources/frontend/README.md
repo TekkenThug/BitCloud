@@ -14,11 +14,13 @@
 ├─hooks             // Self-write hooks
 ├─router            // React router config
 ├─services
-│   ├─api           // API calls
+│   ├─api           // API autogenerate
 │   └─validations   // Validation rules (using Zod.js)
 ├─store             // Redux store
 │   ├─[reducerName] // Reducers
 │   └─index.ts      // Common store file
+├─storybook         // Storybook with components
+├─types             // Types, interfaces and etc.
 └─utils             // Different util functions
 ```
 
@@ -52,4 +54,25 @@ import "@/styles/global.scss";
 
 // Icons and images
 import Icon from "@/assets/icon.svg";
+```
+
+## Class naming
+
+For component styling use ONLY scss modules
+
+## Storybook
+
+For viewing Storybook locally, use following command
+
+```bash
+npm run sb:dev
+```
+
+## Generate API service
+
+New API routes must be added to OpenAPI schema in `api/openapi.yaml` file
+Then run command for regenerate API service
+
+```bash
+npm run api:generate
 ```
