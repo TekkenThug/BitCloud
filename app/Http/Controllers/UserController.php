@@ -3,24 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Users\RegisterRequest;
+use App\Http\Resources\Users\UserResource;
 use App\Services\UserService;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-/**
- * @group Users
- */
 class UserController extends Controller
 {
     /**
      * Get current authenticated user
-     *
-     * @authenticated
      */
-    public function me(Request $request): \Illuminate\Http\JsonResponse
+    public function me(): UserResource
     {
-        return response()->json([
-            'data' => $request->user(),
-        ]);
+        return new UserResource(Auth::user());
     }
 
     /**
