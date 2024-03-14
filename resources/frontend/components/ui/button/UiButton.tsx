@@ -35,7 +35,9 @@ const UiButton: FC<Props> = ({
         }
     };
 
-    const classes = classNames(styles.UiButton, styles[color], styles[size], className);
+    const classes = classNames(styles.UiButton, styles[color], styles[size], className, {
+        [styles.isLoading]: isLoading,
+    });
 
     const content = isLoading ? (
         <UiLoader
