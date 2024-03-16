@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { Slide, ToastContainer, ToastOptions } from "react-toastify";
+import { animated, useSpringRef, useTransition } from "@react-spring/web";
 
 import { RootState } from "@/store";
 import { setUser } from "@/store/auth";
@@ -56,9 +57,34 @@ const App = () => {
         fetchInitialAppData();
     }, []);
 
+    const transRef = useSpringRef();
+    const transitions = useTransition(isLoading, {
+        ref: transRef,
+        keys: null,
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0, display: "none" },
+        config: {
+            duration: 200,
+        },
+    });
+    useEffect(() => {
+        transRef.start();
+    }, [isLoading]);
+
     return (
         <div className="app">
-            {isLoading ? <PageLoader /> : <RouterProvider router={router} />}
+            {transitions((style, isLoading) => {
+                return isLoading ? (
+                    <animated.div style={style}>
+                        <PageLoader />
+                    </animated.div>
+                ) : (
+                    <animated.div style={style}>
+                        <RouterProvider router={router} />
+                    </animated.div>
+                );
+            })}
 
             <ToastContainer {...toastOptions} />
         </div>
