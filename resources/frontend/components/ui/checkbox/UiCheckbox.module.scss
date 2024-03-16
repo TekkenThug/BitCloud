@@ -26,7 +26,7 @@
     width: 0;
     height: 0;
 
-    &:checked ~ .UiCheckbox__fakeCheckbox {
+    &:checked ~ .fakeCheckbox {
         background-color: $primary-1;
         border-color: transparent;
 
