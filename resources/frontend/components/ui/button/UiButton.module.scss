@@ -83,3 +83,8 @@
         opacity: 0.5;
     }
 }
+
+.isLoading {
+    composes: UiButton;
+    pointer-events: none;
+}
