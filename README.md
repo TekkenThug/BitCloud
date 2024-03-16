@@ -83,7 +83,7 @@ npm install
 And start development
 
 ```bash
-npm run dev
+npm run bundler:dev
 ```
 
 Frontend application and detailed description
