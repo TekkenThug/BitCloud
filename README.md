@@ -102,9 +102,6 @@ To run this project, you will need to add the following environment variables to
 
 ## Roadmap
 
--   Make frontend tests
--   Make logging on frontend
--   Make logging on backend
 -   Make API frontend service
 -   Make PHP typehints
 -   Make backend tests
