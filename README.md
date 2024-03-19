@@ -102,17 +102,14 @@ To run this project, you will need to add the following environment variables to
 
 ## Roadmap
 
--   Make API frontend service
 -   Make PHP typehints
 -   Make backend tests
 -   Make GitHub workflow
 -   Make tagging for version
 -   Make fronted architecture
--   Make tests (Frontend and Backend)
 -   Make forgot password
 -   Make mobile login
 -   Install husky on server
--   Run Laravel pint at commit
 
 ## Changelog
 
