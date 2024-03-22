@@ -31,7 +31,7 @@ class RegisterRequest extends FormRequest
             'birthdate' => [
                 'required',
                 'date_format:Y-m-d',
-                'before:' . Carbon::now()->subYears(18)->format('Y-m-d')
+                'before:'.Carbon::now()->subYears(18)->format('Y-m-d'),
             ],
         ];
     }
