@@ -15,7 +15,7 @@ class UserService
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'], ['rounds' => 12]),
-            'birthdate' => $data['birthdate']
+            'birthdate' => $data['birthdate'],
         ]);
 
         event(new Registered($user));
