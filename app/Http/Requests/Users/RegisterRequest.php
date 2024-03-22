@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Users;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rules\Password;
 
 class RegisterRequest extends FormRequest
@@ -27,6 +28,11 @@ class RegisterRequest extends FormRequest
             'password' => ['required', Password::defaults()],
             'confirmPassword' => 'required|same:password',
             'agreement' => 'accepted',
+            'birthdate' => [
+                'required',
+                'date_format:Y-m-d',
+                'before:' . Carbon::now()->subYears(18)->format('Y-m-d')
+            ],
         ];
     }
 }

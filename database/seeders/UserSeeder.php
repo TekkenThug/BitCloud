@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make(env('TEST_USER_PASSWORD')),
             'avatar' => 'https://64.media.tumblr.com/80821e34530a5cb103d9f89febf5f7c6/89c03ce0fe23ab77-a6/s250x400/f26a83acc622d5098363e22a9e847b05b8249181.png',
+            'birthdate' => fake()->date('Y-m-d', '-18 years'),
             'remember_token' => Str::random(10),
         ]);
     }
