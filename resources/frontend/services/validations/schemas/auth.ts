@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { PASSWORD_REGEXP } from "@/data/regExps.ts";
+import { PASSWORD_REGEXP, USER_NAME_REGEXP } from "@/data/regExps.ts";
 
 export const loginForm = z.object({
     email: z.string().min(1, "Email is required").email(),
@@ -9,6 +9,14 @@ export const loginForm = z.object({
 
 export const registerForm = z
     .object({
+        first_name: z
+            .string()
+            .min(2, "Name is shorten than 2")
+            .regex(USER_NAME_REGEXP, "Must be only letters"),
+        last_name: z
+            .string()
+            .min(2, "Name is shorten than 2")
+            .regex(USER_NAME_REGEXP, "Must be only letters"),
         email: z.string().min(1, "Email is required").email(),
         password: z.string().min(1, "Password is required").regex(PASSWORD_REGEXP, "Password must"),
         confirmPassword: z.string().min(1, "Password is required"),
