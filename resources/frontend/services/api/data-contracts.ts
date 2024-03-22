@@ -56,6 +56,12 @@ export interface RegisterCredentials {
      * @example true
      */
     agreement: boolean;
+    /**
+     * User's birthdate, must be more than 18 years
+     * @format date
+     * @example "2001-01-25"
+     */
+    birthdate: string;
 }
 
 export interface Currency {

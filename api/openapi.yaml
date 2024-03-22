@@ -323,11 +323,17 @@ components:
           type: boolean
           description: "Must be accepted."
           example: true
+        birthdate:
+          type: string
+          format: date
+          description: "User's birthdate, must be more than 18 years"
+          example: "2001-01-25"
       required:
         - email
         - password
         - confirmPassword
         - agreement
+        - birthdate
     Currency:
       type: object
       required:
