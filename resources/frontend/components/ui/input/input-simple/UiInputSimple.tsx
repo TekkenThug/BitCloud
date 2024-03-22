@@ -7,7 +7,7 @@ import styles from "./UiInputSimple.module.scss";
 import Eye from "@/assets/icons/ui/eye.svg?react";
 
 interface Props {
-    type?: string;
+    type?: "text" | "password";
     label?: string;
     placeholder?: string;
     className?: string;
