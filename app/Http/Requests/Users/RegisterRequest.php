@@ -28,6 +28,8 @@ class RegisterRequest extends FormRequest
             'password' => ['required', Password::defaults()],
             'confirmPassword' => 'required|same:password',
             'agreement' => 'accepted',
+            'first_name' => 'required|min:2',
+            'last_name' => 'required|min:2',
             'birthdate' => [
                 'required',
                 'date_format:Y-m-d',

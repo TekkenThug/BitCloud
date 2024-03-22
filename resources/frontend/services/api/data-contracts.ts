@@ -36,6 +36,10 @@ export interface ErrorMessage {
 }
 
 export interface RegisterCredentials {
+    /** User's first name */
+    first_name?: string;
+    /** User's last name */
+    last_name?: string;
     /**
      * Must be a valid email address.
      * @example "aracely.luettgen@example.com"
