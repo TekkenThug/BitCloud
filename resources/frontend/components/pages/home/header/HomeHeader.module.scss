@@ -1,5 +1,4 @@
 .HomeHeader {
-    padding-top: var(--header-height);
     overflow: hidden;
 
     @include respond($laptop) {
