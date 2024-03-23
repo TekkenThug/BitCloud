@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { ADULT_DATE } from "@/data/common.ts";
 import { PASSWORD_REGEXP, USER_NAME_REGEXP } from "@/data/regExps.ts";
 
 export const loginForm = z.object({
@@ -21,6 +22,9 @@ export const registerForm = z
         password: z.string().min(1, "Password is required").regex(PASSWORD_REGEXP, "Password must"),
         confirmPassword: z.string().min(1, "Password is required"),
         agreement: z.literal(true),
+        birthdate: z
+            .date()
+            .max(ADULT_DATE, { message: "User must be a adult (18 years old and more)" }),
     })
     .refine((data) => data.password === data.confirmPassword, {
         message: "Passwords don't match",

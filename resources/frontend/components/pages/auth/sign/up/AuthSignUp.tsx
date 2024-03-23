@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { format } from "date-fns";
 
 import { Api, ApiError } from "@/services/api";
 import { ErrorMessage, RegisterCredentials } from "@/services/api/data-contracts.ts";
 import { registerForm } from "@/services/validations/schemas/auth.ts";
+import { ADULT_DATE } from "@/data/common.ts";
 
 import UiButton from "@/components/ui/button/UiButton.tsx";
 import UiCheckbox from "@/components/ui/checkbox/UiCheckbox.tsx";
+import UiDatePicker from "@/components/ui/datepicker/UiDatePicker.tsx";
 import UiInputSimple from "@/components/ui/input/input-simple/UiInputSimple.tsx";
 
 import commonStyles from "../AuthSign.module.scss";
@@ -19,6 +22,7 @@ const AuthSignUp = () => {
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const {
+        control,
         handleSubmit,
         setError,
         register,
@@ -29,7 +33,10 @@ const AuthSignUp = () => {
         try {
             setIsLoading(true);
 
-            const { message } = await Api.registerUser(data);
+            const { message } = await Api.registerUser({
+                ...data,
+                birthdate: format(data.birthdate, "yyyy-MM-dd"),
+            });
 
             toast(message, { type: "success" });
 
@@ -60,9 +67,19 @@ const AuthSignUp = () => {
                 <p className={styles.alternateTitle}>Use Your OpenID to Sign up</p>
 
                 <div className={styles.alternateButtons}>
-                    <UiButton color="blue">Google</UiButton>
+                    <UiButton
+                        color="blue"
+                        disabled
+                    >
+                        Google
+                    </UiButton>
 
-                    <UiButton color="blue">Apple</UiButton>
+                    <UiButton
+                        color="blue"
+                        disabled
+                    >
+                        Apple
+                    </UiButton>
                 </div>
             </div>
 
@@ -72,6 +89,41 @@ const AuthSignUp = () => {
                 onSubmit={handleSubmit(submit)}
                 className={commonStyles.form}
             >
+                <div className={commonStyles.inputField}>
+                    <UiInputSimple
+                        label="First name"
+                        placeholder="First name"
+                        error={errors.first_name?.message}
+                        {...register("first_name")}
+                    />
+                </div>
+
+                <div className={commonStyles.inputField}>
+                    <UiInputSimple
+                        label="Last name"
+                        placeholder="Last name"
+                        error={errors.last_name?.message}
+                        {...register("last_name")}
+                    />
+                </div>
+
+                <div className={commonStyles.inputField}>
+                    <Controller
+                        control={control}
+                        name="birthdate"
+                        render={({ field }) => (
+                            <UiDatePicker
+                                placeholder="Birthdate"
+                                onChange={field.onChange}
+                                label="Birthdate"
+                                value={field.value as unknown as Date}
+                                maxDate={ADULT_DATE}
+                                error={errors.birthdate?.message}
+                            />
+                        )}
+                    />
+                </div>
+
                 <div className={commonStyles.inputField}>
                     <UiInputSimple
                         label="Email"
