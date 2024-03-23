@@ -14,9 +14,6 @@ import HTTP_CODE from "@/data/httpCode";
 
 import PageLoader from "@/components/common/page-loader/PageLoader.tsx";
 
-import "swiper/css/grid";
-import "swiper/css";
-import "react-toastify/dist/ReactToastify.css";
 import "@/assets/styles/global.scss";
 
 const toastOptions: ToastOptions = {

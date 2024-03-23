@@ -1,0 +1,78 @@
+.UiDatePicker {
+    :global(.react-datepicker-wrapper) {
+        width: 100%;
+    }
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelText {
+    @include hairline-2;
+
+    flex-direction: column;
+    font-weight: 700;
+    color: $neutral-5;
+    margin-bottom: 12px;
+}
+
+.datepickerWrapper {
+    position: relative;
+}
+
+.datepicker {
+    @include caption;
+
+    width: 100%;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 2px solid $neutral-6;
+    padding: 10px 14px;
+    transition: all $transition;
+    display: block;
+
+    @include hover {
+        &:not(:focus) {
+            border-color: $neutral-4;
+        }
+    }
+
+    &::placeholder {
+        color: $neutral-4;
+        font-weight: 500;
+        transition: all $transition;
+        opacity: 1;
+    }
+}
+
+.calendarIcon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: $neutral-4;
+    pointer-events: none;
+}
+
+.errorField {
+    @include caption;
+
+    user-select: none;
+    margin-top: 5px;
+    color: $primary-3;
+}
+
+.error {
+    .datepicker {
+        border-color: $primary-3;
+
+        &::placeholder {
+            color: $primary-3;
+            opacity: 0.5;
+        }
+    }
+}

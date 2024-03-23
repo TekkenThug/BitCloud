@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 
+import "@/assets/styles/vendors.scss";
 import "@/assets/styles/reset.scss";
 
 const preview: Preview = {
