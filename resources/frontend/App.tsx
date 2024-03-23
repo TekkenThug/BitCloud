@@ -33,9 +33,9 @@ const App = () => {
 
     const fetchInitialAppData = async () => {
         try {
-            const user = await Api.getCurrentAuthenticatedUser();
+            const { data } = await Api.getCurrentAuthenticatedUser();
 
-            dispatch(setUser(user));
+            dispatch(setUser(data));
         } catch (e) {
             const err = e as ApiError;
 

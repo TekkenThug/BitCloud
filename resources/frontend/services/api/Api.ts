@@ -191,7 +191,12 @@ export class Api<SecurityDataType = unknown> extends HttpClient<SecurityDataType
      * @request GET:/api/users/me
      */
     getCurrentAuthenticatedUser = (params: RequestParams = {}) =>
-        this.request<User, void>({
+        this.request<
+            {
+                data: User;
+            },
+            void
+        >({
             path: `/api/users/me`,
             method: "GET",
             format: "json",
