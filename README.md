@@ -15,9 +15,10 @@ BitCloud - the imaginary stock exchange of crypto
 **Backend:**
 
 -   `PHP v8.1`
--   `Laravel v10.10`,
+-   `Laravel v10.10`
 -   `MySQL v8.0`
 -   `OpenAPI v3.0`
+-   `MinIO`
 
 **Code quality:**
 
