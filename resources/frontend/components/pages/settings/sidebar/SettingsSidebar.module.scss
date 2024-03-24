@@ -1,0 +1,52 @@
+.SettingsSidebar {
+    width: 290px;
+}
+
+.list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &:not(:last-child) {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: calc(100% - 32px);
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $neutral-2;
+        }
+    }
+}
+
+.item {
+    a {
+        @include button-2;
+
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: $neutral-4;
+        padding: 8px 16px;
+        transition: all $transition;
+
+        &.active {
+            color: $neutral-8;
+        }
+    }
+}
+
+.itemActive {
+    color: $neutral-8;
+}
+
+.itemIcon {
+    width: 24px;
+    height: 24px;
+}
