@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 import { RootState } from "@/store";
@@ -64,14 +65,17 @@ const Header = () => {
                                 Wallet
                             </UiButton>
 
-                            <div className={avatarClasses}>
+                            <Link
+                                to="/settings"
+                                className={avatarClasses}
+                            >
                                 {user?.avatar && (
                                     <img
                                         src={user.avatar}
                                         alt="Avatar"
                                     />
                                 )}
-                            </div>
+                            </Link>
                         </div>
                     ) : (
                         <div className={styles.right}>
