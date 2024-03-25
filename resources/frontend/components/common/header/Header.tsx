@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 import { RootState } from "@/store";
-import { isAuthSelector, userSelector } from "@/store/auth/selectors.ts";
+import { avatarSelector, isAuthSelector } from "@/store/auth/selectors.ts";
 
 import Logo from "@/components/common/logo/Logo";
 import UiButton from "@/components/ui/button/UiButton";
@@ -17,7 +17,7 @@ import Bell from "@/assets/icons/ui/bell.svg?react";
 const Header = () => {
     const goToWallet = () => {};
     const isAuth = useSelector((state: RootState) => isAuthSelector(state));
-    const user = useSelector((state: RootState) => userSelector(state));
+    const avatar = useSelector((state: RootState) => avatarSelector(state));
 
     const hasNotifications = true;
 
@@ -69,9 +69,9 @@ const Header = () => {
                                 to="/settings"
                                 className={avatarClasses}
                             >
-                                {user?.avatar && (
+                                {avatar && (
                                     <img
-                                        src={user.avatar}
+                                        src={avatar}
                                         alt="Avatar"
                                     />
                                 )}
