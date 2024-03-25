@@ -1,0 +1,48 @@
+.ImageUploader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    @include hover {
+        .cover {
+            opacity: 1;
+        }
+    }
+}
+
+.cover {
+    @include caption-2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($neutral-1, 0.5);
+    opacity: 0;
+    transition: all $transition;
+    border-radius: inherit;
+}
+
+.coverIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.nativeInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+    border-radius: inherit;
+}
