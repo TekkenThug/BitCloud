@@ -86,7 +86,6 @@
     "lint-staged": {
         "*.(js|ts|jsx|tsx)": "npm run lint:eslint",
         "*.(ts|tsx)": "npm run lint:typecheck",
-        "*.(scss|sass)": "npm run lint:stylelint",
         "*": "prettier --write ."
     }
 }

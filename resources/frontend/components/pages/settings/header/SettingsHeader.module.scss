@@ -1,0 +1,16 @@
+.SettingsHeader {
+    padding: 40px 0;
+    border-bottom: 1px solid $neutral-3;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    @include headline-2;
+
+    min-width: 540px;
+}
